@@ -3,3 +3,5 @@ Student Ryan Van Dijck was here.  18/10/19 23:48.  Merge conflicts encountered: 
 Student Luke Saund was here. 24/10/19 15:18.   Merge conflics encountered: one edit:2
 
 Student Lewis Colley was here. 25/10/19 14:33.   Merge conflics encountered: one edit:2
+
+Student Ching Hei Pang was here. 01/11/19 15:04. Merge conflics encountered: zero
