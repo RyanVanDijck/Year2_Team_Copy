@@ -6,4 +6,4 @@ Student Lewis Colley was here. 25/10/19 14:33.   Merge conflics encountered: one
 
 Student Ching Hei Pang was here. 01/11/19 15:04. Merge conflics encountered: one edit:2
 
-Student Ioannis Kalvis was here. 02/11/19 20:17 .  Merge conflicts encountered: edit:1
+Student Ioannis Kalvis was here. 02/11/19 20:17 .  Merge conflicts encountered: one edit: 2
