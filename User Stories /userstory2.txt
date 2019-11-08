@@ -1,0 +1,1 @@
+Head of department Fred wants to know about the courses, to be able to look at the score for each course, to consider which course is too hard or too easy by looking at the graphs.
