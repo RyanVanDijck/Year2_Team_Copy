@@ -1,0 +1,4 @@
+The head of department for computer science
+
+They would need to use this program to view average scores of a each module, therefore they can put measures in place to combat averages that are both to high and low.
+Thefore the program would need to display clear and conscise statistical diagrams, to fairly display average scores across modules.
