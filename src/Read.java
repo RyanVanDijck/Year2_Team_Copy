@@ -1,8 +1,9 @@
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.*;
+import java.io.IOException;
+
 //Reading from the CSV file
 public class Read {
     String file = "data.csv"; //Name of file
@@ -158,10 +159,5 @@ public class Read {
 
         }
         }
-    public static void main(String args[]) throws IOException {
-        Read read = new Read();
-        for (student i : read.data){
-            i.temp_print();
-        }
-    }
+
 }
