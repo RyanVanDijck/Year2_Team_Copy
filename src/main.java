@@ -9,3 +9,4 @@ public class main{
         }
         Window window = new Window("Student Marks");//creating a window to show content
 
+}
