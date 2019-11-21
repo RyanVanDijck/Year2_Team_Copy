@@ -146,7 +146,7 @@ public class Read {
                         System.out.println("Error, Ce161 " + i[0]);
                     }
                     else{
-                        temp.ce151 = Integer.parseInt(i[14]);
+                        temp.ce161 = Integer.parseInt(i[14]);
                     }
 
                     //Ce162
