@@ -3,24 +3,48 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
 import java.io.IOException;
+import javax.swing.*;
+import java.io.File;
+
 
 //Reading from the CSV file
 public class Read {
-    String file = "data.csv"; //Name of file
     String cline; //Line Iterator
-    BufferedReader br = new BufferedReader(new FileReader(file)); // File reader
+    
+	JFileChooser choose = new JFileChooser();
     ArrayList<student> data = new ArrayList<student>(); //list of data
 
     //Method to transfer information from the file to instances of the
     //student class
-    public Read() throws IOException {
-        student temp; //Temp student object to store into list
+    
+	File Choose(){
+		int returnVal = choose.showOpenDialog(null);
+		File dataFile = new File(""); 
+		if(returnVal == JFileChooser.APPROVE_OPTION){
+			dataFile = choose.getSelectedFile();
+		}
+		else{
+			JOptionPane.showMessageDialog(choose,"Error, File cannot be accepted", "File Error", JOptionPane.ERROR_MESSAGE);
+			System.exit(1); 
+		}
+		return dataFile; 
+	
+	
+}
+	
+	
+	
+	public Read() throws IOException {
+        File file = Choose(); 
+		BufferedReader br = new BufferedReader(new FileReader(file)); // File reader
+		student temp; //Temp student object to store into list
         boolean start = true;//to check that we are not on the first line where the headings are
         while ((cline = br.readLine()) != null){
             temp = new student();//reinitializing object of student class
             String[] i=  cline.split(",");//Spliting by commas/values in the csv file
             //for (String i: entry){
-                if (start){
+               
+				if (start){
                     start = false;
                 }
                 else{

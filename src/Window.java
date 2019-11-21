@@ -1,23 +1,33 @@
-/*class to create a frame to display data */
-
 import javax.swing.*;
 import java.awt.*;
+/*class to create a frame to display data */
 public class Window extends JFrame { //a class which extends the JFrame to add custom elements 
-    TextArea output = new TextArea(); //A text area to display program output 
-    JPanel visual = new JPanel(); // A panel to show visual aspects 
-    JPanel data = new JPanel(); //A spare panel for now 
-    public Window(String name){
+    public Window(String name,int x,int y){
         super(name); //calling the normal JFrame constructor 
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //The program will close when the window closes 
-        //adding the objects 
-		add(output,BorderLayout.SOUTH);
-        add(visual,BorderLayout.EAST);
-        add(data,BorderLayout.WEST);
-		//Packing the frame 
+        //Packing the frame 
         pack();
         //setting the frame size 
-		setSize(800,800);
+		setSize(x,y);
         //making the frame visible 
 		setVisible(true);
+    }
+	
+
+
+}
+
+class mainWindow extends Window{
+	TextArea output = new TextArea(); //A text area to display program output 
+    JPanel visual = new JPanel(); // A panel to show visual aspects 
+    JPanel data = new JPanel(); //A spare panel for now 
+	public mainWindow(String name){
+		super(name,800,800);
+		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //The program will close when the window closes 
+		//adding the objects 
+		this.add(output,BorderLayout.SOUTH);
+		this.add(visual,BorderLayout.EAST);
+		this.add(data,BorderLayout.WEST);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		
     }
 }
