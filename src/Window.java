@@ -1,3 +1,5 @@
+/*class to create a frame to display data */
+
 import javax.swing.*;
 import java.awt.*;
 public class Window extends JFrame { //a class which extends the JFrame to add custom elements 
