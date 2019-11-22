@@ -2,5 +2,5 @@
 
 ## Introduction
 
-The purpose of the program developed, is to be a tool that the Eduction Comittee can use in order to, analyse student marks data from previous years.
+The purpose of this program, is to read and analyse student data from previous years and produce an output that can comfortably read by the Education Committee.
 
