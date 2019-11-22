@@ -8,8 +8,6 @@ public class Window extends JFrame { //a class which extends the JFrame to add c
         pack();
         //setting the frame size 
 		setSize(x,y);
-        //making the frame visible 
-		setVisible(true);
     }
 	
 
