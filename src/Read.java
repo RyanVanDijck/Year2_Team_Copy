@@ -18,16 +18,23 @@ public class Read {
     //student class
     
 	File Choose(){
-		int returnVal = choose.showOpenDialog(null);
-		File dataFile = new File(""); 
+		int returnVal = choose.showOpenDialog(null); //Opening the file chooser with an int to show if file is openable 
+		
+		/*
+		 * NOTE 
+		 * dataFile initialised by using empty string as there is no empty constructor 
+		 * and File cannot be initialised without a constructor 
+		 * There may possibly be a better solution
+		 */
+		File dataFile = new File(""); //The name of file to open 
 		if(returnVal == JFileChooser.APPROVE_OPTION){
 			dataFile = choose.getSelectedFile();
 		}
 		else{
-			JOptionPane.showMessageDialog(choose,"Error, File cannot be accepted", "File Error", JOptionPane.ERROR_MESSAGE);
-			System.exit(1); 
+			JOptionPane.showMessageDialog(choose,"Error, File cannot be accepted", "File Error", JOptionPane.ERROR_MESSAGE); //Error message to show if file cannot be accepted
+			System.exit(1);//Quiting the program 
 		}
-		return dataFile; 
+		return dataFile; //returning the File object 
 	
 	
 }
