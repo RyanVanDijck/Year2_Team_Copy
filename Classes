@@ -1,0 +1,5 @@
+StudentMarkAnalyser-main class for the program controlling everything
+StudentMarkAnalyserUI-user interface for the program
+Read-opens the csv file and uses a file chooser to pick the file
+Student-stores information about the student
+Calculate-contains methods used for performin calculations on the data
