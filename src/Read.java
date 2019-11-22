@@ -11,7 +11,7 @@ import java.io.File;
 public class Read {
     String cline; //Line Iterator
     
-	JFileChooser choose = new JFileChooser();
+	JFileChooser choose = new JFileChooser(".");
     ArrayList<student> data = new ArrayList<student>(); //list of data
 
     //Method to transfer information from the file to instances of the
