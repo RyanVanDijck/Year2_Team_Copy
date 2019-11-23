@@ -16,17 +16,17 @@ public class Read {
 		BufferedReader br = new BufferedReader(new FileReader(file)); // File reader
         ArrayList<String> headings = new ArrayList<String>();
         boolean start = true;//to check that we are not on the first line where the headings are
-		String cline;
-        while ((cline = br.readLine()) != null){
-            String[] line=  cline.split(",");//Splitting by commas/values in the csv file
+		String line;
+        while ((line =br.readLine()) != null){
+            String[] values=line.split(",");//Splitting by commas/values in the csv file
             if (start){
-                headings.addAll(Arrays.asList(line));
+                headings.addAll(Arrays.asList(values));
                 start = false;
             }
             else{
-                Student student = new Student(line[0],line[1],line[2],Integer.parseInt(line[19]));
+                Student student = new Student(values[0],values[1],values[2],Integer.parseInt(values[19]));
                 for(int i=3;i<18;i++){
-                    if(!line[i].equals("")) student.setMark(headings.get(i),Integer.parseInt(line[i]));
+                    if(!values[i].equals("")) student.setMark(headings.get(i),Integer.parseInt(values[i]));
                 }
                 data.add(student);
             }
@@ -34,7 +34,7 @@ public class Read {
 	}
 
 	//Method to transfer information from the file to instances of the student class
-	File Choose(){
+	private File Choose(){
 		int returnVal = choose.showOpenDialog(null); //Opening the file chooser with an int to show if file is openable
 		/*
 		 * NOTE
