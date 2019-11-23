@@ -3,7 +3,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 //main method to run program
 public class StudentMarksAnalyser {
-    public static void main(String args[]) throws IOException{
+    public static void main(String[] args) throws IOException{
       try {
   			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
   		} catch (ClassNotFoundException e) {
