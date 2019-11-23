@@ -12,7 +12,7 @@ class StudentMarksAnalyserUI extends JFrame{
 	JPanel user = new JPanel();
 	JPanel  select = new JPanel();
 	JPanel button = new JPanel();
-	BufferedImage hat = (ImageIO.read(getClass().getResource("image/hat.png")));
+	BufferedImage hat = (ImageIO.read(getClass().getResource("/hat.png")));
 
 	JComboBox course = new JComboBox();
 
