@@ -25,7 +25,7 @@ public class StudentMarksAnalyser {
         window.setVisible(true);
 		Read read = new Read();//creating new read object
 
-        for (Student i : read.data){ //iterating though a list of data
+        for (Student i : read.getData()){ //iterating though a list of data
             if(i.getMark("CE101-4-FY")!=null)window.output.append(i.getRegNo()+" "+ i.getMark("CE101-4-FY") + " "+ i.getAvgMark()+"\n");
         }
 
