@@ -1,5 +1,5 @@
 //The class for all students
-public class student{
+public class Student {
     String student_no; //Unique Student Number
     String ExNo; //Unique Exam Number
     String stage; //The course of study

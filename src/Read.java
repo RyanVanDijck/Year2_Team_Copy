@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
 import java.io.IOException;
@@ -12,7 +11,7 @@ public class Read {
     String cline; //Line Iterator
     
 	JFileChooser choose = new JFileChooser(".");
-    ArrayList<student> data = new ArrayList<student>(); //list of data
+    ArrayList<Student> data = new ArrayList<Student>(); //list of data
 
     //Method to transfer information from the file to instances of the
     //student class
@@ -44,10 +43,10 @@ public class Read {
 	public Read() throws IOException {
         File file = Choose(); 
 		BufferedReader br = new BufferedReader(new FileReader(file)); // File reader
-		student temp; //Temp student object to store into list
+		Student temp; //Temp student object to store into list
         boolean start = true;//to check that we are not on the first line where the headings are
         while ((cline = br.readLine()) != null){
-            temp = new student();//reinitializing object of student class
+            temp = new Student();//reinitializing object of student class
             String[] i=  cline.split(",");//Spliting by commas/values in the csv file
             //for (String i: entry){
                

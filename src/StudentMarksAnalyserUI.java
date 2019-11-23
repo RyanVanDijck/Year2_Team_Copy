@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 /*class to create a frame to display data */
-class mainWindow extends JFrame{
+class StudentMarksAnalyserUI extends JFrame{
 	TextArea output = new TextArea(); //A text area to display program output
 	JPanel visual = new JPanel(); // A panel to show visual aspects
 	JPanel data = new JPanel();//A spare panel for now
@@ -12,7 +12,7 @@ class mainWindow extends JFrame{
 	JComboBox course = new JComboBox();
 
 
-	public mainWindow(String name){
+	public StudentMarksAnalyserUI(String name){
 		super(name);
 		setSize(800,800);
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //The program will close when the window closes
