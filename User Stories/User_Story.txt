@@ -1,0 +1,4 @@
+One user of the program could be a student. They need to use the program to tell which modules are
+the most difficult so that they can focus there revision. 
+We need to create a program that can highlight and display important points in the data
+regarding the difficulty of a module. 
