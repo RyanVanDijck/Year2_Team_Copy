@@ -19,16 +19,15 @@ public class StudentMarksAnalyser {
   			// TODO Auto-generated catch block
   			e.printStackTrace();
   		}
-    StudentMarksAnalyserUI window = new StudentMarksAnalyserUI("Student Marks");//creating a window to show content
-		String file = "data.csv"; //Name of file
+
+      StudentMarksAnalyserUI window = new StudentMarksAnalyserUI("Student Marks");//creating a window to show content
+		// String file = "data.csv"; //Name of file
         window.setVisible(true);
 		Read read = new Read();//creating new read object
 
         for (Student i : read.data){ //iterating though a list of data
-            window.output.append(i.ExNo +" "+ i.ce101 + " "+ i.ave_mark+"\n");
-            //i.temp_print(); //printing to show that the program works properly
+            if(i.getMark("CE101-4-FY")!=null)window.output.append(i.getRegNo()+" "+ i.getMark("CE101-4-FY") + " "+ i.getAvgMark()+"\n");
         }
-
 
 	}
 }
