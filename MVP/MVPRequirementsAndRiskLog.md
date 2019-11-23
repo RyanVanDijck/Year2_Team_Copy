@@ -55,55 +55,55 @@ How well the program will function:
 
 ### Risk 1
 
-Risk: Unplanned work that must be accomidated for
+**Risk**: Unplanned work that must be accomidated for
 
-Occurance Likelihood: Low
+**Occurance Likelihood**: Low
 
-Risk Impact: High
+**Risk Impact**: High
 
-Risk Manager: Luke Saund
+**Risk Manager**: Luke Saund
 
-Mitigating Action: Understanding the requirements for the system, and planning  what needs to be done each week accordingly 
+**Mitigating Action**: Understanding the requirements for the system, and planning  what needs to be done each week accordingly 
                     through the use of jira.
 
 ### Risk 2
 
-Risk: Team member disagreements/arguements
+**Risk**: Team member disagreements/arguements
 
-Occurance Likelihood: Low
+**Occurance Likelihood**: Low
 
-Risk Impact: Medium
+**Risk Impact**: Medium
 
-Risk Manager: Luke Saund
+**Risk Manager**: Luke Saund
 
-Mitigating Action: Ensure that each memeber speaks with respect to eachother, disagreements are 
+**Mitigating Action**: Ensure that each memeber speaks with respect to eachother, disagreements are 
                     resolved through group voting or coming to a compromise.
 
 ### Risk 3
                     
-Risk: Project is incomplete
+**Risk**: Project is incomplete
 
-Occurance Likelihood: Low
+**Occurance Likelihood**: Low
 
-Risk Impact: High
+**Risk Impact**: High
 
-Risk Manager: Ryan Van Djick
+**Risk Manager**: Ryan Van Djick
 
-Mitigating Action: Ensuring all members know when the project is due, and that work is spread across 
+**Mitigating Action**: Ensuring all members know when the project is due, and that work is spread across 
                     the coming weeks, to aviod heavy workload in the final weeks leading up to the due date.
 
 
 ### Risk 4
 
-Risk: Lack of communication, causing confusion amongst team members
+**Risk**: Lack of communication, causing confusion amongst team members
 
-Occurance Likelihood: Medium
+**Occurance Likelihood**: Medium
 
-Risk Impact: Medium
+**Risk Impact**: Medium
 
-Risk Manager: Lewis Colley
+**Risk Manager**: Lewis Colley
 
-Mitigating Action: Esuring all members turn up to weekly lab meetings, and questions/queries are asked
+**Mitigating Action**: Esuring all members turn up to weekly lab meetings, and questions/queries are asked
                     and resolved in the meetings.
 
 
