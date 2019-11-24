@@ -8,22 +8,28 @@ Team Effort Log
 
 *Do the same for each fully completed sprint.*
 *Repeat for each team member, i.e. with more subheadings "Sprint1, Sprint2, ... Sprint N"*
+*Edit the name above to match the name of the team member.  That team member is then responsible for this section.*
 
-## Team member name: Ching Hei Pang  *Edit the name above to match the name of the team member.  That team member is then responsible for this section.*
+## Team member name: Ching Hei Pang  
 
 ###  Sprint 1 (University Week 3):
 
 **Task: Familiarise with command-line cseegit.** 
 * URL:
+
 * Description: Git tutorial completed successfully. 
+
 * Time: 2 hours
 
 ###  Sprint 2 (University Week 4):
 
 
 *Task: Add your name to hello world*
+
 *  URL:
+
 *  Description:  Add my name to "HelloWorld" file to show that I can edit the file.
+
 *  Time: 1 minute
 
 **Task: Translate user requirements.**
