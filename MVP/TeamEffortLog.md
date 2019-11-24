@@ -26,11 +26,13 @@ Team Effort Log
 *  Description:  Add my name to "HelloWorld" file to show that I can edit the file.
 *  Time: 1 minute
 
-*2*
-Task: Translate user requirements.
-URL:
-Description:  To understand the user requirements in order to create basic tasks
-Time: 1 hour
+**Task: Translate user requirements.**
+
+*  URL:
+
+*  Description:  To understand the user requirements in order to create basic tasks
+
+*  Time: 1 hour
 
 ###  Sprint 3 (University Week 5):
 ###  Sprint 4 (University Week 6):
