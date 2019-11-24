@@ -74,7 +74,7 @@ How well the program will function:
 
 **Risk Impact**: Medium
 
-**Risk Manager**: Luke Saund
+**Risk Manager**: Ching H Pang
 
 **Mitigating Action**: Ensure that each memeber speaks with respect to eachother, disagreements are 
                     resolved through group voting or coming to a compromise.
