@@ -210,7 +210,7 @@ Team Effort Log
 
 ###  Sprint 5 (University Week 8):
 
-***Task:* Complete Requirements and Risk log for the MVP ** 
+***Task:* Complete Requirements and Risk log for the MVP** 
 
 * *URL:*
 
