@@ -14,35 +14,46 @@ Team Effort Log
 
 ###  Sprint 1 (University Week 3):
 
-**Task: Familiarise with command-line cseegit** 
-* URL:
+***Task:* Familiarise with command-line cseegit** 
+* *URL:*
 
-* Description: Git tutorial completed successfully. 
+* *Description:* Git tutorial completed successfully. 
 
-* Time: 2 hours
+* *Time:* 2 hours
 
 ###  Sprint 2 (University Week 4):
 
 
 **Task: Add your name to hello world**
 
-*  URL:
+*  *URL:*
 
-*  Description:  Add my name to "HelloWorld" file to show that I can edit the file.
+*  *Description:*  Add my name to "HelloWorld" file to show that I can edit the file.
 
-*  Time: 1 minute
+*  *Time:* 1 minute
 
 **Task: Translate user requirements**
 
-*  URL:
+*  *URL:*
 
-*  Description:  To understand the user requirements in order to create basic tasks
+*  *Description:*  To understand the user requirements in order to create basic tasks
 
-*  Time: 1 hour
+* * Time:* 1 hour
 
 ###  Sprint 3 (University Week 5):
+
+**Task: **
+
+*  *URL:*
+
+*  *Description:*  
+
+* * Time:* 
+
 ###  Sprint 4 (University Week 6):
+
 ###  Sprint 5 (University Week 7):
+
 ###  Sprint 6 (University Week 8):
 
 ## Team member name:  Lewis Colley
