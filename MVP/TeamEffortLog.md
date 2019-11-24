@@ -6,9 +6,7 @@ Team Effort Log
 * *Describe any relevant java coding completed by you in Sprint 1.  Also include permalinks to your gitlab commits.*
 * *Include the university week number in the subheading, as above.*
 
-*Do the same for each fully completed sprint.*
-*Repeat for each team member, i.e. with more subheadings "Sprint1, Sprint2, ... Sprint N"*
-*Edit the name above to match the name of the team member.  That team member is then responsible for this section.*
+*Task Form*
 
 ***Task:* Please Enter the task here.** 
 
