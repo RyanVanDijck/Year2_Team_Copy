@@ -22,7 +22,8 @@ Team Effort Log
 ###  Sprint 2 (University Week 4):
 
 
-* [ ] *1* 
+
+1. 
 Task: Add your name to hello world
 URL:
 Description:  Add my name to "HelloWorld" file to show that I can edit the file.
