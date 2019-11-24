@@ -14,7 +14,7 @@ Team Effort Log
 
 ###  Sprint 1 (University Week 3):
 
-**Task: Familiarise with command-line cseegit.** 
+**Task: Familiarise with command-line cseegit** 
 * URL:
 
 * Description: Git tutorial completed successfully. 
@@ -24,7 +24,7 @@ Team Effort Log
 ###  Sprint 2 (University Week 4):
 
 
-*Task: Add your name to hello world*
+**Task: Add your name to hello world**
 
 *  URL:
 
@@ -32,7 +32,7 @@ Team Effort Log
 
 *  Time: 1 minute
 
-**Task: Translate user requirements.**
+**Task: Translate user requirements**
 
 *  URL:
 
