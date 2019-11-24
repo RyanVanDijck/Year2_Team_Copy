@@ -24,7 +24,7 @@ Team Effort Log
 ###  Sprint 2 (University Week 4):
 
 
-**Task: Add your name to hello world**
+***Task:* Add your name to hello world**
 
 *  *URL:*
 
@@ -32,7 +32,7 @@ Team Effort Log
 
 *  *Time:* 1 minute
 
-**Task: Translate user requirements**
+***Task:* Translate user requirements**
 
 *  *URL:*
 
@@ -42,7 +42,7 @@ Team Effort Log
 
 ###  Sprint 3 (University Week 5):
 
-**Task: **
+***Task:* 
 
 *  *URL:*
 
