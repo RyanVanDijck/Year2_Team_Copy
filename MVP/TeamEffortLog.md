@@ -38,7 +38,7 @@ Team Effort Log
 
 *  *Description:*  To understand the user requirements in order to create basic tasks
 
-* * Time:* 1 hour
+*  *Time:* 1 hour
 
 ###  Sprint 3 (University Week 5):
 
