@@ -10,11 +10,20 @@ Team Effort Log
 *Repeat for each team member, i.e. with more subheadings "Sprint1, Sprint2, ... Sprint N"*
 *Edit the name above to match the name of the team member.  That team member is then responsible for this section.*
 
+***Task:* Please Enter the task here.** 
+
+* *URL:*
+
+* *Description:*  
+
+* *Time:* 
+
 ## Team member name: Ching Hei Pang  
 
 ###  Sprint 1 (University Week 3):
 
 ***Task:* Familiarise with command-line cseegit** 
+
 * *URL:*
 
 * *Description:* Git tutorial completed successfully. 
@@ -38,50 +47,81 @@ Team Effort Log
 
 *  *Description:*  To understand the user requirements in order to create basic tasks
 
-*  *Time:* 1 hour
+*  *Time:* 1 hour 
 
 ###  Sprint 3 (University Week 5):
+***Task:* Please Enter the task here.** 
 
-***Task:* 
+* *URL:*
 
-*  *URL:*
+* *Description:*  
 
-*  *Description:*  
-
-* * Time:* 
+* *Time:* 
 
 ###  Sprint 4 (University Week 6):
 
+***Task:* ** 
+
+* *URL:*
+
+* *Description:*  
+
+* *Time:* 
+
 ###  Sprint 5 (University Week 7):
+***Task:* ** 
+
+* *URL:*
+
+* *Description:*  
+
+* *Time:* 
 
 ###  Sprint 6 (University Week 8):
+***Task:* ** 
+
+* *URL:*
+
+* *Description:* 
+
+* *Time:* 
 
 ## Team member name:  Lewis Colley
 
 ###  Sprint 1 (University Week 3):
 
-*1*
-Task: Familiarise with command-line cseegit
-URL:
-Description: Git tutorial completed successfully. 
-Time: 2 hours
+***Task:* Familiarise with command-line cseegit** 
+
+* *URL:*
+
+* *Description:* Git tutorial completed successfully. 
+
+* *Time:* 2 hours
 
 ###  Sprint 2 (University Week 4):
 
-*1*
-Task: Add your name to hello world
-URL:
-Description:  Add my name to "HelloWorld" file to show that I can edit the file.
-Time: 1 minute
+***Task:* Add your name to hello world**
 
-*2*
-Task: Translate user requirements.
-URL:
-Description:  To understand the user requirements in order to create basic tasks
-Time: 1 hour
+*  *URL:*
+
+*  *Description:*  Add my name to "HelloWorld" file to show that I can edit the file.
+
+*  *Time:* 1 minute
+
+***Task:* Translate user requirements**
+
+*  *URL:*
+
+*  *Description:*  To understand the user requirements in order to create basic tasks
+
+*  *Time:* 1 hour 
+
 ###  Sprint 3 (University Week 5):
+
 ###  Sprint 4 (University Week 6):
+
 ###  Sprint 5 (University Week 7):
+
 ###  Sprint 6 (University Week 8):
 
 
@@ -90,29 +130,40 @@ Time: 1 hour
 
 ###  Sprint 1 (University Week 3):
 
-Task: Familiarise with command-line cseegit
-URL:
-Description: Git tutorial completed successfully. 
-Time:
+***Task:* Familiarise with command-line cseegit** 
+
+* *URL:*
+
+* *Description:* Git tutorial completed successfully. 
+
+* *Time:* 2 hours
 
 ###  Sprint 2 (University Week 4):
 
-*1*
-Task: Add your name to hello world
-URL:
-Description:  Add my name to "HelloWorld" file to show that I can edit the file.
-Time: 1 minute
+***Task:* Add your name to hello world**
 
-*2*
-Task: Translate user requirements.
-URL:
-Description:  To understand the user requirements in order to create basic tasks
-Time: 1 hour
+*  *URL:*
+
+*  *Description:*  Add my name to "HelloWorld" file to show that I can edit the file.
+
+*  *Time:* 1 minute
+
+***Task:* Translate user requirements**
+
+*  *URL:*
+
+*  *Description:*  To understand the user requirements in order to create basic tasks
+
+*  *Time:* 1 hour 
 
 ###  Sprint 3 (University Week 5):
+
 ###  Sprint 4 (University Week 6):
+
 ###  Sprint 5 (University Week 7):
+
 ###  Sprint 6 (University Week 8):
+
 
 
 ## Team member name:  Ryan Van Dijck
@@ -126,17 +177,21 @@ Time: 1 hour
 
 ###  Sprint 2 (University Week 4):
 
-*1*
-Task: Add your name to hello world
-URL:
-Description:  Add my name to "HelloWorld" file to show that I can edit the file.
-Time: 1 minute
+***Task:* Add your name to hello world**
 
-*2*
-Task: Translate user requirements.
-URL:
-Description:  To understand the user requirements in order to create basic tasks
-Time: 1 hour
+*  *URL:*
+
+*  *Description:*  Add my name to "HelloWorld" file to show that I can edit the file.
+
+*  *Time:* 1 minute
+
+***Task:* Translate user requirements**
+
+*  *URL:*
+
+*  *Description:*  To understand the user requirements in order to create basic tasks
+
+*  *Time:* 1 hour 
 
 ###  Sprint 3 (University Week 5):
 ###  Sprint 4 (University Week 6):
