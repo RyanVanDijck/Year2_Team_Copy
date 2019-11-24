@@ -16,7 +16,7 @@ Team Effort Log
 
 * *Time:* 
 
-## Team member name: Ching Hei Pang  
+## Team member name: **Ching Hei Pang**  
 
 ###  Sprint 1 (University Week 3):
 
@@ -43,48 +43,43 @@ Team Effort Log
 
 *  *URL:*
 
-*  *Description:*  To understand the user requirements in order to create basic tasks
+*  *Description:*  To understand the user requirements in order to create basic tasks.
 
 *  *Time:* 1 hour 
 
 ###  Sprint 3 (University Week 5):
-***Task:* Please Enter the task here.** 
+
+***Task:* Create User Story** 
 
 * *URL:*
 
-* *Description:*  
+* *Description:*  Created a user story.
 
-* *Time:* 
+* *Time:* 15 minutes
 
-###  Sprint 4 (University Week 6):
+###  Sprint 4 (University Week 7):
 
-***Task:* ** 
 
-* *URL:*
-
-* *Description:*  
-
-* *Time:* 
-
-###  Sprint 5 (University Week 7):
-***Task:* ** 
+***Task:* Add Features to JFrame** 
 
 * *URL:*
 
-* *Description:*  
+* *Description:*  Adding some drop-down list for future purposes.
 
-* *Time:* 
+* *Time:* 1 hour
 
-###  Sprint 6 (University Week 8):
-***Task:* ** 
+
+###  Sprint 5 (University Week 8):
+
+***Task:* Complete Team Effort Log for the MVP** 
 
 * *URL:*
 
-* *Description:* 
+* *Description:* Complete the "Team Effort" log markdown document.
 
-* *Time:* 
+* *Time:* 3 hours
 
-## Team member name:  Lewis Colley
+## Team member name:  **Lewis Colley**
 
 ###  Sprint 1 (University Week 3):
 
@@ -110,21 +105,51 @@ Team Effort Log
 
 *  *URL:*
 
-*  *Description:*  To understand the user requirements in order to create basic tasks
+*  *Description:*  To understand the user requirements in order to create basic tasks.
 
 *  *Time:* 1 hour 
 
 ###  Sprint 3 (University Week 5):
 
-###  Sprint 4 (University Week 6):
+***Task:* Create user story** 
 
-###  Sprint 5 (University Week 7):
+* *URL:*
 
-###  Sprint 6 (University Week 8):
+* *Description:*  Create a user story.
+
+* *Time:* 10 minutes
+
+###  Sprint 4 (University Week 7):
+
+***Task:* Classes Plan** 
+
+* *URL:*
+
+* *Description:*  Planning how classes relate and improve written code to standardise it.
+
+* *Time:* 2 hours
+
+###  Sprint 5 (University Week 8):
+
+***Task:* Complete Product Demonstration for the MVP** 
+
+* *URL:*
+
+* *Description:*  Complete the "Product Demonstration" markup document.
+
+* *Time:*  hours
+
+***Task:* Improve current code for easier future functionality** 
+
+* *URL:*
+
+* *Description:*  Rename classes and add extra functions to improve the ease of use for future expansions.
+
+* *Time:* 4 hours
 
 
 
-## Team member name:  Luke Saund
+## Team member name:  **Luke Saund**
 
 ###  Sprint 1 (University Week 3):
 
@@ -150,28 +175,62 @@ Team Effort Log
 
 *  *URL:*
 
-*  *Description:*  To understand the user requirements in order to create basic tasks
+*  *Description:*  To understand the user requirements in order to create basic tasks.
 
 *  *Time:* 1 hour 
 
 ###  Sprint 3 (University Week 5):
 
-###  Sprint 4 (University Week 6):
+***Task:* Create user story** 
 
-###  Sprint 5 (University Week 7):
+* *URL:*
 
-###  Sprint 6 (University Week 8):
+* *Description:*  Create a user story
+
+* *Time:* 10 minutes
+
+###  Sprint 4 (University Week 7):
+
+***Task:* Basic Statistical analysis** 
+
+* *URL:*
+
+* *Description:*  Make the program to be able to process numbers to provide basic functionality to program.
+
+* *Time:* 2 hours
+
+***Task:* Start Preparation** 
+
+* *URL:*
+
+* *Description:*  Prepare to write a report to explain decisions made involving the creation of a MVP.
+
+* *Time:* 30 minutes
+
+
+###  Sprint 5 (University Week 8):
+
+***Task:* Complete Requirements and Risk log for the MVP ** 
+
+* *URL:*
+
+* *Description:*  Complete the "Requirements and Risk" log.
+
+* *Time:*  2 hours
 
 
 
-## Team member name:  Ryan Van Dijck
+## Team member name:  **Ryan Van Dijck**
 
 ###  Sprint 1 (University Week 3):
 
-Task: Familiarise with command-line cseegit
-URL:
-Description: Git tutorial completed successfully. 
-Time: 1 hour
+***Task:* Familiarise with command-line cseegit** 
+
+* *URL:*
+
+* *Description:* Git tutorial completed successfully. 
+
+* *Time:* 1 hours
 
 ###  Sprint 2 (University Week 4):
 
@@ -192,6 +251,51 @@ Time: 1 hour
 *  *Time:* 1 hour 
 
 ###  Sprint 3 (University Week 5):
-###  Sprint 4 (University Week 6):
-###  Sprint 5 (University Week 7):
-###  Sprint 6 (University Week 8):
+
+***Task:* Create user story** 
+
+* *URL:*
+
+* *Description:*  Create a user story
+
+* *Time:* 10 minutes
+
+###  Sprint 4 (University Week 7):
+
+***Task:* Data into program** 
+
+* *URL:*
+
+* *Description:*  Create function to be able take the data from the CSV file and transer it into specific data structure.
+
+* *Time:* 1 hour
+
+
+***Task:* Open file using JFileChooser** 
+
+* *URL:*
+
+* *Description:*  Create a function to open  the file in a user friendly manner by using JFileChooser.
+
+* *Time:* 1 hour
+
+
+###  Sprint 5 (University Week 8):
+
+***Task:* Complete Project Management Log for the MVP** 
+
+* *URL:*
+
+* *Description:*  Complete the "Project management" log markup document.
+
+* *Time:* 2 hour
+
+
+***Task:* Create Jar File** 
+
+* *URL:*
+
+* *Description:*  Create an executable file to run the program.
+
+* *Time:* 15 minutes
+
