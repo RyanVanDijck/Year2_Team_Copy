@@ -17,9 +17,6 @@ As it has been a busy period in terms of work needing to be completed for other 
 
  ### Week 7 
 
- ### Week 8
-
-
 
 ## Burndown chart discussion 
 
