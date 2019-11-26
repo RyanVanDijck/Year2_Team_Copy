@@ -10,11 +10,11 @@ import java.io.File;
 public class Read {
 	private JFileChooser choose = new JFileChooser(".");
     private ArrayList<Student> data = new ArrayList<Student>(); //list of data
-
+    private ArrayList<String> headings = new ArrayList<String>();
 	public Read() throws IOException {
         File file = Choose();
 		BufferedReader br = new BufferedReader(new FileReader(file)); // File reader
-        ArrayList<String> headings = new ArrayList<String>();
+        
         boolean start = true;//to check that we are not on the first line where the headings are
 		String line;
         while ((line =br.readLine()) != null){
@@ -54,5 +54,5 @@ public class Read {
 	}
 
 	public ArrayList<Student> getData(){ return data; }
-
+	public ArrayList<String> getHeadings(){return this.headings;}
 }
