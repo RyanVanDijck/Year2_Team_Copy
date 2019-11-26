@@ -8,15 +8,15 @@ As it has been a busy period in terms of work needing to be completed for other 
 ## Sprint Burndown Charts   
  
  ### Weeks 2 and 3
-
+![Weeks 2 and 3 Graph](MVP/Burndown_images/Week2-3.png)
  ### Week 4 
-
+![Week 4 Graph](MVP/Burndown_images/Week4.png)
  ### Week 5 
-
+![Week 5 Graph](MVP/Burndown_images/Week5.png)
  ### Week 6 
-
+![Week 6 Graph](MVP/Burndown_images/Week6.png)
  ### Week 7 
-
+![Week 7 Graph](MVP/Burndown_images/Week7.png)
 
 ## Burndown chart discussion 
 
