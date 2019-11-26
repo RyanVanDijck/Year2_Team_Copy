@@ -46,3 +46,8 @@ This work was likely completed beforehand but members of the team forgot to log 
 In week 7, a team member unfortunately forgot to give the stories story points. This has created an unreliable graph, with no useful guideline. However, it can still be seen that few tasks were completed. 
 
 This can be put down to the fact that it was a busy period as well as the continued trend of team members forgetting to keep jira tasks updated consistently. 
+
+
+## Project Backlog 
+
+![Project Backlog](MVP/Burndown_images/backlog.png)
