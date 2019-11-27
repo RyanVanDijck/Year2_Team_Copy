@@ -1,4 +1,4 @@
-Team Effort Log
+[](url)Team Effort Log
 *In this section, add a heading for each team member, and under it add the sub headings "Sprint 1, Sprint 2, ..., Sprint N", as illustrated below.  Each team member can be responsible for writing their own section.*
 * *Include a URL to the most siginificant Jira tasks assigned to you in sprint 1, and state when (or whether) it was completed, and the hours spent.*
 * *Example: "Link to Task 2.  It was set and completed in sprint 2.  It took 1 hour.  Extra relevant comment."*
@@ -10,7 +10,7 @@ Team Effort Log
 
 ***Task:* Please Enter the task here.** 
 
-* *URL:*
+* *URL:* 
 
 * *Description:*  
 
@@ -33,7 +33,7 @@ Team Effort Log
 
 ***Task:* Add your name to hello world**
 
-*  *URL:*
+*  *URL:*[text](https://cseegit.essex.ac.uk/2019_ce291/ce291_team21/blob/master/src/HelloWorld.java)
 
 *  *Description:*  Add my name to "HelloWorld" file to show that I can edit the file.
 
@@ -95,7 +95,7 @@ Team Effort Log
 
 ***Task:* Add your name to hello world**
 
-*  *URL:*
+*  *URL:*[text](https://cseegit.essex.ac.uk/2019_ce291/ce291_team21/blob/master/src/HelloWorld.java)
 
 *  *Description:*  Add my name to "HelloWorld" file to show that I can edit the file.
 
@@ -165,7 +165,7 @@ Team Effort Log
 
 ***Task:* Add your name to hello world**
 
-*  *URL:*
+*  *URL:*[text](https://cseegit.essex.ac.uk/2019_ce291/ce291_team21/blob/master/src/HelloWorld.java)
 
 *  *Description:*  Add my name to "HelloWorld" file to show that I can edit the file.
 
@@ -236,7 +236,7 @@ Team Effort Log
 
 ***Task:* Add your name to hello world**
 
-*  *URL:*
+*  *URL:*[text](https://cseegit.essex.ac.uk/2019_ce291/ce291_team21/blob/master/src/HelloWorld.java)
 
 *  *Description:*  Add my name to "HelloWorld" file to show that I can edit the file.
 
