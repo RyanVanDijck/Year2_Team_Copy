@@ -50,9 +50,13 @@ public class Student {
     //returns the exam number
     public String getExamNo(){ return examNo; }
 
+    public String getStage(){
+      return this.stage;
+    }
+
     //returns the average mark
     public int getAvgMark(){
         return avgMark;
     }
-}
 
+}
