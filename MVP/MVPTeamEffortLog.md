@@ -63,6 +63,14 @@
 
 * *Time:* 3 hours
 
+***Task:* Show data in a JTable** 
+
+* *URL:* https://cseejira.essex.ac.uk/browse/CE291T1921-32
+
+* *Description:* Created a table to read from the CSV file.
+
+* *Time:* 4 hours
+
 ## Team member name:  **Lewis Colley**
 
 ###  Sprint 1 (University Week 3):
