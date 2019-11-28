@@ -31,11 +31,12 @@ class StudentMarksAnalyserUI extends JFrame{
 		user.setLayout(new GridLayout(1,2));
 		user.add(select);
 		user.add(output);
+	
 
 		//adding the objects
-		this.setLayout(new GridLayout(3,2));
-		this.add(visual);
-		this.add(data);
+		//this.setLayout(new GridLayout(2,2));
+		//this.add(visual);
+		this.add(data,BorderLayout.NORTH);
 		this.add(user);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
