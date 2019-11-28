@@ -24,9 +24,11 @@ class StudentMarksAnalyserUI extends JFrame{
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //The program will close when the window closes
 
 		output.setEditable(false);
+		JButton chooseFile = new JButton("Choose File");
 
 		select.setLayout(new GridLayout(4,1));
 		select.add(course);
+		data.add(chooseFile,BorderLayout.NORTH);
 
 		user.setLayout(new GridLayout(1,2));
 		user.add(select);
@@ -40,11 +42,13 @@ class StudentMarksAnalyserUI extends JFrame{
 		this.add(user);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
+		chooseFile.addActionListener(new ChooseHandler(this));
+
 	}
 
 	public void addTable(String[][] array, String[] headings){
 			JTable table = new JTable(array,headings);
-			this.data.add(new JScrollPane(table), BorderLayout.CENTER);
+			this.data.add(new JScrollPane(table), BorderLayout.SOUTH);
 			this.repaint();
 			this.pack();
 			this.setExtendedState(JFrame.MAXIMIZED_BOTH);
