@@ -5,4 +5,4 @@ Requirements and risk Log - Luke
 https://cseegit.essex.ac.uk/2019_ce291/ce291_team21/blob/6956face6e6006060f218570b8557f6a9ed0e615/MVP/MVPRequirementsAndRiskLog.md
 
 Team Effort Log - Ching 
-https://cseegit.essex.ac.uk/2019_ce291/ce291_team21/blob/d5568fbc02514a048c0a3385b1e179268380beb8/MVP/MVPTeamEffortLog.md
+https://cseegit.essex.ac.uk/2019_ce291/ce291_team21/blob/c5f62241d89df6a83ca3094d78d3ca925e94fac1/MVP/MVPTeamEffortLog.md
