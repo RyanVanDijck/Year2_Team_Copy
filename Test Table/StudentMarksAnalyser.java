@@ -33,6 +33,7 @@ public class StudentMarksAnalyser {
     for (int i = 0;i < read.getHeadings().size()-1;i++){
       headings[i] = read.getHeadings().get(i);
     }
+    headings[18] = "Average Mark";
         for (int i = 0; i < read.getData().size() ; i++){ //iterating though a list of data
             array[i][0] = read.getData().get(i).getRegNo();
             array[i][1] = read.getData().get(i).getExamNo();
