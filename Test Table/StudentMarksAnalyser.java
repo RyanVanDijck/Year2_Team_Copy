@@ -44,7 +44,7 @@ public class StudentMarksAnalyser {
               array[i][tempCount] = Integer.toString(index.getValue());
             }
             else{
-              array[i][tempCount] = "null";
+              array[i][tempCount] = "N/A";
             }
               tempCount++;
             }
