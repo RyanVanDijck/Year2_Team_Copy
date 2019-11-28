@@ -22,7 +22,7 @@ and congratulated on their hard work.
 
 ### MVP Use Case diagram
 
-![Use Case Diagram](MVP/Burndown_images/MVP SCREENSHOT.png)
+![Use Case Diagram](MVP/Burndown_images/MVP_SCREENSHOT.png)
 
 
 ### Functional Requirements
