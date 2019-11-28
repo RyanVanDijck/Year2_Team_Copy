@@ -29,7 +29,6 @@ public class StudentMarksAnalyser {
 		Read read = new Read();//creating new read object
     String[][] array = new String[read.getData().size() ][19];
     String[] headings = new String[19];
-    int tempCount = 3;
     for (int i = 0;i < read.getHeadings().size()-1;i++){
       headings[i] = read.getHeadings().get(i);
     }
@@ -38,15 +37,13 @@ public class StudentMarksAnalyser {
             array[i][0] = read.getData().get(i).getRegNo();
             array[i][1] = read.getData().get(i).getExamNo();
             array[i][2] = read.getData().get(i).getStage();
-            tempCount = 3;
-            for (Map.Entry<String,Integer> index: read.getData().get(i).getMap().entrySet()){
-            if (!(index.getValue() == null)){
-              array[i][tempCount] = Integer.toString(index.getValue());
+            for (int j=3; j<18; j++){
+            if (!(read.getData().get(i).getMark(headings[j]) == null)){
+              array[i][j] = Integer.toString(read.getData().get(i).getMark(headings[j]));
             }
             else{
-              array[i][tempCount] = "N/A";
+              array[i][j] = "N/A";
             }
-              tempCount++;
             }
             array[i][18] = Integer.toString(read.getData().get(i).getAvgMark());
         }
