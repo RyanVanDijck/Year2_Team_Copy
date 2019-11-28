@@ -129,7 +129,7 @@
 
 * *Description:*  Complete the "Product Demonstration" markup document.
 
-* *Time:*  3 hours
+* *Time:*  1 hour
 
 ***Task:* Improve current code for easier future functionality** 
 
@@ -138,6 +138,20 @@
 * *Description:*  Rename classes and add extra functions to improve the ease of use for future expansions.
 
 * *Time:* 4 hours
+
+***Task:* Fix Jtable bug** 
+
+* *URL:* https://cseejira.essex.ac.uk/browse/CE291T1921-52
+
+* *Description:*  Data not displaying correctly so needs to be fixed
+
+* *Time:* 1 hour
+
+***Task:* Create Choose File Button** 
+
+* *URL:* https://cseejira.essex.ac.uk/browse/CE291T1921-53
+
+* *Time:* 1 hour
 
 
 
