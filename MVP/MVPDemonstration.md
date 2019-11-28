@@ -1,6 +1,7 @@
 # MVP Demonstration
 
 ![Running the Application](MVP/Demonstration_Images/Application.jpg)
+![Weeks 2 and 3 Graph](MVP/Burndown_images/Week2-3.png)
 
 When the application runs the GUI and its features are loaded. A text area is shown in the bottom right and a dropdown box to the left. Currently these don't have any functionality but can be used in future functionality of the program. e.g. the dropdown could select a particular module to look at which could be displayed in the text area.
 The most important feature is the choose file button which will run a file chooser when pressed.
