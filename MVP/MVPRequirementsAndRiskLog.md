@@ -20,7 +20,7 @@ As [user] a personal tutor, I would like to identify students that low scores ac
 As [user] the head of the computer sceince school, I would like to know students that are preforming eceptionally well across all their modules, [goal] so that they can be added to the deans list
 and congratulated on their hard work.
 
-### Other modelling techniques
+### MVP Use Case diagram
 .
 .
 .
@@ -33,22 +33,17 @@ and congratulated on their hard work.
 What the program will be able to do:
 
 - Read files presented by the user (CSV spreasheet)
-- Generate a report that the user can easily read
-- Show statistical analysis of students and modules preformance
-    - Viewing the rank of strongest/ weakest Student within each module/all modules
-    - indication of modules that appear too easy/too hard
-- graphical representation of student and module preformance
+- Work on all system types (windows, linux ect)
+- Output raw from spreadsheet onto a panel for the user to view
 
 ### Non Functional Requirements
 
 How well the program will function:
 
-- Clear spacing layout between statistical data and graphs
-- Input validation on GUI fields
 - Use of dropdown menus, and check boxes to limit input error
 - Clear spacing between input fields on GUI
 - Clean and attrictive colour palette use on GUI
-- Pop up messages upon errors, with guidance messages.
+- Use of java swing (GUI widget toolkit for java)
 
 
 ## Risk Log
