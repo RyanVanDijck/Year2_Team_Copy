@@ -6,3 +6,6 @@ https://cseegit.essex.ac.uk/2019_ce291/ce291_team21/blob/6956face6e6006060f21857
 
 Team Effort Log - Ching 
 https://cseegit.essex.ac.uk/2019_ce291/ce291_team21/blob/c5f62241d89df6a83ca3094d78d3ca925e94fac1/MVP/MVPTeamEffortLog.md
+
+Product Demonstration Log - Lewis
+https://cseegit.essex.ac.uk/2019_ce291/ce291_team21/blob/c5f62241d89df6a83ca3094d78d3ca925e94fac1/MVP/MVPDemonstration.md
