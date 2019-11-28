@@ -117,7 +117,7 @@
 
 ***Task:* Complete Product Demonstration for the MVP** 
 
-* *URL:* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+* *URL:* https://cseejira.essex.ac.uk/browse/CE291T1921-41
 
 * *Description:*  Complete the "Product Demonstration" markup document.
 
