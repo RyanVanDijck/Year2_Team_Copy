@@ -40,12 +40,4 @@ class StudentMarksAnalyserUI extends JFrame{
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
 	}
-
-	public void addTable(String[][] array, String[] headings){
-			JTable table = new JTable(array,headings);
-			this.data.add(table);
-			this.repaint();
-			this.pack();
-			this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-	}
 }

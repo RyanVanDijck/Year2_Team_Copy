@@ -54,14 +54,9 @@ public class Student {
       return this.stage;
     }
 
-    public Map<String,Integer> getMap(){
-      return this.marks;
-    }
-
     //returns the average mark
     public int getAvgMark(){
         return avgMark;
     }
-
 
 }
