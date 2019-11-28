@@ -129,7 +129,7 @@
 
 * *Description:*  Complete the "Product Demonstration" markup document.
 
-* *Time:*  hours
+* *Time:*  3 hours
 
 ***Task:* Improve current code for easier future functionality** 
 
