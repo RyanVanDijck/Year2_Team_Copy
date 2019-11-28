@@ -21,11 +21,8 @@ As [user] the head of the computer sceince school, I would like to know students
 and congratulated on their hard work.
 
 ### MVP Use Case diagram
-.
-.
-.
-.
-.
+
+![Use Case Diagram](MVP SCREENSHOT.png)
 
 
 ### Functional Requirements
