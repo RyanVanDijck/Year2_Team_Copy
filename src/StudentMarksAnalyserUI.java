@@ -15,6 +15,10 @@ class StudentMarksAnalyserUI extends JFrame{
 	BufferedImage hat = (ImageIO.read(getClass().getResource("/hat.png")));
 
 	JComboBox course = new JComboBox();
+	JLabel label = new JLabel("Select: ");
+	JButton submit = new JButton("Generate Report");
+	JButton show = new JButton("Show Data");
+
 
 
 	public StudentMarksAnalyserUI(String name) throws IOException{
@@ -27,7 +31,13 @@ class StudentMarksAnalyserUI extends JFrame{
 		JButton chooseFile = new JButton("Choose File");
 
 		select.setLayout(new GridLayout(4,1));
+		label.setVerticalAlignment(SwingConstants.CENTER);
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setFont(new Font("Serif",Font.BOLD,22));
+		select.add(label);
 		select.add(course);
+		select.add(submit);
+		select.add(show);
 		data.add(chooseFile,BorderLayout.NORTH);
 
 		user.setLayout(new GridLayout(1,2));
