@@ -31,6 +31,7 @@ public class Read {
                 data.add(student);
             }
         }
+        GraphFrame g = new GraphFrame(data,"CE101-4-FY");
 	}
 
 	//Method to transfer information from the file to instances of the student class
