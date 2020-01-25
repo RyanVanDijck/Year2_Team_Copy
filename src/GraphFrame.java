@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 
 public class GraphFrame extends JFrame {
     ArrayList<Student> list;
@@ -38,8 +37,12 @@ class graph extends JPanel{
     public void paintComponent(Graphics g) {
         int count = 0;
 
-        for (Integer i : GraphFrame.tempList) {
-            g.fillOval(count, i*6, 5,5);
+        for (int i = 0; i < GraphFrame.tempList.size(); i++) {
+            g.fillOval(count, GraphFrame.tempList.get(i)*6, 5,5);
+            if (i < GraphFrame.tempList.size() - 1){
+                g.drawLine(count,GraphFrame.tempList.get(i)*6,count + 10,GraphFrame.tempList.get(i+1)*6);
+            }
+
             count = count + 10 ;
         }
     }

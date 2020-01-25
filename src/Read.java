@@ -32,7 +32,6 @@ public class Read {
                 data.add(student);
             }
         }
-        GraphFrame g = new GraphFrame(data,"CE101-4-FY");
 	}
 
 	//Method to transfer information from the file to instances of the student class
@@ -54,7 +53,6 @@ public class Read {
 		}
 		else{
 			JOptionPane.showMessageDialog(choose,"Error, File cannot be accepted", "File Error", JOptionPane.ERROR_MESSAGE); //Error message to show if file cannot be accepted
-			System.exit(1);//Quiting the program
 		}
 		return dataFile; //returning the File object
 	}

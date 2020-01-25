@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import javax.imageio.ImageIO;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -15,10 +17,36 @@ class StudentMarksAnalyserUI extends JFrame{
 	BufferedImage hat = (ImageIO.read(getClass().getResource("/hat.png")));
 
 	JComboBox course = new JComboBox();
+	ChooseHandler chooseHandler;
+
+	JMenuBar menuBar = new JMenuBar();
+	JMenu FileMenu = new JMenu("File");
+	JMenuItem Open = new JMenuItem("Open");
+	JMenu GraphMenu = new JMenu("Graph");
+	JMenuItem Draw = new JMenuItem("Draw");
+
+	ActionListener Drawg = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			drawGraph();
+		}
+	};
+
+
+
+
 
 
 	public StudentMarksAnalyserUI(String name) throws IOException{
 		super(name);
+		chooseHandler = new ChooseHandler(this);
+		Open.addActionListener(chooseHandler);
+		Draw.addActionListener(Drawg);
+		FileMenu.add(Open);
+		GraphMenu.add(Draw);
+		menuBar.add(FileMenu);
+		menuBar.add(GraphMenu);
+		this.setJMenuBar(menuBar);
 		this.setIconImage(this.hat);
 		setSize(800,800);
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //The program will close when the window closes
@@ -41,9 +69,15 @@ class StudentMarksAnalyserUI extends JFrame{
 		this.add(data,BorderLayout.NORTH);
 		this.add(user);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		chooseFile.addActionListener(chooseHandler);
 
-		chooseFile.addActionListener(new ChooseHandler(this));
+	}
 
+	public void drawGraph(){
+		Object[] headings = chooseHandler.headings;
+		String input= (String)JOptionPane.showInputDialog(this, "Choose a module to graph",
+				"Choose Module",JOptionPane.PLAIN_MESSAGE,null,headings,headings[0]);
+		GraphFrame graphFrame = new GraphFrame(chooseHandler.read.getData(),input);
 	}
 
 	public void addTable(String[][] array, String[] headings){
