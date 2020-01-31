@@ -11,27 +11,11 @@ import java.io.File;
 public class Read {
 	private JFileChooser choose = new JFileChooser(".");
     private ArrayList<Student> data = new ArrayList<Student>(); //list of data
-    private ArrayList<String> headings = new ArrayList<String>();
-	public Read() throws IOException {
+    private ArrayList<String> headings = new ArrayList<String>(); //list of headings
+
+    public Read() throws IOException {
         File file = Choose();
-		BufferedReader br = new BufferedReader(new FileReader(file)); // File reader
-        
-        boolean start = true;//to check that we are not on the first line where the headings are
-		String line;
-        while ((line =br.readLine()) != null){
-            String[] values=line.split(",");//Splitting by commas/values in the csv file
-            if (start){
-                headings.addAll(Arrays.asList(values));
-                start = false;
-            }
-            else{
-                Student student = new Student(values[0],values[1],values[2],Integer.parseInt(values[19]));
-                for(int i=3;i<18;i++){
-                    if(!values[i].equals("")) student.setMark(headings.get(i),Integer.parseInt(values[i]));
-                }
-                data.add(student);
-            }
-        }
+        readData(file);
         GraphFrame g = new GraphFrame(data,"CE101-4-FY");
 	}
 
@@ -57,6 +41,24 @@ public class Read {
 			System.exit(1);//Quiting the program
 		}
 		return dataFile; //returning the File object
+	}
+
+	public void readData(File file) throws IOException {
+		BufferedReader br = new BufferedReader(new FileReader(file)); // File reader
+		String line;
+		line=br.readLine();
+
+		String[] header=line.split(",");//Splitting by commas/values in the csv file
+		headings.addAll(Arrays.asList(header));
+
+		while ((line=br.readLine()) != null) {
+			String[] values = line.split(",");//Splitting by commas/values in the csv file
+			Student student = new Student(values[0], values[1], values[2], Integer.parseInt(values[19]));
+			for (int i = 3; i < 18; i++) {
+				if (!values[i].equals("")) student.setMark(headings.get(i), Integer.parseInt(values[i]));
+			}
+			data.add(student);
+		}
 	}
 
 	public ArrayList<Student> getData(){ return data; }
