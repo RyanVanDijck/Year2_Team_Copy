@@ -26,5 +26,10 @@ public class StudentMarksAnalyser {
       StudentMarksAnalyserUI window = new StudentMarksAnalyserUI("CE291_TEAM_21");//creating a window to show content
 		// String file = "data.csv"; //Name of file
         window.setVisible(true);
+
+        //format for testing stats
+		Statistics stats = new Statistics();
+		double mean = stats.getMean();
+		System.out.println(mean);
 	}
 }
