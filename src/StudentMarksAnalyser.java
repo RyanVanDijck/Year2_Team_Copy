@@ -23,8 +23,13 @@ public class StudentMarksAnalyser {
   			e.printStackTrace();
   		}
 
-      StudentMarksAnalyserUI window = new StudentMarksAnalyserUI("Student Marks");//creating a window to show content
+      StudentMarksAnalyserUI window = new StudentMarksAnalyserUI("CE291_TEAM_21");//creating a window to show content
 		// String file = "data.csv"; //Name of file
         window.setVisible(true);
+
+        //format for testing stats
+		Statistics stats = new Statistics();
+		double mean = stats.getMean();
+		System.out.println(mean);
 	}
 }
