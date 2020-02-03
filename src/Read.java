@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.util.*;
 import java.io.IOException;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 
 
@@ -35,6 +36,10 @@ public class Read {
 
 	//Method to transfer information from the file to instances of the student class
 	private File Choose(){
+		FileNameExtensionFilter f = new FileNameExtensionFilter("Comma Separated Value(.csv)","csv");
+		choose.addChoosableFileFilter(f);
+		choose.addChoosableFileFilter(new FileNameExtensionFilter("Text File(.txt)","txt"));
+		choose.setFileFilter(f);
 		int returnVal = choose.showOpenDialog(null); //Opening the file chooser with an int to show if file is openable
 		/*
 		 * NOTE
@@ -48,7 +53,6 @@ public class Read {
 		}
 		else{
 			JOptionPane.showMessageDialog(choose,"Error, File cannot be accepted", "File Error", JOptionPane.ERROR_MESSAGE); //Error message to show if file cannot be accepted
-			System.exit(1);//Quiting the program
 		}
 		return dataFile; //returning the File object
 	}
