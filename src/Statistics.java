@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Statistics {
 
@@ -50,5 +51,23 @@ public class Statistics {
         }
         return Min;
     }
-
+    //Return Standard Deviation
+    public double getSD(String module){
+        double standardDeviation = 0.0;
+        List<Integer> markslist = new ArrayList<Integer>();
+        for (Student i : marks) {
+            if (i.getMark(module) != null) {
+                markslist.add(i.getMark(module));
+            }
+        }
+        double mean = getMean(module);
+        double length = markslist.size();
+        for (int num : markslist) {
+            double s = Math.pow(num - mean, 2);
+            double roundup = Math.round(s * 100) / 100D;
+            standardDeviation += roundup;
+        }
+        return Math.sqrt(standardDeviation / (length - 1));
+    }
 }
+
