@@ -9,21 +9,12 @@ public class StudentMarksAnalyser {
     public static void main(String[] args) throws IOException{
       try {
   			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-  		} catch (ClassNotFoundException e) {
-  			// TODO Auto-generated catch block
-  			e.printStackTrace();
-  		} catch (InstantiationException e) {
-  			// TODO Auto-generated catch block
-  			e.printStackTrace();
-  		} catch (IllegalAccessException e) {
-  			// TODO Auto-generated catch block
-  			e.printStackTrace();
-  		} catch (UnsupportedLookAndFeelException e) {
+  		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
   			// TODO Auto-generated catch block
   			e.printStackTrace();
   		}
 
-      StudentMarksAnalyserUI window = new StudentMarksAnalyserUI("CE291_TEAM_21");//creating a window to show content
+		StudentMarksAnalyserUI window = new StudentMarksAnalyserUI("CE291_TEAM_21");//creating a window to show content
 		// String file = "data.csv"; //Name of file
         window.setVisible(true);
         /*
@@ -31,7 +22,7 @@ public class StudentMarksAnalyser {
 		Statistics stats = new Statistics();
 		double mean = stats.getMean();
 		System.out.println(mean);
+		*/
 
-         */
 	}
 }
