@@ -4,12 +4,12 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class ChooseHandler implements ActionListener {
-    StudentMarksAnalyserUI UI;
+    StudentMarksAnalyser main;
     Read read;
     String[][] array;
     String[] headings;
-    public ChooseHandler(StudentMarksAnalyserUI UI) throws IOException {
-        this.UI=UI;
+    public ChooseHandler(StudentMarksAnalyser main) throws IOException {
+        this.main=main;
     }
     public void actionPerformed(ActionEvent e) {
         try {
@@ -44,6 +44,7 @@ public class ChooseHandler implements ActionListener {
             }
             System.out.println();
         }
-        UI.addTable(array,headings);
+        main.UI.addTable(array,headings);
+        main.setRead(read);
     }
 }

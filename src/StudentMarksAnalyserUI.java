@@ -40,9 +40,9 @@ class StudentMarksAnalyserUI extends JFrame{
 
 
 
-	public StudentMarksAnalyserUI(String name) throws IOException{
+	public StudentMarksAnalyserUI(String name, StudentMarksAnalyser main) throws IOException{
 		super(name);
-		chooseHandler = new ChooseHandler(this);
+		chooseHandler = new ChooseHandler(main);
 		Open.addActionListener(chooseHandler);
 		Draw.addActionListener(Drawg);
 		FileMenu.add(Open);
