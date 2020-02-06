@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.awt.Color;
 
@@ -52,6 +53,8 @@ class StudentMarksAnalyserUI extends JFrame{
 		this.setJMenuBar(menuBar);
 		this.setIconImage(this.hat);
 		setSize(800,500);
+		user.setBackground(Color.decode("#0000"));
+		data.setBackground(Color.decode("#0000"));
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //The program will close when the window closes
 
 		output.setEditable(false);
@@ -74,12 +77,17 @@ class StudentMarksAnalyserUI extends JFrame{
 		//adding the objects
 		//this.setLayout(new GridLayout(2,2));
 		//this.add(visual);
+		BufferedImage image = (ImageIO.read(getClass().getResource("/SCANALYZER.png")));
+		JLabel picLabel = new JLabel(new ImageIcon(image));
+		user.add(picLabel,BorderLayout.NORTH);
+
 		this.add(header,BorderLayout.NORTH);
 		this.add(data,BorderLayout.SOUTH);
 		//this.add(user);
 		//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.add(data,BorderLayout.NORTH);
 		this.add(user);
+
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		chooseFile.addActionListener(chooseHandler);
 

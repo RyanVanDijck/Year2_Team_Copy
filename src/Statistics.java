@@ -51,6 +51,13 @@ public class Statistics {
         }
         return Min;
     }
+    //Return the Range value mark for that module;
+    public double getRange(String module){
+        return getMax(module)-getMin(module);
+    }
+
+
+
     //Return Standard Deviation
     public double getSD(String module){
         double standardDeviation = 0.0;
