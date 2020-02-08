@@ -11,7 +11,7 @@ public class pdftest {
         FileOutputStream stream = new FileOutputStream("Hello.pdf");
         PDFJob job = new PDFJob(stream);
         Graphics g = job.getGraphics();
-        g.drawString("Hello World",20,20);
+        g.fillRect(20,20,100,100);
         g.dispose();
         g = job.getGraphics();
         g.drawString("Goodbye", 10,10);
