@@ -4,7 +4,8 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+	    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -23,5 +24,8 @@ public class Main {
 		}catch(NullPointerException npe){
 		    System.out.println("No Value is found");
         }*/
+    }
+    public static void refresh(){
+
     }
 }
