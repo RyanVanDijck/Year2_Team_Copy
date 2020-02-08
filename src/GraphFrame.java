@@ -40,7 +40,7 @@ public class GraphFrame extends JFrame {
                 }
             }
         };
-        JButton button = new JButton("Hello");
+        JButton button = new JButton("Export");
         button.addActionListener(ex);
         this.add(button,BorderLayout.NORTH);
         this.add(graph);
