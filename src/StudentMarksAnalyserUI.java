@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.awt.Color;
+import java.time.chrono.MinguoEra;
 
 /*class to create a frame to display data */
 class StudentMarksAnalyserUI extends JFrame{
@@ -26,13 +27,62 @@ class StudentMarksAnalyserUI extends JFrame{
 	JMenuBar menuBar = new JMenuBar();
 	JMenu FileMenu = new JMenu("File");
 	JMenuItem Open = new JMenuItem("Open");
+	JMenu View = new JMenu("View");
+	JMenu Theme = new JMenu("Theme");
+
+
 	JMenu GraphMenu = new JMenu("Graph");
 	JMenuItem Draw = new JMenuItem("Draw");
+
 
 	ActionListener Drawg = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			drawGraph();
+		}
+	};
+
+	JMenuItem System = new JMenuItem("System");
+	ActionListener systemAction = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+				Component c = (Component) e.getSource();
+				SwingUtilities.getRoot(c).revalidate();
+				SwingUtilities.getRoot(c).repaint();
+			} catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException ex) {
+				ex.printStackTrace();
+			}
+		}
+	};
+	JMenuItem Nimbus = new JMenuItem("Nimbus");
+	ActionListener nimbusAction = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+				Component c = (Component) e.getSource();
+				SwingUtilities.getRoot(c).revalidate();
+				SwingUtilities.getRoot(c).repaint();
+			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+				ex.printStackTrace();
+			}
+		}
+	};
+
+	JMenuItem Metal = new JMenuItem("Metal");
+	ActionListener metalAction = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+				Component c = (Component) e.getSource();
+				SwingUtilities.getRoot(c).revalidate();
+				SwingUtilities.getRoot(c).repaint();
+			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+				ex.printStackTrace();
+			}
 		}
 	};
 
@@ -46,9 +96,19 @@ class StudentMarksAnalyserUI extends JFrame{
 		chooseHandler = new ChooseHandler(main);
 		Open.addActionListener(chooseHandler);
 		Draw.addActionListener(Drawg);
+		Nimbus.addActionListener(nimbusAction);
+		System.addActionListener(systemAction);
+		Metal.addActionListener(metalAction);
+
+		Theme.add(System);
+		Theme.add(Metal);
+		Theme.add(Nimbus);
+
+		View.add(Theme);
 		FileMenu.add(Open);
 		GraphMenu.add(Draw);
 		menuBar.add(FileMenu);
+		menuBar.add(View);
 		menuBar.add(GraphMenu);
 		this.setJMenuBar(menuBar);
 		this.setIconImage(this.hat);
