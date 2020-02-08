@@ -18,6 +18,7 @@ class StudentMarksAnalyserUI extends JFrame{
 	JPanel header = new JPanel(new BorderLayout());
 	//JPanel  select = new JPanel();
 	//JPanel button = new JPanel();
+	JTable table;
 
 	BufferedImage hat = (ImageIO.read(getClass().getResource("/hat.png")));
 
@@ -48,9 +49,10 @@ class StudentMarksAnalyserUI extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			try {
 				UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-				Component c = (Component) e.getSource();
-				SwingUtilities.getRoot(c).revalidate();
-				SwingUtilities.getRoot(c).repaint();
+				repaint();
+				revalidate();
+
+
 			} catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException ex) {
 				ex.printStackTrace();
 			}
@@ -62,9 +64,12 @@ class StudentMarksAnalyserUI extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			try {
 				UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-				Component c = (Component) e.getSource();
-				SwingUtilities.getRoot(c).revalidate();
-				SwingUtilities.getRoot(c).repaint();
+
+				repaint();
+				revalidate();
+
+
+
 			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
 				ex.printStackTrace();
 			}
@@ -77,9 +82,9 @@ class StudentMarksAnalyserUI extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			try {
 				UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-				Component c = (Component) e.getSource();
-				SwingUtilities.getRoot(c).revalidate();
-				SwingUtilities.getRoot(c).repaint();
+				repaint();
+				revalidate();
+
 			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
 				ex.printStackTrace();
 			}
@@ -161,10 +166,12 @@ class StudentMarksAnalyserUI extends JFrame{
 	}
 
 	public void addTable(String[][] array, String[] headings){
-			JTable table = new JTable(array,headings);
+			table = new JTable(array,headings);
 			this.data.add(new JScrollPane(table), BorderLayout.SOUTH);
 			this.repaint();
 			this.pack();
 			this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}
+
+
 }

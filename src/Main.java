@@ -4,8 +4,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-	    //UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+	    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
             // TODO Auto-generated catch block
@@ -21,6 +20,9 @@ public class Main {
 		double SD = stats.getSD("CE101-4-SP");
 		System.out.println(SD);
 */
+
+    }
+    public static void refresh(){
 
     }
 }
