@@ -10,6 +10,7 @@ public class Statistics {
     double Max = Integer.MIN_VALUE;
     double Min = Integer.MAX_VALUE;
     ArrayList<Student> marks = read.getData();
+    Student student;
 
     public Statistics() throws IOException {}
 
@@ -75,6 +76,34 @@ public class Statistics {
             standardDeviation += roundup;
         }
         return Math.sqrt(standardDeviation / (length - 1));
+    }
+
+    //Method to return the best student in that module
+    //Need to catch NullPointException in case that module has no value
+    public Student getBest(String module) {
+        double bestscore = getMax(module);
+        for (Student i : marks) {
+            if (i.getMark(module) != null) {
+                if (i.getMark(module) == bestscore) {
+                    student = i;
+                }
+            }
+        }
+       return student;
+    }
+
+    //Method to return the worst student in that module
+    // Need to catch NullPointException in case that module has no value
+    public Student getWorst(String module){
+        double lowest = getMin(module);
+        for (Student i : marks) {
+            if (i.getMark(module) != null) {
+                if (i.getMark(module) == lowest) {
+                    student = i;
+                }
+            }
+        }
+        return student;
     }
 }
 

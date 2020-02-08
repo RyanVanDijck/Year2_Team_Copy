@@ -13,12 +13,15 @@ public class Main {
         StudentMarksAnalyser main = new StudentMarksAnalyser();
 
         // String file = "data.csv"; //Name of file
-		/*
-        //format for testing stats
-		Statistics stats = new Statistics();
-		double SD = stats.getSD("CE101-4-SP");
-		System.out.println(SD);
-*/
 
+        //format for testing stats
+        /*
+		Statistics stats = new Statistics();
+		try{
+		String SD = stats.getBest("CE141-4-AU").getExamNo();
+		System.out.println(SD);
+		}catch(NullPointerException npe){
+		    System.out.println("No Value is found");
+        }*/
     }
 }
