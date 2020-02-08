@@ -25,7 +25,4 @@ public class Main {
 		    System.out.println("No Value is found");
         }*/
     }
-    public static void refresh(){
-
-    }
 }
