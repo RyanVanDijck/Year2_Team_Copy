@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import javax.imageio.ImageIO;
+import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -18,7 +19,7 @@ class StudentMarksAnalyserUI extends JFrame{
 	JPanel user = new JPanel();
 	JPanel header = new JPanel(new BorderLayout());
 	//JPanel  select = new JPanel();
-	//JPanel button = new JPanel();
+	JPanel button = new JPanel();
 	JTable table;
 
 	BufferedImage logo = (ImageIO.read(getClass().getResource("/SCANALYZERLOGO.png")));
@@ -35,6 +36,7 @@ class StudentMarksAnalyserUI extends JFrame{
 	JMenu View = new JMenu("View");
 	//Changing the theme
 	JMenu Theme = new JMenu("Theme");
+	JDialog Error = new JDialog();
 
 
 	JMenu GraphMenu = new JMenu("Graph");
@@ -45,7 +47,11 @@ class StudentMarksAnalyserUI extends JFrame{
 	ActionListener Drawg = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			drawGraph();
+			try{
+			drawGraph();}
+			catch(Exception e1){
+				JOptionPane.showMessageDialog(Error ,"Please select a file ", "No File Error", JOptionPane.ERROR_MESSAGE);
+			}
 		}
 	};
 
@@ -129,22 +135,18 @@ class StudentMarksAnalyserUI extends JFrame{
 		//Changing the logo of the program
 		this.setIconImage(this.logo);
 
-		setSize(800,500);
+		setSize(1620,600);
 		user.setBackground(Color.decode("#0000"));
 		data.setBackground(Color.decode("#0000"));
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //The program will close when the window closes
 
 		output.setEditable(false);
 		JButton chooseFile = new JButton("Choose File");
+		data.setBorder(new EmptyBorder(10, 10, 10, 10));
 
 		//select.setLayout(new GridLayout(4,1));
 		//select.add(course);
-		JLabel title = new JLabel("STUDENT MARKS ANALYSER");
-		header.add(title,BorderLayout.NORTH);
-		header.add(chooseFile,BorderLayout.SOUTH);
-		title.setFont (title.getFont ().deriveFont (25.0f));
-		title. setForeground(Color.red);
-		title.setHorizontalAlignment(JLabel.CENTER);
+		data.add(chooseFile,BorderLayout.SOUTH);
 
 		//user.setLayout(new GridLayout(1,2));
 		//user.add(select);
@@ -159,13 +161,11 @@ class StudentMarksAnalyserUI extends JFrame{
 		user.add(picLabel,BorderLayout.NORTH);
 
 		this.add(header,BorderLayout.NORTH);
-		this.add(data,BorderLayout.SOUTH);
 		//this.add(user);
-		//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		this.add(data,BorderLayout.NORTH);
+		this.add(data,BorderLayout.SOUTH);
 		this.add(user);
 
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		chooseFile.addActionListener(chooseHandler);
 
 	}
@@ -186,10 +186,13 @@ class StudentMarksAnalyserUI extends JFrame{
 			//Creating the table
 			table = new JTable(array,headings);
 			//adding table to the frame
+
 			this.data.add(new JScrollPane(table), BorderLayout.SOUTH);
+			//data.remove(this.cho)
 			this.repaint();
 			this.pack();
-			this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+			setSize(1620,600);
+			//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}
 
 
