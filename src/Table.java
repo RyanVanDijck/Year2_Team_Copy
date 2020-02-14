@@ -5,7 +5,8 @@ import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.io.IOException;
 
-public class Table extends JTable{
+public class
+Table extends JTable{
 
     private JTable table;
     private String[][]data;
