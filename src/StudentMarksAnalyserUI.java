@@ -14,15 +14,15 @@ import java.util.Arrays;
 /*class to create a frame to display data */
 class StudentMarksAnalyserUI extends JFrame{
 	TextArea output = new TextArea(); //A text area to display program output
-	JPanel visual = new JPanel(); // A panel to show visual aspects
 	JPanel data = new JPanel(new BorderLayout());//A spare panel for now
-	JPanel user = new JPanel();
+	//JPanel user = new JPanel();
 	JPanel header = new JPanel(new BorderLayout());
-	//JPanel  select = new JPanel();
+	JPanel buttonArea = new JPanel();
 	JPanel button = new JPanel();
 	JTable table;
 
 	BufferedImage logo = (ImageIO.read(getClass().getResource("/SCANALYZERLOGO.png")));
+	BufferedImage folder_Icon = (ImageIO.read(getClass().getResource("/FILE_ICON.png")));
 
 	JComboBox course = new JComboBox();
 	//Handles Reading from the file
@@ -42,6 +42,7 @@ class StudentMarksAnalyserUI extends JFrame{
 	JMenu GraphMenu = new JMenu("Graph");
 	//Drawing a graph
 	JMenuItem Draw = new JMenuItem("Draw");
+	static JButton chooseFile;
 
 
 	ActionListener Drawg = new ActionListener() {
@@ -136,17 +137,24 @@ class StudentMarksAnalyserUI extends JFrame{
 		this.setIconImage(this.logo);
 
 		setSize(1620,600);
-		user.setBackground(Color.decode("#0000"));
+		//user.setBackground(Color.decode("#0000"));
 		data.setBackground(Color.decode("#0000"));
+		header.setBackground((Color.decode("#0000")));
+		buttonArea.setBackground((Color.decode("#0000")));
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //The program will close when the window closes
 
 		output.setEditable(false);
 		JButton chooseFile = new JButton("Choose File");
-		data.setBorder(new EmptyBorder(10, 10, 10, 10));
+		chooseFile.setFont(new Font("Courier", Font.PLAIN,12));
+		chooseFile.setPreferredSize(new Dimension(250,100));
+		chooseFile.setIcon(new ImageIcon(folder_Icon));
+		//data.setBorder(new EmptyBorder(10, 10, 10, 10));
 
 		//select.setLayout(new GridLayout(4,1));
 		//select.add(course);
-		data.add(chooseFile,BorderLayout.SOUTH);
+
+		buttonArea.setLayout(new GridBagLayout());
+		buttonArea.add(chooseFile);
 
 		//user.setLayout(new GridLayout(1,2));
 		//user.add(select);
@@ -158,12 +166,13 @@ class StudentMarksAnalyserUI extends JFrame{
 		//this.add(visual);
 		BufferedImage image = (ImageIO.read(getClass().getResource("/SCANALYZER.png")));
 		JLabel picLabel = new JLabel(new ImageIcon(image));
-		user.add(picLabel,BorderLayout.NORTH);
+		header.add(picLabel,BorderLayout.NORTH);
 
 		this.add(header,BorderLayout.NORTH);
 		//this.add(user);
+		this.add(buttonArea,BorderLayout.CENTER);
 		this.add(data,BorderLayout.SOUTH);
-		this.add(user);
+
 
 		//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		chooseFile.addActionListener(chooseHandler);

@@ -46,5 +46,6 @@ public class ChooseHandler implements ActionListener {
         }
         main.UI.addTable(array,headings);
         main.setRead(read);
+
     }
 }
