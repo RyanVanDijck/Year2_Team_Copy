@@ -1,8 +1,10 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -19,9 +21,12 @@ public class GraphFrame extends JFrame {
     String module;
     //List of results used by graph class
     static ArrayList<Integer> tempList;
+    BufferedImage logo = (ImageIO.read(getClass().getResource("/SCANALYZERLOGO.png")));
 
-    public GraphFrame(ArrayList<Student> list, String module){
+    public GraphFrame(ArrayList<Student> list, String module) throws IOException {
         super();
+        //Changing the logo of the program
+        this.setIconImage(this.logo);
         this.list = list;
         this.module = module;
         this.setTitle(module);
