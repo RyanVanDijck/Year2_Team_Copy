@@ -179,7 +179,7 @@ class StudentMarksAnalyserUI extends JFrame{
 
 	}
 	//Drawing a graph for a chosen Module
-	public void drawGraph(){
+	public void drawGraph() throws IOException{
 		//Retrieving headings from choose handler object
 		Object[] headings = Arrays.copyOfRange(chooseHandler.headings,3,chooseHandler.headings.length -1);
 		//Allowing the user to enter a module though a drop down box
@@ -197,7 +197,7 @@ class StudentMarksAnalyserUI extends JFrame{
 			//adding table to the frame
 
 			this.data.add(new JScrollPane(table), BorderLayout.SOUTH);
-			//data.remove(this.cho)
+			this.remove(buttonArea);
 			this.repaint();
 			this.pack();
 			setSize(1620,600);
