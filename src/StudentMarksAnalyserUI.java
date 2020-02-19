@@ -11,7 +11,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.awt.Color;
-import java.time.chrono.MinguoEra;
 import java.util.Arrays;
 
 /*class to create a frame to display data */
