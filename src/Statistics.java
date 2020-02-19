@@ -2,17 +2,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.Test;
+import org.junit.Ignore;
+import static org.junit.Assert.assertEquals;
 
 public class Statistics {
 
-    Read read = new Read();
+    Read read;
     double mean,total= 0;
     double Max = Integer.MIN_VALUE;
     double Min = Integer.MAX_VALUE;
-    ArrayList<Student> marks = read.getData();
+    ArrayList<Student> marks;
     Student student;
 
-    public Statistics() throws IOException {}
+    public Statistics(Read read) throws IOException {
+        this.read = read;
+        marks = read.getData();
+    }
 
 
     //Return the mean mark for the module

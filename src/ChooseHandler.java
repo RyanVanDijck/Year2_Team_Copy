@@ -46,6 +46,11 @@ public class ChooseHandler implements ActionListener {
         }
         main.UI.addTable(array,headings);
         main.setRead(read);
+        try {
+            StudentMarksAnalyserUI.statistics = new Statistics(this.read);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
     }
 }

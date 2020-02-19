@@ -23,6 +23,14 @@ public class GraphFrame extends JFrame {
     static ArrayList<Integer> tempList;
     BufferedImage logo = (ImageIO.read(getClass().getResource("/SCANALYZERLOGO.png")));
 
+    //The statistics for the class
+
+    static Double mean;
+    static Double max;
+    static Double min;
+    static Double SD;
+    static Double range;
+
     public GraphFrame(ArrayList<Student> list, String module) throws IOException {
         super();
         //Changing the logo of the program
@@ -51,7 +59,13 @@ public class GraphFrame extends JFrame {
                 }
             }
         };
-       //Button to save pdf
+        //setting the statistics
+        mean = StudentMarksAnalyserUI.statistics.getMean(this.module);
+        max = StudentMarksAnalyserUI.statistics.getMax(this.module);
+        min = StudentMarksAnalyserUI.statistics.getMin(this.module);
+        SD = StudentMarksAnalyserUI.statistics.getSD(this.module);
+        range =StudentMarksAnalyserUI.statistics.getRange(this.module);
+        //Button to save pdf
         JButton button = new JButton("Export");
         button.addActionListener(ex);
         this.add(button,BorderLayout.NORTH);
@@ -62,6 +76,7 @@ public class GraphFrame extends JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //displaying frame
         this.setVisible(true);
+
 
     }
     //method to export graph to pdf
@@ -139,6 +154,20 @@ class graph extends JPanel{
             g2.drawLine(start -5,GraphFrame.tempList.get(i) * 6 , start + 5,GraphFrame.tempList.get(i)*6);
             start = start + gap;
         }
+        int yval = 50;
+        Font font = new Font("arial", Font.BOLD, 20);
+        g2.setFont(font);
+        g2.drawString("Mean: " + GraphFrame.mean.toString(), 20, yval);
+        yval+=30;
+        g2.drawString("Range: " + GraphFrame.range.toString(),20,yval);
+        yval+=30;
+        g2.drawString("Minimum Value: " + GraphFrame.min.toString(),20,yval);
+        yval += 30;
+        g2.drawString("Maximum Value: " + GraphFrame.max.toString(),20,yval);
+        yval +=30;
+        g2.drawString("Standard Deviation: " + GraphFrame.SD.toString(),20,yval);
+
+
 
     }
     //a function to draw a graph to a certain scale

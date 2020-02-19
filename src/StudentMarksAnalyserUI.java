@@ -20,6 +20,7 @@ class StudentMarksAnalyserUI extends JFrame{
 	JPanel buttonArea = new JPanel();
 	JPanel button = new JPanel();
 	JTable table;
+    static Statistics statistics;
 
 	BufferedImage logo = (ImageIO.read(getClass().getResource("/SCANALYZERLOGO.png")));
 	BufferedImage folder_Icon = (ImageIO.read(getClass().getResource("/FILE_ICON.png")));
@@ -57,7 +58,7 @@ class StudentMarksAnalyserUI extends JFrame{
 	};
 
 	//The three themes
-	JMenuItem System = new JMenuItem("System");
+	JMenuItem system = new JMenuItem("System");
 	ActionListener systemAction = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -118,10 +119,10 @@ class StudentMarksAnalyserUI extends JFrame{
 		Open.addActionListener(chooseHandler);
 		Draw.addActionListener(Drawg);
 		Nimbus.addActionListener(nimbusAction);
-		System.addActionListener(systemAction);
+		system.addActionListener(systemAction);
 		Metal.addActionListener(metalAction);
 		//Adding themes
-		Theme.add(System);
+		Theme.add(system);
 		Theme.add(Metal);
 		Theme.add(Nimbus);
 		//Adding items to menus
@@ -176,6 +177,7 @@ class StudentMarksAnalyserUI extends JFrame{
 
 		//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		chooseFile.addActionListener(chooseHandler);
+
 
 	}
 	//Drawing a graph for a chosen Module
