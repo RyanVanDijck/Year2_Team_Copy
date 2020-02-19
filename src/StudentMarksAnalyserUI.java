@@ -1,3 +1,5 @@
+import gnu.jpdf.PDFJob;
+
 import javax.swing.*;
 import java.awt.*;
 import javax.imageio.ImageIO;
@@ -6,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.awt.Color;
 import java.time.chrono.MinguoEra;
@@ -54,6 +57,8 @@ class StudentMarksAnalyserUI extends JFrame{
 			catch(Exception e1){
 				JOptionPane.showMessageDialog(Error ,"Please select a file ", "No File Error", JOptionPane.ERROR_MESSAGE);
 			}
+
+
 		}
 	};
 
@@ -106,6 +111,20 @@ class StudentMarksAnalyserUI extends JFrame{
 		}
 	};
 
+	JMenuItem Module = new JMenuItem("Module Report");
+	ActionListener ModuleAction = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				generateReport();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+	};
+
+	JMenu Report = new JMenu("Report");
+
 
 
 
@@ -133,6 +152,10 @@ class StudentMarksAnalyserUI extends JFrame{
 		menuBar.add(FileMenu);
 		menuBar.add(View);
 		menuBar.add(GraphMenu);
+
+		Module.addActionListener(ModuleAction);
+		Report.add(Module);
+		menuBar.add(Report);
 		this.setJMenuBar(menuBar);
 		//Changing the logo of the program
 		this.setIconImage(this.logo);
@@ -189,7 +212,7 @@ class StudentMarksAnalyserUI extends JFrame{
 				"Choose Module",JOptionPane.PLAIN_MESSAGE,null,headings,headings[0]);
 		if (input != null && !input.equals("")) {
 			//Creating a frame to display graph
-			GraphFrame graphFrame = new GraphFrame(chooseHandler.read.getData(), input);
+			GraphFrame graphFrame = new GraphFrame(chooseHandler.read.getData(), input,true);
 		}
 	}
 	//Adding a table to the frame
@@ -204,6 +227,27 @@ class StudentMarksAnalyserUI extends JFrame{
 			this.pack();
 			setSize(1620,600);
 			//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+	}
+
+	public void generateReport() throws IOException {
+		FileOutputStream stream = new FileOutputStream("test.pdf");
+		PDFJob job = new PDFJob(stream);
+		Graphics g;
+		GraphFrame temp;
+
+		String[] modules = Arrays.copyOfRange(chooseHandler.headings, 3, chooseHandler.headings.length -1) ;
+		for (String module: modules){
+			temp = new GraphFrame(chooseHandler.read.getData(), module, false);
+			temp.revalidate();
+			temp.repaint();
+			g = job.getGraphics();
+			temp.getBar(g,0.34);
+			g.dispose();
+			temp.dispose();
+
+		}
+		job.end();
+		stream.close();
 	}
 
 

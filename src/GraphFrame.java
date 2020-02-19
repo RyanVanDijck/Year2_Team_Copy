@@ -31,12 +31,18 @@ public class GraphFrame extends JFrame {
     static Double SD;
     static Double range;
 
-    public GraphFrame(ArrayList<Student> list, String module) throws IOException {
+    static String mod;
+    boolean showframe;
+    graph graph = new graph();
+
+
+    public GraphFrame(ArrayList<Student> list, String module, boolean showFrame) throws IOException {
         super();
         //Changing the logo of the program
         this.setIconImage(this.logo);
         this.list = list;
         this.module = module;
+        mod = module;
         this.setTitle(module);
         ArrayList<Integer> temp = new ArrayList<Integer>();
         for(Student i: list){
@@ -65,22 +71,27 @@ public class GraphFrame extends JFrame {
         min = StudentMarksAnalyserUI.statistics.getMin(this.module);
         SD = StudentMarksAnalyserUI.statistics.getSD(this.module);
         range =StudentMarksAnalyserUI.statistics.getRange(this.module);
-        //Button to save pdf
+
         JButton button = new JButton("Export");
         button.addActionListener(ex);
-        this.add(button,BorderLayout.NORTH);
+        this.add(button, BorderLayout.NORTH);
         this.add(graph);
         this.pack();
-        this.setSize(500,500);
         //this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //displaying frame
-        this.setVisible(true);
-
-
+        if (showFrame) {
+            this.setVisible(true);
+        }
     }
+
+    public void getBar(Graphics g, double scale) throws IOException {
+        graph.bar(g,scale);
+    }
+
     //method to export graph to pdf
     public void export(graph graph) throws IOException {
+
         //allowing user to select file save location
         JFileChooser chooser = new JFileChooser(".");
         chooser.setDialogTitle("Save File");
@@ -112,6 +123,9 @@ public class GraphFrame extends JFrame {
 }
 //class to draw graph onto frame
 class graph extends JPanel{
+    Font font = new Font("arial", Font.BOLD, 20);
+    //The scale that the graph should be drawn at
+    Double scale = 1.0;
 
     public void paintComponent(Graphics g) {
         bar(g);
@@ -149,31 +163,32 @@ class graph extends JPanel{
         g2.setStroke(new BasicStroke());
         for (int i = 0; i < GraphFrame.tempList.size(); i++) {
             //drawing a bar for each value
-            g2.drawLine(start - 5,this.getHeight() -10,start - 5,GraphFrame.tempList.get(i) * 6);
+            g2.drawLine(start - 5, this.getHeight() -10,start - 5,GraphFrame.tempList.get(i) * 6);
             g2.drawLine(start + 5,this.getHeight() -10,start + 5,GraphFrame.tempList.get(i) * 6);
             g2.drawLine(start -5,GraphFrame.tempList.get(i) * 6 , start + 5,GraphFrame.tempList.get(i)*6);
             start = start + gap;
         }
         int yval = 50;
-        Font font = new Font("arial", Font.BOLD, 20);
+
         g2.setFont(font);
         g2.drawString("Mean: " + GraphFrame.mean.toString(), 20, yval);
-        yval+=30;
+        yval+=30 * scale;
         g2.drawString("Range: " + GraphFrame.range.toString(),20,yval);
-        yval+=30;
+        yval+=30 * scale;
         g2.drawString("Minimum Value: " + GraphFrame.min.toString(),20,yval);
-        yval += 30;
+        yval += 30 * scale;
         g2.drawString("Maximum Value: " + GraphFrame.max.toString(),20,yval);
-        yval +=30;
+        yval +=30 * scale;
         g2.drawString("Standard Deviation: " + GraphFrame.SD.toString(),20,yval);
-
-
+        g2.drawString(GraphFrame.mod, (int)(this.getHeight() * scale), (int)((20 / scale)));
 
     }
     //a function to draw a graph to a certain scale
     public void bar(Graphics g, Double scale){
         //initializing graphics
+        this.scale = scale;
         Graphics2D temp = (Graphics2D) g;
+        font= new Font("Arial", Font.BOLD, (int) (20 * scale));
         //setting scale
         temp.scale(scale,scale);
         //converting to correct data type for function
@@ -181,4 +196,5 @@ class graph extends JPanel{
         //runs as normal
         bar((Graphics)temp);
     }
+
 }
