@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import javax.imageio.ImageIO;
 import javax.swing.border.EmptyBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -116,8 +117,8 @@ class StudentMarksAnalyserUI extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			try {
 				generateReport();
-			} catch (IOException ex) {
-				ex.printStackTrace();
+			} catch (Exception e1) {
+				JOptionPane.showMessageDialog(Error ,"Please select a file ", "No File Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	};
@@ -229,24 +230,34 @@ class StudentMarksAnalyserUI extends JFrame{
 	}
 
 	public void generateReport() throws IOException {
-		FileOutputStream stream = new FileOutputStream("test.pdf");
-		PDFJob job = new PDFJob(stream);
-		Graphics g;
-		GraphFrame temp;
+		JFileChooser chooser = new JFileChooser(".");
+		chooser.setDialogTitle("Save File");
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF files", "pdf");
+		chooser.setSelectedFile(new File("Report" + ".pdf"));
+		chooser.setFileFilter(filter);
+		int select = chooser.showSaveDialog(this);
+		if (select == JFileChooser.APPROVE_OPTION) {
 
-		String[] modules = Arrays.copyOfRange(chooseHandler.headings, 3, chooseHandler.headings.length -1) ;
-		for (String module: modules){
-			temp = new GraphFrame(chooseHandler.read.getData(), module, false);
-			temp.revalidate();
-			temp.repaint();
-			g = job.getGraphics();
-			temp.getBar(g,0.34);
-			g.dispose();
-			temp.dispose();
 
+			FileOutputStream stream = new FileOutputStream(chooser.getSelectedFile());
+			PDFJob job = new PDFJob(stream);
+			Graphics g;
+			GraphFrame temp;
+
+			String[] modules = Arrays.copyOfRange(chooseHandler.headings, 3, chooseHandler.headings.length - 1);
+			for (String module : modules) {
+				temp = new GraphFrame(chooseHandler.read.getData(), module, false);
+				temp.revalidate();
+				temp.repaint();
+				g = job.getGraphics();
+				temp.getBar(g, 0.34);
+				g.dispose();
+				temp.dispose();
+
+			}
+			job.end();
+			stream.close();
 		}
-		job.end();
-		stream.close();
 	}
 
 
