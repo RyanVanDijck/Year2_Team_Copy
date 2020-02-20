@@ -32,13 +32,14 @@ public class GraphFrame extends JFrame {
     static Double range;
 
     static String mod;
-    boolean showframe;
+    static boolean showframe;
     graph graph = new graph();
 
 
     public GraphFrame(ArrayList<Student> list, String module, boolean showFrame) throws IOException {
         super();
         //Changing the logo of the program
+        showframe =showFrame;
         this.setIconImage(this.logo);
         this.list = list;
         this.module = module;
@@ -152,19 +153,32 @@ class graph extends JPanel{
         int gap = 15;//The distance to increase by each point
         //Converting to graphics 2d to allow me to make lines thicker
         Graphics2D g2 = (Graphics2D) g;
+        int a = this.getHeight() - 10;
+
+        if (!GraphFrame.showframe){
+            a = 984;
+        }
+
+
        //making lines thicker
         g2.setStroke(new BasicStroke(3));
         //Drawing axis
-        g2.drawLine(start,this.getHeight() - 10,this.getWidth() - 10,this.getHeight() - 10); //horizontal
-        g2.drawLine(start,this.getHeight() -10,start,0); // vertical
+        if (GraphFrame.showframe) {
+            g2.drawLine(start, a, this.getWidth(), a); //horizontal
+        }
+        else {
+            g2.drawLine(start, a, 1920, a);
+        }
+        g2.drawLine(start,a,start,0); // vertical
         //incrementing point
         start += 10;
         //returning the thickness of line to default
         g2.setStroke(new BasicStroke());
         for (int i = 0; i < GraphFrame.tempList.size(); i++) {
             //drawing a bar for each value
-            g2.drawLine(start - 5, this.getHeight() -10,start - 5,GraphFrame.tempList.get(i) * 6);
-            g2.drawLine(start + 5,this.getHeight() -10,start + 5,GraphFrame.tempList.get(i) * 6);
+
+            g2.drawLine(start - 5, a,start - 5,GraphFrame.tempList.get(i) * 6);
+            g2.drawLine(start + 5,a,start + 5,GraphFrame.tempList.get(i) * 6);
             g2.drawLine(start -5,GraphFrame.tempList.get(i) * 6 , start + 5,GraphFrame.tempList.get(i)*6);
             start = start + gap;
         }
@@ -180,7 +194,9 @@ class graph extends JPanel{
         g2.drawString("Maximum Value: " + GraphFrame.max.toString(),20,yval);
         yval +=30 * scale;
         g2.drawString("Standard Deviation: " + GraphFrame.SD.toString(),20,yval);
-        g2.drawString(GraphFrame.mod, (int)(this.getHeight() * scale), (int)((20 / scale)));
+
+            g2.drawString(GraphFrame.mod, (int) (a * scale), (int) ((20 / scale)));
+
 
     }
     //a function to draw a graph to a certain scale
@@ -195,6 +211,7 @@ class graph extends JPanel{
         //calling g argument function
         //runs as normal
         bar((Graphics)temp);
+        scale = 1.0;
     }
 
 }
