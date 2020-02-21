@@ -4,12 +4,12 @@ import java.util.Arrays;
 import java.util.List;
 
 
+
 public class Statistics {
 
     Read read;
-    double mean,total= 0;
-    double Max = Integer.MIN_VALUE;
-    double Min = Integer.MAX_VALUE;
+
+
     ArrayList<Student> marks;
     Student student;
 
@@ -18,9 +18,14 @@ public class Statistics {
         marks = read.getData();
     }
 
+    public Statistics() {
+    }
+
 
     //Return the mean mark for the module
     public double getMean(String module){
+        double mean = 0;
+        double total= 0;
         int count = 0;
             for (Student i : marks) {
                 if(i.getMark(module)!=null){
@@ -34,6 +39,7 @@ public class Statistics {
 
     //Return Highest mark for that module
     public double getMax(String module){
+        double Max = Integer.MIN_VALUE;
         for(Student i:marks){
             if(i.getMark(module)!=null){
                 double mark = i.getMark(module);
@@ -46,6 +52,7 @@ public class Statistics {
     }
     //Return Lowest mark for that module;
     public double getMin(String module){
+        double Min = Integer.MAX_VALUE;
         for(Student i:marks){
             if(i.getMark(module)!=null){
                 double mark = i.getMark(module);
@@ -109,5 +116,6 @@ public class Statistics {
         }
         return student;
     }
-}
 
+
+}

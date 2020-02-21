@@ -118,7 +118,7 @@ class StudentMarksAnalyserUI extends JFrame{
 			try {
 				generateReport();
 			} catch (Exception e1) {
-				JOptionPane.showMessageDialog(Error ,"Please select a file ", "No File Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(Error ,"File could not be saved", "File Save Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	};
