@@ -41,8 +41,8 @@ class StudentMarksAnalyserUI extends JFrame{
 	//Changing the theme
 	JMenu Theme = new JMenu("Theme");
 	JDialog Error = new JDialog();
-
-
+	JMenuItem chooseStudent = new JMenu ("Choose a student");
+	JMenu StudentMenu = new JMenu ("Student");
 	JMenu GraphMenu = new JMenu("Graph");
 	//Drawing a graph
 	JMenuItem Draw = new JMenuItem("Draw");
@@ -67,6 +67,17 @@ class StudentMarksAnalyserUI extends JFrame{
 
 
 
+		}
+	};
+
+	ActionListener openMenu = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				openStudentMenu();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
 		}
 	};
 
@@ -148,6 +159,7 @@ class StudentMarksAnalyserUI extends JFrame{
 		Nimbus.addActionListener(nimbusAction);
 		system.addActionListener(systemAction);
 		Metal.addActionListener(metalAction);
+		chooseStudent.addActionListener(openMenu);
 		//Adding themes
 		Theme.add(system);
 		Theme.add(Metal);
@@ -156,10 +168,12 @@ class StudentMarksAnalyserUI extends JFrame{
 		View.add(Theme);
 		FileMenu.add(Open);
 		GraphMenu.add(Draw);
+		StudentMenu.add(chooseStudent);
 		//Adding menus to menubar
 		menuBar.add(FileMenu);
 		menuBar.add(View);
 		menuBar.add(GraphMenu);
+		menuBar.add(StudentMenu);
 
 		Module.addActionListener(ModuleAction);
 		Report.add(Module);
@@ -218,6 +232,18 @@ class StudentMarksAnalyserUI extends JFrame{
 		//Allowing the user to enter a module though a drop down box
 		String input= (String)JOptionPane.showInputDialog(this, "Choose a module to graph",
 				"Choose Module",JOptionPane.PLAIN_MESSAGE,null,headings,headings[0]);
+		if (input != null && !input.equals("")) {
+			//Creating a frame to display graph
+			GraphFrame graphFrame = new GraphFrame(chooseHandler.read.getData(), input,true);
+		}
+	}
+	//Menu item for student
+	public void openStudentMenu() throws IOException {
+		//Retrieving headings from choose handler object
+		Object[] headings = Arrays.copyOfRange(chooseHandler.headings,3,chooseHandler.headings.length -1);
+		//Allowing the user to enter a module though a drop down box
+		String input= (String)JOptionPane.showInputDialog(this, "Choose a student to graph",
+				"Choose student",JOptionPane.PLAIN_MESSAGE,null,headings,headings[0]);
 		if (input != null && !input.equals("")) {
 			//Creating a frame to display graph
 			GraphFrame graphFrame = new GraphFrame(chooseHandler.read.getData(), input,true);
