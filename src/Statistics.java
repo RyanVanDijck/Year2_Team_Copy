@@ -27,13 +27,16 @@ public class Statistics {
         double mean = 0;
         double total= 0;
         int count = 0;
-            for (Student i : marks) {
-                if(i.getMark(module)!=null){
-                    total += i.getMark(module);
-                    count++;
-                }
+        for (Student i : marks) {
+            if(i.getMark(module)!=null){
+                total += i.getMark(module);
+                count++;
             }
-            mean = total/count;
+        }
+        mean = total/count;
+        if (Double.isInfinite(mean) || Double.isNaN(mean)){
+            return 0.0;
+        }
         return mean;
     }
 
@@ -48,6 +51,9 @@ public class Statistics {
                 }
             }
         }
+        if (Max ==Integer.MIN_VALUE) {
+            return 0.0;
+        }
         return Max;
     }
     //Return Lowest mark for that module;
@@ -60,6 +66,9 @@ public class Statistics {
                     Min= mark;
                 }
             }
+        }
+        if (Min == Integer.MAX_VALUE){
+            return 0.0;
         }
         return Min;
     }
@@ -85,6 +94,9 @@ public class Statistics {
             double s = Math.pow(num - mean, 2);
             double roundup = Math.round(s * 100) / 100D;
             standardDeviation += roundup;
+        }
+        if (Double.isNaN(standardDeviation)){
+            return 0.0;
         }
         return Math.sqrt(standardDeviation / (length - 1));
     }

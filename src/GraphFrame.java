@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import gnu.jpdf.PDFJob;
 import java.io.FileOutputStream;
@@ -39,15 +40,15 @@ public class GraphFrame extends JFrame {
     public GraphFrame(ArrayList<Student> list, String module, boolean showFrame) throws IOException {
         super();
         //Changing the logo of the program
-        showframe =showFrame;
+        showframe = showFrame;
         this.setIconImage(this.logo);
         this.list = list;
         this.module = module;
         mod = module;
         this.setTitle(module);
         ArrayList<Integer> temp = new ArrayList<Integer>();
-        for(Student i: list){
-            if (i.getMark(module) != null){
+        for (Student i : list) {
+            if (i.getMark(module) != null) {
                 temp.add(i.getMark(module));
             }
         }
@@ -55,7 +56,7 @@ public class GraphFrame extends JFrame {
         temp.sort(Collections.reverseOrder());
         tempList = temp;
         graph graph = new graph();
-       //Action listener to save graph to pdf
+        //Action listener to save graph to pdf
         ActionListener ex = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -67,11 +68,11 @@ public class GraphFrame extends JFrame {
             }
         };
         //setting the statistics
-        mean = StudentMarksAnalyserUI.statistics.getMean(this.module);
+        mean = round(StudentMarksAnalyserUI.statistics.getMean(this.module));
         max = StudentMarksAnalyserUI.statistics.getMax(this.module);
         min = StudentMarksAnalyserUI.statistics.getMin(this.module);
-        SD = StudentMarksAnalyserUI.statistics.getSD(this.module);
-        range =StudentMarksAnalyserUI.statistics.getRange(this.module);
+        SD = round(StudentMarksAnalyserUI.statistics.getSD(this.module)) + 0.0;
+        range = StudentMarksAnalyserUI.statistics.getRange(this.module);
 
         JButton button = new JButton("Export");
         button.addActionListener(ex);
@@ -87,7 +88,7 @@ public class GraphFrame extends JFrame {
     }
 
     public void getBar(Graphics g, double scale) throws IOException {
-        graph.bar(g,scale);
+        graph.bar(g, scale);
     }
 
     //method to export graph to pdf
@@ -100,7 +101,7 @@ public class GraphFrame extends JFrame {
         chooser.setSelectedFile(new File(module + ".pdf"));
         chooser.setFileFilter(filter);
         int select = chooser.showSaveDialog(this);
-        if(select == JFileChooser.APPROVE_OPTION){
+        if (select == JFileChooser.APPROVE_OPTION) {
             //Creating a file out put stream
             FileOutputStream stream = new FileOutputStream(chooser.getSelectedFile());
             //Using the pdf job class from the gnujpdf api
@@ -109,17 +110,45 @@ public class GraphFrame extends JFrame {
             Graphics g = job.getGraphics();
             //Drawing bar chart onto graph
             //Reducing scale to allow it to fit onto the page
-            graph.bar(g,0.34);
+            graph.bar(g, 0.34);
             //Closing connection to pdf document
             g.dispose();
             job.end();
             stream.close();
-        }
-        else{
+        } else {
             //Showing error message if file location not allowed
-            JOptionPane.showMessageDialog(this,"File could not be opened"
-            , "File Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "File could not be opened"
+                    , "File Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    //rounding a number to 2 decimal places
+    private static Double round(Double d) {
+        String a = d.toString();
+        System.out.println(a);
+        String[] temp = a.split("\\.");
+        System.out.println(Arrays.toString(temp));
+        if (temp[1].length() <= 2){
+            return d;
+        }
+        String newstring;
+        if (Integer.parseInt(Character.toString(temp[1].charAt(2))) >= 5) {
+
+            if (Integer.parseInt(Character.toString(temp[1].charAt(1))) != 9) {
+                newstring = Character.toString(temp[1].charAt(0)) + Integer.toString(Integer.parseInt(Character.toString(temp[1].charAt(1))) + 1);
+                System.out.println(Character.toString(temp[1].charAt(0)));
+                System.out.println(Integer.toString(Integer.parseInt(Character.toString(temp[1].charAt(1))) + 1));
+            } else {
+                System.out.println("hit2");
+                newstring = String.valueOf((Integer.parseInt(Character.toString(temp[1].charAt(0))) + 1) + '0');
+            }
+        }
+        else {
+            newstring = temp[1].substring(0, 2);
+        }
+        System.out.println(newstring);
+        a = temp[0] + "." + newstring;
+        System.out.println(a);
+        return Double.parseDouble(a);
     }
 }
 //class to draw graph onto frame

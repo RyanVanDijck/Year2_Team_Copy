@@ -52,11 +52,19 @@ class StudentMarksAnalyserUI extends JFrame{
 	ActionListener Drawg = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			try {
+				drawGraph();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+			/*
 			try{
 			drawGraph();}
 			catch(Exception e1){
 				JOptionPane.showMessageDialog(Error ,"Please select a file ", "No File Error", JOptionPane.ERROR_MESSAGE);
 			}
+			*/
+
 
 
 		}
