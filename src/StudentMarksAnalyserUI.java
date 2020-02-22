@@ -12,10 +12,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /*class to create a frame to display data */
 class StudentMarksAnalyserUI extends JFrame{
+	StudentMarksAnalyser main;
 	TextArea output = new TextArea(); //A text area to display program output
 	JPanel data = new JPanel(new BorderLayout());//A spare panel for now
 	//JPanel user = new JPanel();
@@ -41,11 +43,10 @@ class StudentMarksAnalyserUI extends JFrame{
 	//Changing the theme
 	JMenu Theme = new JMenu("Theme");
 	JDialog Error = new JDialog();
-
-
 	JMenu GraphMenu = new JMenu("Graph");
 	//Drawing a graph
-	JMenuItem Draw = new JMenuItem("Draw");
+	JMenuItem Draw = new JMenuItem("Module");
+	JMenuItem chooseStudent = new JMenuItem ("Student");
 	static JButton chooseFile;
 
 
@@ -67,6 +68,17 @@ class StudentMarksAnalyserUI extends JFrame{
 
 
 
+		}
+	};
+
+	ActionListener openMenu = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				openStudentMenu();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
 		}
 	};
 
@@ -142,12 +154,14 @@ class StudentMarksAnalyserUI extends JFrame{
 		//Calling JFrame constructor
 		super(name);
 		//Adding Action Listeners
+		this.main=main;
 		chooseHandler = new ChooseHandler(main);
 		Open.addActionListener(chooseHandler);
 		Draw.addActionListener(Drawg);
 		Nimbus.addActionListener(nimbusAction);
 		system.addActionListener(systemAction);
 		Metal.addActionListener(metalAction);
+		chooseStudent.addActionListener(openMenu);
 		//Adding themes
 		Theme.add(system);
 		Theme.add(Metal);
@@ -156,10 +170,12 @@ class StudentMarksAnalyserUI extends JFrame{
 		View.add(Theme);
 		FileMenu.add(Open);
 		GraphMenu.add(Draw);
+		GraphMenu.add(chooseStudent);
 		//Adding menus to menubar
 		menuBar.add(FileMenu);
 		menuBar.add(View);
 		menuBar.add(GraphMenu);
+
 
 		Module.addActionListener(ModuleAction);
 		Report.add(Module);
@@ -218,6 +234,22 @@ class StudentMarksAnalyserUI extends JFrame{
 		//Allowing the user to enter a module though a drop down box
 		String input= (String)JOptionPane.showInputDialog(this, "Choose a module to graph",
 				"Choose Module",JOptionPane.PLAIN_MESSAGE,null,headings,headings[0]);
+		if (input != null && !input.equals("")) {
+			//Creating a frame to display graph
+			GraphFrame graphFrame = new GraphFrame(chooseHandler.read.getData(), input,true);
+		}
+	}
+	//Menu item for student
+	public void openStudentMenu() throws IOException {
+		ArrayList<Student> students = main.getRead().getData();
+		//Retrieving headings from choose handler object
+		Object[] headings = new Object[students.size()];
+
+		for(int i=0;i<headings.length;i++)headings[i]=students.get(i).getRegNo();
+
+		//Allowing the user to enter a module though a drop down box
+		String input= (String)JOptionPane.showInputDialog(this, "Choose a student to graph",
+				"Choose student",JOptionPane.PLAIN_MESSAGE,null,headings,headings[0]);
 		if (input != null && !input.equals("")) {
 			//Creating a frame to display graph
 			GraphFrame graphFrame = new GraphFrame(chooseHandler.read.getData(), input,true);
