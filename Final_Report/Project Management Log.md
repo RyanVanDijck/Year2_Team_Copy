@@ -13,3 +13,4 @@ Another strength that we have had is that we have been able to use version contr
 One issue in particular is that the program in some places has been built using some poor coding practices. This has made it diffcult to be able to make changes, fixes and add features efficiently due to a lack of a proper organisation structure. This issue has appeared because of a lack of organisation amongst the team. We should have used the organisational tools available to ensure that we had a clear idea of what the structure of the program before we began writing the program.  
 
 Another issue that we have had regards the use of jira. During the module, we were learning how to effectively use jira to organise ourselves and some mistakes were made along the way. This means that some of our burndown charts do not accurately reflect the amount of work we have actually completed. 
+
