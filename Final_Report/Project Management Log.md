@@ -43,6 +43,14 @@ Also some poorly written tasks and stories meant that some of the story points c
 
 The graph also follows a general trend that most work is completed towards the end of the week. 
 
-## Weeks 17-19
+### Weeks 17-19
+
+We decided to combine the weeks 17-19 of the project as there were long tasks that needed to be done and we had to get back into the rhythm of work. 
+
+Unfortunately, we were far away from our goal in terms of story points. This is because many of the tasks for that particular week could not be completed. 
+
+Ulimately, not enough work was completed in this period, and work that was completed was not reported on jira properly. We should have worked more on ensuring that we had a clear vision of what the program should look like as well as keeping a clear log of completed work. 
+
+
 
 
