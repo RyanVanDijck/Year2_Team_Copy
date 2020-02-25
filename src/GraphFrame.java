@@ -124,9 +124,7 @@ public class GraphFrame extends JFrame {
     //rounding a number to 2 decimal places
     private static Double round(Double d) {
         String a = d.toString();
-        System.out.println(a);
         String[] temp = a.split("\\.");
-        System.out.println(Arrays.toString(temp));
         if (temp[1].length() <= 2){
             return d;
         }
@@ -135,19 +133,14 @@ public class GraphFrame extends JFrame {
 
             if (Integer.parseInt(Character.toString(temp[1].charAt(1))) != 9) {
                 newstring = Character.toString(temp[1].charAt(0)) + Integer.toString(Integer.parseInt(Character.toString(temp[1].charAt(1))) + 1);
-                System.out.println(Character.toString(temp[1].charAt(0)));
-                System.out.println(Integer.toString(Integer.parseInt(Character.toString(temp[1].charAt(1))) + 1));
             } else {
-                System.out.println("hit2");
                 newstring = String.valueOf((Integer.parseInt(Character.toString(temp[1].charAt(0))) + 1) + '0');
             }
         }
         else {
             newstring = temp[1].substring(0, 2);
         }
-        System.out.println(newstring);
         a = temp[0] + "." + newstring;
-        System.out.println(a);
         return Double.parseDouble(a);
     }
 }
