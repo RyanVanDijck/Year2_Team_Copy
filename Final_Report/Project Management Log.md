@@ -51,6 +51,21 @@ Unfortunately, we were far away from our goal in terms of story points. This is 
 
 Ulimately, not enough work was completed in this period, and work that was completed was not reported on jira properly. We should have worked more on ensuring that we had a clear vision of what the program should look like as well as keeping a clear log of completed work. 
 
+### Week 20 
+
+Although we still didn't reach the story point target in week 20, we made better and more gradual progress on jira. 
+
+This was because of more accurate reporting of work completed on jira, as well as the creation of better tasks and stories. 
+
+Unfortunately, at the end of that sprint, there were many issues that were readded to the backlog. This was because most of the subtasks inside of some stories weere completed, however a few of them were not completed, meaning that work completed inside of these stories was reflected in the burndown charts. 
+
+### Week 21 
+
+The definitive feature of the week 21 burndown image is that there is a large decline in story points towards the end of the graph. One of the major issues that the team has is that much of the work for each sprint is completed at the end of the sprints. While it leads to a poor quality of burndown charts, the beggest issue is that if a team member is struggling, there is no good oppertunity to help them so that the targets can be met. 
+
+In this sprint, we were close to achieving 0 story points for the overall sprint by the end. We did not reach the target because there were some tasks that we decided not to complete, such as the implementation of unit testing. Before adding items to a sprint, we should have made sure that we had prioritised properly. 
+
+
 
 
 
