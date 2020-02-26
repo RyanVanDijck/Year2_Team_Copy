@@ -1,25 +1,24 @@
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
+import java.util.*;
 
 
 public class Statistics {
 
     Read read;
 
+    private ArrayList<Student> marks;
+    private ArrayList<String> modules;
+    private Map<String,Integer>markmap = new HashMap<>();
+    private String module;
+    private Student student;
 
-    ArrayList<Student> marks;
-    Student student;
-
-    public Statistics(Read read) throws IOException {
+    public Statistics(Read read) throws IOException{
         this.read = read;
         marks = read.getData();
+        modules =  read.getHeadings();
     }
 
-    public Statistics() {
-    }
+    public Statistics() {}
 
 
     //Return the mean mark for the module
@@ -103,7 +102,7 @@ public class Statistics {
 
     //Method to return the best student in that module
     //Need to catch NullPointException in case that module has no value
-    public Student getBest(String module) {
+    public Student getBestStudent(String module) {
         double bestscore = getMax(module);
         for (Student i : marks) {
             if (i.getMark(module) != null) {
@@ -117,7 +116,7 @@ public class Statistics {
 
     //Method to return the worst student in that module
     // Need to catch NullPointException in case that module has no value
-    public Student getWorst(String module){
+    public Student getWorstStudent(String module){
         double lowest = getMin(module);
         for (Student i : marks) {
             if (i.getMark(module) != null) {
@@ -129,5 +128,17 @@ public class Statistics {
         return student;
     }
 
-
+//    public Map<String,Integer> getStudentBest(String regNo){
+//        int maxValue = Integer.MIN_VALUE;
+//        Map<String, Integer> bestmodule =  new HashMap<>();
+//        if(student.getRegNo()!=null && student.getRegNo().equals(regNo))
+//            for(String j:modules){
+//                if(markmap.get(j)>maxValue){
+//                  this.module = j;
+//                  maxValue = markmap.get(j);
+//                  bestmodule.replace(module,maxValue);
+//                }
+//            }
+//        return bestmodule;
+//    }
 }
