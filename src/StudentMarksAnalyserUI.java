@@ -1,28 +1,34 @@
+import gnu.jpdf.PDFJob;
+
 import javax.swing.*;
 import java.awt.*;
 import javax.imageio.ImageIO;
 import javax.swing.border.EmptyBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.awt.Color;
-import java.time.chrono.MinguoEra;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /*class to create a frame to display data */
 class StudentMarksAnalyserUI extends JFrame{
+	StudentMarksAnalyser main;
 	TextArea output = new TextArea(); //A text area to display program output
-	JPanel visual = new JPanel(); // A panel to show visual aspects
 	JPanel data = new JPanel(new BorderLayout());//A spare panel for now
-	JPanel user = new JPanel();
+	//JPanel user = new JPanel();
 	JPanel header = new JPanel(new BorderLayout());
-	//JPanel  select = new JPanel();
+	JPanel buttonArea = new JPanel();
 	JPanel button = new JPanel();
 	JTable table;
+    static Statistics statistics;
 
 	BufferedImage logo = (ImageIO.read(getClass().getResource("/SCANALYZERLOGO.png")));
+	BufferedImage folder_Icon = (ImageIO.read(getClass().getResource("/FILE_ICON.png")));
 
 	JComboBox course = new JComboBox();
 	//Handles Reading from the file
@@ -37,26 +43,47 @@ class StudentMarksAnalyserUI extends JFrame{
 	//Changing the theme
 	JMenu Theme = new JMenu("Theme");
 	JDialog Error = new JDialog();
-
-
 	JMenu GraphMenu = new JMenu("Graph");
 	//Drawing a graph
-	JMenuItem Draw = new JMenuItem("Draw");
+	JMenuItem Draw = new JMenuItem("Module");
+	JMenuItem chooseStudent = new JMenuItem ("Student");
+	static JButton chooseFile;
 
 
 	ActionListener Drawg = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			try {
+				drawGraph();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+			/*
 			try{
 			drawGraph();}
 			catch(Exception e1){
 				JOptionPane.showMessageDialog(Error ,"Please select a file ", "No File Error", JOptionPane.ERROR_MESSAGE);
 			}
+			*/
+
+
+
+		}
+	};
+
+	ActionListener openMenu = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				openStudentMenu();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
 		}
 	};
 
 	//The three themes
-	JMenuItem System = new JMenuItem("System");
+	JMenuItem system = new JMenuItem("System");
 	ActionListener systemAction = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -104,6 +131,20 @@ class StudentMarksAnalyserUI extends JFrame{
 		}
 	};
 
+	JMenuItem Module = new JMenuItem("Module Report");
+	ActionListener ModuleAction = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				generateReport();
+			} catch (Exception e1) {
+				JOptionPane.showMessageDialog(Error ,"File could not be saved", "File Save Error", JOptionPane.ERROR_MESSAGE);
+			}
+		}
+	};
+
+	JMenu Report = new JMenu("Report");
+
 
 
 
@@ -113,40 +154,55 @@ class StudentMarksAnalyserUI extends JFrame{
 		//Calling JFrame constructor
 		super(name);
 		//Adding Action Listeners
+		this.main=main;
 		chooseHandler = new ChooseHandler(main);
 		Open.addActionListener(chooseHandler);
 		Draw.addActionListener(Drawg);
 		Nimbus.addActionListener(nimbusAction);
-		System.addActionListener(systemAction);
+		system.addActionListener(systemAction);
 		Metal.addActionListener(metalAction);
+		chooseStudent.addActionListener(openMenu);
 		//Adding themes
-		Theme.add(System);
+		Theme.add(system);
 		Theme.add(Metal);
 		Theme.add(Nimbus);
 		//Adding items to menus
 		View.add(Theme);
 		FileMenu.add(Open);
 		GraphMenu.add(Draw);
+		GraphMenu.add(chooseStudent);
 		//Adding menus to menubar
 		menuBar.add(FileMenu);
 		menuBar.add(View);
 		menuBar.add(GraphMenu);
+
+
+		Module.addActionListener(ModuleAction);
+		Report.add(Module);
+		menuBar.add(Report);
 		this.setJMenuBar(menuBar);
 		//Changing the logo of the program
 		this.setIconImage(this.logo);
 
 		setSize(1620,600);
-		user.setBackground(Color.decode("#0000"));
+		//user.setBackground(Color.decode("#0000"));
 		data.setBackground(Color.decode("#0000"));
+		header.setBackground((Color.decode("#0000")));
+		buttonArea.setBackground((Color.decode("#0000")));
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //The program will close when the window closes
 
 		output.setEditable(false);
 		JButton chooseFile = new JButton("Choose File");
-		data.setBorder(new EmptyBorder(10, 10, 10, 10));
+		chooseFile.setFont(new Font("Courier", Font.PLAIN,12));
+		chooseFile.setPreferredSize(new Dimension(250,100));
+		chooseFile.setIcon(new ImageIcon(folder_Icon));
+		//data.setBorder(new EmptyBorder(10, 10, 10, 10));
 
 		//select.setLayout(new GridLayout(4,1));
 		//select.add(course);
-		data.add(chooseFile,BorderLayout.SOUTH);
+
+		buttonArea.setLayout(new GridBagLayout());
+		buttonArea.add(chooseFile);
 
 		//user.setLayout(new GridLayout(1,2));
 		//user.add(select);
@@ -158,19 +214,21 @@ class StudentMarksAnalyserUI extends JFrame{
 		//this.add(visual);
 		BufferedImage image = (ImageIO.read(getClass().getResource("/SCANALYZER.png")));
 		JLabel picLabel = new JLabel(new ImageIcon(image));
-		user.add(picLabel,BorderLayout.NORTH);
+		header.add(picLabel,BorderLayout.NORTH);
 
 		this.add(header,BorderLayout.NORTH);
 		//this.add(user);
+		this.add(buttonArea,BorderLayout.CENTER);
 		this.add(data,BorderLayout.SOUTH);
-		this.add(user);
+
 
 		//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		chooseFile.addActionListener(chooseHandler);
 
+
 	}
 	//Drawing a graph for a chosen Module
-	public void drawGraph(){
+	public void drawGraph() throws IOException{
 		//Retrieving headings from choose handler object
 		Object[] headings = Arrays.copyOfRange(chooseHandler.headings,3,chooseHandler.headings.length -1);
 		//Allowing the user to enter a module though a drop down box
@@ -178,7 +236,23 @@ class StudentMarksAnalyserUI extends JFrame{
 				"Choose Module",JOptionPane.PLAIN_MESSAGE,null,headings,headings[0]);
 		if (input != null && !input.equals("")) {
 			//Creating a frame to display graph
-			GraphFrame graphFrame = new GraphFrame(chooseHandler.read.getData(), input);
+			GraphFrame graphFrame = new GraphFrame(chooseHandler.read.getData(), input,true);
+		}
+	}
+	//Menu item for student
+	public void openStudentMenu() throws IOException {
+		ArrayList<Student> students = main.getRead().getData();
+		//Retrieving headings from choose handler object
+		Object[] headings = new Object[students.size()];
+
+		for(int i=0;i<headings.length;i++)headings[i]=students.get(i).getRegNo();
+
+		//Allowing the user to enter a module though a drop down box
+		String input= (String)JOptionPane.showInputDialog(this, "Choose a student to graph",
+				"Choose student",JOptionPane.PLAIN_MESSAGE,null,headings,headings[0]);
+		if (input != null && !input.equals("")) {
+			//Creating a frame to display graph
+			GraphFrame graphFrame = new GraphFrame(chooseHandler.read.getData(), input,true);
 		}
 	}
 	//Adding a table to the frame
@@ -188,11 +262,42 @@ class StudentMarksAnalyserUI extends JFrame{
 			//adding table to the frame
 
 			this.data.add(new JScrollPane(table), BorderLayout.SOUTH);
-			//data.remove(this.cho)
+			this.remove(buttonArea);
 			this.repaint();
 			this.pack();
 			setSize(1620,600);
 			//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+	}
+
+	public void generateReport() throws IOException {
+		JFileChooser chooser = new JFileChooser(".");
+		chooser.setDialogTitle("Save File");
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF files", "pdf");
+		chooser.setSelectedFile(new File("Report" + ".pdf"));
+		chooser.setFileFilter(filter);
+		int select = chooser.showSaveDialog(this);
+		if (select == JFileChooser.APPROVE_OPTION) {
+
+
+			FileOutputStream stream = new FileOutputStream(chooser.getSelectedFile());
+			PDFJob job = new PDFJob(stream);
+			Graphics g;
+			GraphFrame temp;
+
+			String[] modules = Arrays.copyOfRange(chooseHandler.headings, 3, chooseHandler.headings.length - 1);
+			for (String module : modules) {
+				temp = new GraphFrame(chooseHandler.read.getData(), module, false);
+				temp.revalidate();
+				temp.repaint();
+				g = job.getGraphics();
+				temp.getBar(g, 0.34);
+				g.dispose();
+				temp.dispose();
+
+			}
+			job.end();
+			stream.close();
+		}
 	}
 
 

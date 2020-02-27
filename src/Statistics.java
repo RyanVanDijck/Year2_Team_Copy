@@ -1,35 +1,47 @@
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+
 
 public class Statistics {
 
-    Read read = new Read();
-    double mean,total= 0;
-    double Max = Integer.MIN_VALUE;
-    double Min = Integer.MAX_VALUE;
-    ArrayList<Student> marks = read.getData();
-    Student student;
+    Read read;
 
-    public Statistics() throws IOException {}
+    private ArrayList<Student> marks;
+    private ArrayList<String> modules;
+    private Map<String,Integer>markmap = new HashMap<>();
+    private String module;
+    private Student student;
+
+    public Statistics(Read read) throws IOException{
+        this.read = read;
+        marks = read.getData();
+        modules =  read.getHeadings();
+    }
+
+    public Statistics() {}
 
 
     //Return the mean mark for the module
     public double getMean(String module){
+        double mean = 0;
+        double total= 0;
         int count = 0;
-            for (Student i : marks) {
-                if(i.getMark(module)!=null){
-                    total += i.getMark(module);
-                    count++;
-                }
+        for (Student i : marks) {
+            if(i.getMark(module)!=null){
+                total += i.getMark(module);
+                count++;
             }
-            mean = total/count;
+        }
+        mean = total/count;
+        if (Double.isInfinite(mean) || Double.isNaN(mean)){
+            return 0.0;
+        }
         return mean;
     }
 
     //Return Highest mark for that module
     public double getMax(String module){
+        double Max = Integer.MIN_VALUE;
         for(Student i:marks){
             if(i.getMark(module)!=null){
                 double mark = i.getMark(module);
@@ -38,10 +50,14 @@ public class Statistics {
                 }
             }
         }
+        if (Max ==Integer.MIN_VALUE) {
+            return 0.0;
+        }
         return Max;
     }
     //Return Lowest mark for that module;
     public double getMin(String module){
+        double Min = Integer.MAX_VALUE;
         for(Student i:marks){
             if(i.getMark(module)!=null){
                 double mark = i.getMark(module);
@@ -49,6 +65,9 @@ public class Statistics {
                     Min= mark;
                 }
             }
+        }
+        if (Min == Integer.MAX_VALUE){
+            return 0.0;
         }
         return Min;
     }
@@ -75,12 +94,15 @@ public class Statistics {
             double roundup = Math.round(s * 100) / 100D;
             standardDeviation += roundup;
         }
+        if (Double.isNaN(standardDeviation)){
+            return 0.0;
+        }
         return Math.sqrt(standardDeviation / (length - 1));
     }
 
     //Method to return the best student in that module
     //Need to catch NullPointException in case that module has no value
-    public Student getBest(String module) {
+    public Student getBestStudent(String module) {
         double bestscore = getMax(module);
         for (Student i : marks) {
             if (i.getMark(module) != null) {
@@ -94,7 +116,7 @@ public class Statistics {
 
     //Method to return the worst student in that module
     // Need to catch NullPointException in case that module has no value
-    public Student getWorst(String module){
+    public Student getWorstStudent(String module){
         double lowest = getMin(module);
         for (Student i : marks) {
             if (i.getMark(module) != null) {
@@ -105,5 +127,18 @@ public class Statistics {
         }
         return student;
     }
-}
 
+//    public Map<String,Integer> getStudentBest(String regNo){
+//        int maxValue = Integer.MIN_VALUE;
+//        Map<String, Integer> bestmodule =  new HashMap<>();
+//        if(student.getRegNo()!=null && student.getRegNo().equals(regNo))
+//            for(String j:modules){
+//                if(markmap.get(j)>maxValue){
+//                  this.module = j;
+//                  maxValue = markmap.get(j);
+//                  bestmodule.replace(module,maxValue);
+//                }
+//            }
+//        return bestmodule;
+//    }
+}
