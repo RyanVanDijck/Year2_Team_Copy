@@ -29,6 +29,8 @@ class StudentMarksAnalyserUI extends JFrame{
 
 	BufferedImage logo = (ImageIO.read(getClass().getResource("/SCANALYZERLOGO.png")));
 	BufferedImage folder_Icon = (ImageIO.read(getClass().getResource("/FILE_ICON.png")));
+	BufferedImage glass_Icon = (ImageIO.read(getClass().getResource("/GLASS_ICON.png")));
+
 
 	JComboBox course = new JComboBox();
 	//Handles Reading from the file
@@ -47,7 +49,7 @@ class StudentMarksAnalyserUI extends JFrame{
 	//Drawing a graph
 	JMenuItem Draw = new JMenuItem("Module");
 	JMenuItem chooseStudent = new JMenuItem ("Student");
-	static JButton chooseFile;
+	//static JButton chooseFile;
 
 
 	ActionListener Drawg = new ActionListener() {
@@ -58,13 +60,12 @@ class StudentMarksAnalyserUI extends JFrame{
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
-			/*
 			try{
 			drawGraph();}
 			catch(Exception e1){
 				JOptionPane.showMessageDialog(Error ,"Please select a file ", "No File Error", JOptionPane.ERROR_MESSAGE);
 			}
-			*/
+
 
 
 
@@ -193,16 +194,25 @@ class StudentMarksAnalyserUI extends JFrame{
 
 		output.setEditable(false);
 		JButton chooseFile = new JButton("Choose File");
+		JButton showData = new JButton("Show Data");
+		showData.setFont(new Font("Courier", Font.PLAIN,12));
 		chooseFile.setFont(new Font("Courier", Font.PLAIN,12));
-		chooseFile.setPreferredSize(new Dimension(250,100));
+		chooseFile.setPreferredSize(new Dimension(300,150));
+		showData.setPreferredSize(new Dimension(300,150));
 		chooseFile.setIcon(new ImageIcon(folder_Icon));
-		//data.setBorder(new EmptyBorder(10, 10, 10, 10));
+		showData.setIcon(new ImageIcon(glass_Icon));
+
 
 		//select.setLayout(new GridLayout(4,1));
 		//select.add(course);
 
 		buttonArea.setLayout(new GridBagLayout());
 		buttonArea.add(chooseFile);
+		buttonArea.add(showData);
+
+		chooseFile.setBorder(BorderFactory.createLineBorder(Color.BLACK, 30));
+		showData.setBorder(BorderFactory.createLineBorder(Color.BLACK, 30));
+		//showData.setVisible(false);
 
 		//user.setLayout(new GridLayout(1,2));
 		//user.add(select);
