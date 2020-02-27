@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.*;
 
 
@@ -7,15 +8,35 @@ public class Statistics {
     Read read;
 
     private ArrayList<Student> marks;
-    private ArrayList<String> modules;
-    private Map<String,Integer>markmap = new HashMap<>();
-    private String module;
     private Student student;
+    String[][] array;
+    String[] headings;
+    int mark;
+    Map<String,Integer> module= new HashMap<>();
 
     public Statistics(Read read) throws IOException{
         this.read = read;
         marks = read.getData();
-        modules =  read.getHeadings();
+        module.put(null,null);
+        array = new String[read.getData().size()][19];
+        headings = new String[19];
+        for (int i = 0;i < read.getHeadings().size()-1;i++){
+            headings[i] = read.getHeadings().get(i);
+        }
+        headings[18] = "Average Mark";
+        for (int i = 0; i < read.getData().size() ; i++){
+            array[i][0] = read.getData().get(i).getRegNo();
+            array[i][1] = read.getData().get(i).getExamNo();
+            array[i][2] = read.getData().get(i).getStage();
+            for (int j=3; j<18; j++){
+                if (!(read.getData().get(i).getMark(headings[j]) == null)){
+                    array[i][j] = Integer.toString(read.getData().get(i).getMark(headings[j]));
+                }
+                else{
+                    array[i][j] = "N/A";
+                }
+            }
+        }
     }
 
     public Statistics() {}
@@ -128,17 +149,32 @@ public class Statistics {
         return student;
     }
 
-//    public Map<String,Integer> getStudentBest(String regNo){
-//        int maxValue = Integer.MIN_VALUE;
-//        Map<String, Integer> bestmodule =  new HashMap<>();
+    public Map<String,Integer> getStudentBest(String regNo){
+        int best = Integer.MIN_VALUE;
+        for(int i=0;i<read.getData().size();i++){
+            if(array[i][0].equals(regNo)){
+                for(int j=3; j<18 ;j++){
+                    if(!(read.getData().get(i).getMark(headings[j])== null)){
+                        mark = read.getData().get(i).getMark(headings[j]);
+                        if(mark > best){
+                            best = mark;
+                            module.replace(headings[j],best);
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println(module);
+        return module;
+    }
+
+//    public Map<String, Integer> getStudentWorst(String regNo){
+//        int minValue = Integer.MAX_VALUE;
+//        Map<String,Integer> worstmodule = new HashMap<>();
 //        if(student.getRegNo()!=null && student.getRegNo().equals(regNo))
 //            for(String j:modules){
-//                if(markmap.get(j)>maxValue){
-//                  this.module = j;
-//                  maxValue = markmap.get(j);
-//                  bestmodule.replace(module,maxValue);
-//                }
+//
 //            }
-//        return bestmodule;
+//    return worstmodule;
 //    }
 }

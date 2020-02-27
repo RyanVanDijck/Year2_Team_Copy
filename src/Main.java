@@ -22,6 +22,11 @@ public class Main {
 
         // String file = "data.csv"; //Name of file
 
+        Statistics stats = new Statistics();
+        try{
+            stats.getStudentBest("2500001");
+        }catch(NullPointerException npe){
 
+        }
 }
 }
