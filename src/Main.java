@@ -18,6 +18,7 @@ public class Main {
             e.printStackTrace();
         }
 
+
         StudentMarksAnalyser main = new StudentMarksAnalyser();
 
         // String file = "data.csv"; //Name of file

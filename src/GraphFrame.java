@@ -151,7 +151,20 @@ class graph extends JPanel{
     Double scale = 1.0;
 
     public void paintComponent(Graphics g) {
-        bar(g);
+        int constant = 1920 * 1080;
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        double currentArea = screen.getHeight() * screen.getWidth();
+        double screenScale;
+        if (currentArea< constant) {
+            screenScale =currentArea * 1.5 / constant;
+        }
+        else if(currentArea == constant){
+            screenScale = 1;
+        }
+        else{
+            screenScale =currentArea / constant * 1.5;
+        }
+        bar(g,screenScale);
     }
     //drawing a scatter graph of results
     public void scatter(Graphics g){
@@ -186,7 +199,7 @@ class graph extends JPanel{
         g2.setStroke(new BasicStroke(3));
         //Drawing axis
         if (GraphFrame.showframe) {
-            g2.drawLine(start, a, this.getWidth(), a); //horizontal
+            g2.drawLine(start, a, 90000, a); //horizontal
         }
         else {
             g2.drawLine(start, a, 1920, a);
