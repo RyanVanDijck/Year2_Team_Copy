@@ -32,7 +32,7 @@ class StudentMarksAnalyserUI extends JFrame{
 	BufferedImage logo = (ImageIO.read(getClass().getResource("/SCANALYZERLOGO.png")));
 	BufferedImage folder_Icon = (ImageIO.read(getClass().getResource("/FILE_ICON.png")));
 	BufferedImage glass_Icon = (ImageIO.read(getClass().getResource("/GLASS_ICON.png")));
-
+	BufferedImage report_Icon = (ImageIO.read(getClass().getResource("/GRAPH_LOGO.png")));
 
 	JComboBox course = new JComboBox();
 	//Handles Reading from the file
@@ -54,7 +54,7 @@ class StudentMarksAnalyserUI extends JFrame{
 	//static JButton chooseFile;
 
 
-	JButton showData = new JButton("Show Data");
+
 	ActionListener Drawg = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -86,8 +86,6 @@ class StudentMarksAnalyserUI extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 				addTable(dataArray,dataHeadings);
-				showData.setVisible(true);
-				add(showData);
 		}
 	};
 
@@ -202,13 +200,17 @@ class StudentMarksAnalyserUI extends JFrame{
 
 		output.setEditable(false);
 		JButton chooseFile = new JButton("Choose File");
-
+		JButton showData = new JButton("Show Data");
+		JButton showReport = new JButton(("Show Report"));
+		showReport.setFont(new Font("Courier", Font.PLAIN,12));
 		showData.setFont(new Font("Courier", Font.PLAIN,12));
 		chooseFile.setFont(new Font("Courier", Font.PLAIN,12));
 		chooseFile.setPreferredSize(new Dimension(300,150));
 		showData.setPreferredSize(new Dimension(300,150));
+		showReport.setPreferredSize(new Dimension(300,150));
 		chooseFile.setIcon(new ImageIcon(folder_Icon));
 		showData.setIcon(new ImageIcon(glass_Icon));
+		showReport.setIcon(new ImageIcon(report_Icon));
 		showData.addActionListener(returnData);
 
 		//select.setLayout(new GridLayout(4,1));
@@ -217,9 +219,11 @@ class StudentMarksAnalyserUI extends JFrame{
 		buttonArea.setLayout(new GridBagLayout());
 		buttonArea.add(chooseFile);
 		buttonArea.add(showData);
+		buttonArea.add(showReport);
 
 		chooseFile.setBorder(BorderFactory.createLineBorder(Color.BLACK, 30));
 		showData.setBorder(BorderFactory.createLineBorder(Color.BLACK, 30));
+		showReport.setBorder(BorderFactory.createLineBorder(Color.BLACK, 30));
 
 		//user.setLayout(new GridLayout(1,2));
 		//user.add(select);
