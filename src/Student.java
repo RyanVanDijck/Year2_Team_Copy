@@ -15,27 +15,16 @@ public class Student {
         this.examNo=examNo;
         this.stage=stage;
         this.avgMark=avgMark;
-        createModules();
+        //createModules();
     }
 
     //fills map with every module with mark as null
-    private void createModules(){
-        marks.put("CE101-4-FY",null);
-        marks.put("CE101-4-SP",null);
-        marks.put("CE141-4-AU",null);
-        marks.put("CE141-4-FY",null);
-        marks.put("CE142-4-AU",null);
-        marks.put("CE142-4-FY",null);
-        marks.put("CE151-4-AU",null);
-        marks.put("CE152-4-SP",null);
-        marks.put("CE153-4-AU",null);
-        marks.put("CE154-4-SP",null);
-        marks.put("CE155-4-SP",null);
-        marks.put("CE161-4-AU",null);
-        marks.put("CE162-4-SP",null);
-        marks.put("CE163-4-AU",null);
-        marks.put("CE164-4-SP",null);
+    public void createModules(ArrayList<String> list){
+        for(String readModule: list){
+            marks.put(readModule, null);
+        }
     }
+
 
     //sets the mark given the module and mark
     public void setMark(String module,int mark){ marks.replace(module,mark); }
@@ -59,5 +48,7 @@ public class Student {
     public int getAvgMark(){
         return avgMark;
     }
+
+
 
 }

@@ -26,6 +26,7 @@ public class Read {
             }
             else{
                 Student student = new Student(values[0],values[1],values[2],Integer.parseInt(values[19]));
+                student.createModules(headings);
                 for(int i=3;i<18;i++){
                     if(!values[i].equals("")) student.setMark(headings.get(i),Integer.parseInt(values[i]));
                 }
