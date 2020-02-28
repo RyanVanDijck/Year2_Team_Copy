@@ -10,7 +10,6 @@ public class Statistics {
     private ArrayList<Student> students;
     private String[][] array;
     private String[] headings;
-    private int mark;
     Map<String, Integer> module = new HashMap<>();
 
     public Statistics(Read read) throws IOException {
@@ -157,25 +156,21 @@ public class Statistics {
         return worst;
     }
 
-    public Map<String, Integer> getStudentBest(String regNo) {
-        int best = Integer.MIN_VALUE;
-        for (int i = 0; i < read.getData().size(); i++) {
-            if (array[i][0].equals(regNo)) {
-                for (int j = 3; j < 18; j++) {
-                    if (!(read.getData().get(i).getMark(headings[j]) == null)) {
-                        mark = read.getData().get(i).getMark(headings[j]);
-                        if (mark > best) {
-                            best = mark;
-                            module.replace(headings[j], best);
-                        }
-                    }
+
+
+    public Map<String, Integer> getMarksByRegNo(String regNo) {
+        Map<String, Integer> StudentModules = new HashMap<>();
+        for(Student i:students){
+            if(i.getRegNo().equals(regNo)){
+                for(int z=3;z<18;z++){
+                    StudentModules.put(headings[z],i.getMark(headings[z]));
                 }
             }
         }
-        System.out.println(module);
-        return module;
+        return StudentModules;
     }
 }
+
 
 //    public Map<String, Integer> getStudentWorst(String regNo){
 //        int minValue = Integer.MAX_VALUE;
