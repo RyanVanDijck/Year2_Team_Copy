@@ -3,7 +3,6 @@ import gnu.jpdf.PDFJob;
 import javax.swing.*;
 import java.awt.*;
 import javax.imageio.ImageIO;
-import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,6 +24,9 @@ class StudentMarksAnalyserUI extends JFrame{
 	JPanel buttonArea = new JPanel();
 	JPanel button = new JPanel();
 	JTable table;
+	static String [][] dataArray;
+	static String [] dataHeadings;
+
     static Statistics statistics;
 
 	BufferedImage logo = (ImageIO.read(getClass().getResource("/SCANALYZERLOGO.png")));
@@ -52,14 +54,11 @@ class StudentMarksAnalyserUI extends JFrame{
 	//static JButton chooseFile;
 
 
+	JButton showData = new JButton("Show Data");
 	ActionListener Drawg = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			try {
-				drawGraph();
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
+
 			try{
 			drawGraph();}
 			catch(Exception e1){
@@ -80,6 +79,15 @@ class StudentMarksAnalyserUI extends JFrame{
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
+		}
+	};
+
+	ActionListener returnData = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+				addTable(dataArray,dataHeadings);
+				showData.setVisible(true);
+				add(showData);
 		}
 	};
 
@@ -194,14 +202,14 @@ class StudentMarksAnalyserUI extends JFrame{
 
 		output.setEditable(false);
 		JButton chooseFile = new JButton("Choose File");
-		JButton showData = new JButton("Show Data");
+
 		showData.setFont(new Font("Courier", Font.PLAIN,12));
 		chooseFile.setFont(new Font("Courier", Font.PLAIN,12));
 		chooseFile.setPreferredSize(new Dimension(300,150));
 		showData.setPreferredSize(new Dimension(300,150));
 		chooseFile.setIcon(new ImageIcon(folder_Icon));
 		showData.setIcon(new ImageIcon(glass_Icon));
-
+		showData.addActionListener(returnData);
 
 		//select.setLayout(new GridLayout(4,1));
 		//select.add(course);
@@ -212,7 +220,6 @@ class StudentMarksAnalyserUI extends JFrame{
 
 		chooseFile.setBorder(BorderFactory.createLineBorder(Color.BLACK, 30));
 		showData.setBorder(BorderFactory.createLineBorder(Color.BLACK, 30));
-		//showData.setVisible(false);
 
 		//user.setLayout(new GridLayout(1,2));
 		//user.add(select);

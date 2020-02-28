@@ -44,7 +44,9 @@ public class ChooseHandler implements ActionListener {
             }
             System.out.println();
         }
-        main.UI.addTable(array,headings);
+        //main.UI.addTable(array,headings);
+        StudentMarksAnalyserUI.dataArray = array;
+        StudentMarksAnalyserUI.dataHeadings = headings;
         main.setRead(read);
         try {
             StudentMarksAnalyserUI.statistics = new Statistics(this.read);
