@@ -1,23 +1,91 @@
 # Team Effort Log
-*In this section, add a heading for each team member, and under it add the sub headings "Sprint 1, Sprint 2, ..., Sprint N", as illustrated below.  Each team member can be responsible for writing their own section.*
 
-## Team member name 1
+## Team member: Ching Hei Pang
 
-*Edit the name above to match the name of the team member.  That team member is then responsible for this section.*
+### Sprint 1 (University Week 14):
 
-### Sprint 1 (University Week 3):
-* *Include a URL to the most siginificant Jira tasks assigned to you in sprint 1, and state when (or whether) it was completed, and the hours spent.*
-* *Example: "Link to Task 2.  It was set and completed in sprint 2.  It took 1 hour.  Extra relevant comment."*
-* *To save time, just describe the main (e.g. no more than 3) Jira issues assigned to you in this sprint. You are free to pick which 3 to describe.*
-* *Describe any relevant java coding completed by you in Sprint 1.  Also include permalinks to your gitlab commits.*
-* *Include the university week number in the subheading, as above.*
+***Task:* Statistics**
+* *URL:*
+* *Description:* Adding method to find statistics for the modules
+* *Time:* 4 hours
 
-### Sprint 2 (University Week 4):
+### Sprint 2 (University Week 15):
 
-*Do the same for each fully completed sprint.*
+***Task:* 
 
 
-## Team member name 2
+## Team member: Lewis Colley
 
-*Repeat for each team member, i.e. with more subheadings "Sprint1, Sprint2, ... Sprint N"*
+### Sprint 1(University Week 10):
+
+***Task:* Change program to use generic headings**
+* *URL:* https://cseejira.essex.ac.uk/projects/CE291T1921/issues/CE291T1921-46?filter=allissues
+* *Description:* Improve the way to get the headings and make it easier to read
+* *Time:* 3hours
+
+###Sprint 2(University Week 14):
+
+***Task:* Redesign System**
+* *URL:*
+* *Description* Improve organise the layout of classes within the program
+* *Time:* 4 hours
+
+
+###Sprint 3(University Week 16):
+
+
+
+
+## Team member: Luke Saund
+
+### Sprint 1(University Week 10):
+
+***Task:* Improve the appearance of the GUI**
+* *URL:*
+* *Description:* Improve the appearance of the interface
+* *Time:* 4 hours
+
+## Team member: Ryan Van Dijck
+
+### Sprint 1(University Week 10):
+
+***Task:* Allow user to change file during running of program**
+* *URL:*
+* *Description:* User is able to choose to open another file while the program is running
+* *Time:* 2 hours
+
+
+###Sprint 2(University Week 14):
+
+***Task:* Convert data to graphs**
+* *URL:*
+* *Description* Write a class to draw graphs for the data
+* *Time:* 4 hours
+
+###Sprint 3(University Week 15):
+
+***Task:* Output to PDF**
+* *URL:*
+* *Description* Use an open source PDF API to output to a pdf document
+* *Time:* 4 hours
+
+###Sprint 4(University Week 16):
+
+***Task:* Fix Graphs**
+* *URL:*
+* *Description* Change the program in order to draw a bar graph and export tot a PDF
+* *Time:* 4 hours
+
+###Sprint 5(University Week 17):
+
+***Task:* Create a full module report**
+* *URL:*
+* *Description* Generate a report containing all modules
+* *Time:* 4 hours
+
+
+
+
+
+
 
