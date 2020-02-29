@@ -3,7 +3,7 @@
 
 ## Customers
 
-The demographic that is likely to purchase our product Scanalyzer, are large organisations such as schools or universities. 
+The demographic that is likely to purchase our product Scanalyzer, are teachers/lecturers in large organisations such as schools or universities. 
 This is because we have predominanly catered this program to analyse large data sets, and produce useful conclusions to
 the user.
 
