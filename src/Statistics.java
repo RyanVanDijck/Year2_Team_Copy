@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 
 public class Statistics {
@@ -118,67 +120,75 @@ public class Statistics {
 
     public ArrayList<Student> rankStudents(String module) {
         ArrayList<Student> ranked = new ArrayList<>();
-        for (Student s : students) if(s.getMark(module)!=null)ranked.add(s);
+        for (Student s : students) if (s.getMark(module) != null) ranked.add(s);
         ranked.sort(Comparator.comparing(s -> s.getMark(module)));
         Collections.reverse(ranked);
         return ranked;
     }
 
-    //Method to return the best student in that module
-    //Need to catch NullPointException in case that module has no value
+    //Method to get the best student for the module
     public Student getBestStudent(String module) {
         ArrayList<Student> ranked = rankStudents(module);
         return ranked.get(0);
     }
 
-    //Method to return the worst student in that module
-    // Need to catch NullPointException in case that module has no value
+    //Method to get the worst student for the module
     public Student getWorstStudent(String module) {
         ArrayList<Student> ranked = rankStudents(module);
-        return ranked.get(ranked.size()-1);
+        return ranked.get(ranked.size() - 1);
     }
 
-    //Method to return the best student in that module
-    //Need to catch NullPointException in case that module has no value
+    //Method to get n best students for the module
     public Student[] getBestStudents(String module, int n) {
         ArrayList<Student> ranked = rankStudents(module);
         Student[] best = new Student[n];
-        for(int i=0;i<n;i++)best[i]=ranked.get(i);
+        for (int i = 0; i < n; i++) best[i] = ranked.get(i);
         return best;
     }
 
-    //Method to return the worst student in that module
-    // Need to catch NullPointException in case that module has no value
+    //Method to get n worst students for the module
     public Student[] getWorstStudents(String module, int n) {
         ArrayList<Student> ranked = rankStudents(module);
         Student[] worst = new Student[n];
-        for(int i=0;i<n;i++)worst[i]=ranked.get(i+(ranked.size()-n));
+        for (int i = 0; i < n; i++) worst[i] = ranked.get(i + (ranked.size() - n));
         return worst;
     }
 
-
-
     public Map<String, Integer> getMarksByRegNo(String regNo) {
         Map<String, Integer> StudentModules = new HashMap<>();
-        for(Student i:students){
-            if(i.getRegNo().equals(regNo)){
-                for(int z=3;z<18;z++){
-                    StudentModules.put(headings[z],i.getMark(headings[z]));
+        for (Student i : students) {
+            if (i.getRegNo().equals(regNo)) {
+                for (int z = 3; z < 18; z++) {
+                    StudentModules.put(headings[z], i.getMark(headings[z]));
                 }
             }
         }
         return StudentModules;
     }
-}
 
+    public Map<String, Integer> getBestMarkByRegNo(String regNo) {
+        Map<String, Integer> best = new HashMap<>();
+        Map<String, Integer> modules = getMarksByRegNo(regNo);
+        String maxKey = Collections.max(modules.keySet());
+        Integer maxMark = modules.get(maxKey);
+        best.put(maxKey, maxMark);
+        return best;
+    }
 
-//    public Map<String, Integer> getStudentWorst(String regNo){
-//        int minValue = Integer.MAX_VALUE;
-//        Map<String,Integer> worstmodule = new HashMap<>();
-//        if(student.getRegNo()!=null && student.getRegNo().equals(regNo))
-//            for(String j:modules){
-//
-//            }
-//    return worstmodule;
+    public Map<String, Integer> getWorstMarkByRegNo(String regNo) {
+        Map<String, Integer> worst = new HashMap<>();
+        Map<String, Integer> modules = getMarksByRegNo(regNo);
+        String Key = Collections.min(modules.keySet());
+        Integer Mark = modules.get(Key);
+        worst.put(Key, Mark);
+        return worst;
+    }
+
+//    public Map<String,Integer> sortByValue(Map<String,Integer> modules){
+//        return modules.entrySet().stream()
+//                .sorted((Map.Entry.<String,Integer>comparingByValue().reversed()))
+//                .collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,(e1,e2)->e1,LinkedHashMap::new));
 //    }
+
+}
 
