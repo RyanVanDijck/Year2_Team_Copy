@@ -166,22 +166,16 @@ public class Statistics {
         return StudentModules;
     }
 
-    public Map<String, Integer> getBestMarkByRegNo(String regNo) {
-        Map<String, Integer> best = new HashMap<>();
+    public String getBestModuleByRegNo(String regNo) {
         Map<String, Integer> modules = getMarksByRegNo(regNo);
-        String maxKey = Collections.max(modules.keySet());
-        Integer maxMark = modules.get(maxKey);
-        best.put(maxKey, maxMark);
-        return best;
+        String bestmodule = Collections.max(modules.keySet());
+        return bestmodule;
     }
 
-    public Map<String, Integer> getWorstMarkByRegNo(String regNo) {
-        Map<String, Integer> worst = new HashMap<>();
+    public String getWorstModuleByRegNo(String regNo) {
         Map<String, Integer> modules = getMarksByRegNo(regNo);
-        String Key = Collections.min(modules.keySet());
-        Integer Mark = modules.get(Key);
-        worst.put(Key, Mark);
-        return worst;
+        String worstmodule = Collections.min(modules.keySet());
+        return worstmodule;
     }
 
 //    public Map<String,Integer> sortByValue(Map<String,Integer> modules){
