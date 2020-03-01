@@ -11,7 +11,7 @@
 
 ### Sprint 2 (University Week 15):
 
-***Task:* Finding the best and worst student **
+***Task:* Finding the best and worst student**
 * *URL:*https://cseejira.essex.ac.uk/projects/CE291T1921/issues/CE291T1921-68
 * *Description:*  Adding method to find best and worst for the modules
 * *Time:* 4 hours
