@@ -5,7 +5,7 @@
 ### Sprint 1 (University Week 14):
 
 ***Task:* Statistics**
-* *URL:*https://cseejira.essex.ac.uk/projects/CE291T1921/issues/CE291T1921-60
+* *URL:* https://cseejira.essex.ac.uk/projects/CE291T1921/issues/CE291T1921-60
 * *Description:* Adding method to find statistics for the modules
 * *Time:* 4 hours
 
