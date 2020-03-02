@@ -15,12 +15,18 @@ would be our target market.
 BESA - https://www.besa.org.uk/key-uk-education-statistics/
 STATISTA - https://www.statista.com/statistics/915603/universities-in-the-united-kingdom-uk/
 
-Being fairly ambitious, our company would like to attain a 5% market share, this is because from our market reasearch we felt that the product we were
-developing was fairly niche, hence if we were able to deliver, we could secure this large portion.
+Finding an accurate source for the global statical analysis software market was very difficult, overall, there was only one valid source that could have been used, however paid
+access to this document was required. Therefore the stats for this section had to be taken from a much bigger and more competitve market, this being the software and services 
+sector.
 
-What is the total size of your market?
-What is the current demand in target market?
-What are the trends in target market?
+The current size of the global business software and services market size was valued at USD 322.91 billion in 2018
+
+Being fairly ambitious, our company would like to attain a 0.1% market share over a 10 year period, this is because from our market reasearch we felt that the product we were
+developing was fairly niche, hence if we were able to deliver, we could secure a larger portion, than other starting companies.
+
+
+------------What is the current demand in target market?------------------
+---------------What are the trends in target market?----------------------
 
 
 ## Competition
@@ -28,7 +34,7 @@ What are the trends in target market?
 There a very few tools for sale on the market currently that are classed as 'Student marks analyzer' and, most of these are from free online sources such as git hub,
 however there are a larger amount of competitors in the 'Gradebook Software' category.
 
-# Competitors
+### Competitors
 
 Genuine Infotech - https://download.cnet.com/Students-Mark-Analysis-Rank-Card-Software/3000-2064_4-10865115.html
 
@@ -41,17 +47,46 @@ A list of a other competitors, competition is availble for use as our program pl
 
 ## Product, Price, Promotion, Place
 
+### Product
+
+Our product that we have developed as Team 21, is called Scanalyzer.
+
+Scanalyzer is a statistical analysis tool, developed specifcally for organistations such as univeristies and schools. This is a program developed
+specifically for the general lecturer/teacher at mind, and focuses on simplicity. 
+
+### Place
+
+Distribution of our product, will be through a few online vendors such as Amazon and Capterra, additionally, we will have a website availble where customers can buy from us directly
+
+Our team would also plan to attend trade fairs such as IT Showcase london, and CLOUD & DEVOPS WORLD 2020, whereby we can furthur promote our product, network with customers and
+offer exclusive package deals.
 
 
-Describe how the 4Ps apply to your product - Product, Place, Promotion, Price, and what you can do/have done to enhance these aspects.
-Hint: State the likely price your team would choose.
-Research some web-based advertising methods your team could try, and list costs.
+### Promotion
 
+In terms of adverisement, we felt youtube and google ads would be viable options, this is because they offer an affordable price based on people actually viewing it rather
+than a pre paid fixed price such as a billboard or bus stop ad, furthurmore online advertisments have the benefit of reaching a larger audience due to the fact the internet
+has 3.4 billion daily users worldwide.
+
+Generally, for a 5 second video that we could run as an ad before certain videos, it would
+cost between $0.10-$0.30 per view, hence if around 100 people watched our ads, it would cost around $20. Additionally, google banner ads (Adwords) would cost around $2.32 
+per click on the search network.
+
+### Price
+
+The cost of Scanalyzer, will be £45 for a single download key.
+
+We chose to set a fairly low price, in order to enter the easily market and build up a good rapport.
+
+In comparison with one of our main competitors, this sale price outcompetes Genuine Infotech's product by almost £343.
 
 
 ## Sales Forecast
 
-How many downloads / sales / shipped units could you realistically achieve in the first 12 months?
-How much cash would that bring in?
+Our sales forcasts, sits around a minimum 200 downloads for the year. This is a pure estimation, due to the lack of statitcal data in our selling market.
+
+If the forcast is met this means that 1% of our target market has been sold to, would mean that 43 school/universites in the UK would have at least 6 copies scanalizer availble to use.
+
+The amount of cash acumillated in one year, selling 200 units will be £9000.
 
 
