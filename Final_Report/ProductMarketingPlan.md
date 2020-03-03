@@ -3,9 +3,10 @@
 
 ## Customers
 
-The demographic that is likely to purchase our product Scanalyzer, are teachers/lecturers in large organisations such as schools or universities. 
-This is because we have predominanly catered this program to analyse large data sets, and produce useful conclusions to
-the user.
+The demographic that is likely to use our product Scanalyzer, are teachers/lecturers in large organisations such as schools or universities. 
+This is because we have predominanly catered this program to analyse large data sets, and produce useful conclusions in a report format for the user.
+Our target audience may benefit from the program outputs, as they can view things such as average and standard deviation to possibly deduce how well a class might be doing in
+comparison to previous years.
 
 ## Economics
 
@@ -19,14 +20,13 @@ Finding an accurate source for the global statical analysis software market was 
 access to this document was required. Therefore the stats for this section had to be taken from a much bigger and more competitve market, this being the software and services 
 sector.
 
-The current size of the global business software and services market size was valued at USD 322.91 billion in 2018
+The current size of the global business software and services market size was valued at USD 322.91 billion in 2018, additionally it is expected to grow by 10.7% by 2025 according
+to GVR, this can be deduced that demand is ever increasing for these type products.
 
-Being fairly ambitious, our company would like to attain a 0.1% market share over a 10 year period, this is because from our market reasearch we felt that the product we were
+GVR Maket Report - https://www.grandviewresearch.com/industry-analysis/business-software-services-market
+
+Being fairly ambitious, our company would like to attain a 0.002% market share over a 10 year period, this is because from our market reasearch we felt that the product we were
 developing was fairly niche, hence if we were able to deliver, we could secure a larger portion, than other starting companies.
-
-
-------------What is the current demand in target market?------------------
----------------What are the trends in target market?----------------------
 
 
 ## Competition
