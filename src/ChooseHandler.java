@@ -53,6 +53,7 @@ public class ChooseHandler implements ActionListener {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
+        StudentMarksAnalyserUI.fileLoaded = true;
     }
+
 }

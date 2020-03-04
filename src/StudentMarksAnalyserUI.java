@@ -24,6 +24,7 @@ class StudentMarksAnalyserUI extends JFrame{
 	JPanel buttonArea = new JPanel();
 	JPanel button = new JPanel();
 	JTable table;
+	static boolean fileLoaded = false;
 	static String [][] dataArray;
 	static String [] dataHeadings;
 
@@ -62,7 +63,7 @@ class StudentMarksAnalyserUI extends JFrame{
 			try{
 			drawGraph();}
 			catch(Exception e1){
-				JOptionPane.showMessageDialog(Error ,"Please select a file ", "No File Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(Error ,"Please choose a file to analyse ", "No File Error", JOptionPane.ERROR_MESSAGE);
 			}
 
 
@@ -76,8 +77,8 @@ class StudentMarksAnalyserUI extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			try {
 				openStudentMenu();
-			} catch (IOException ex) {
-				ex.printStackTrace();
+			} catch (Exception e1) {
+				JOptionPane.showMessageDialog(Error ,"Please choose a file to analyse ", "No File Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	};
@@ -85,9 +86,18 @@ class StudentMarksAnalyserUI extends JFrame{
 	ActionListener returnData = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			try {
+				if (!fileLoaded){
+					throw new Exception();
+				}
 				addTable(dataArray,dataHeadings);
+			} catch (Exception e1) {
+				JOptionPane.showMessageDialog(Error ,"Please choose a file to analyse", "No File Error", JOptionPane.ERROR_MESSAGE);
+			}
 		}
 	};
+
+
 
 	//The three themes
 	JMenuItem system = new JMenuItem("System");
@@ -143,9 +153,12 @@ class StudentMarksAnalyserUI extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			try {
+				if (!fileLoaded){
+					throw new Exception();
+				}
 				generateReport();
 			} catch (Exception e1) {
-				JOptionPane.showMessageDialog(Error ,"File could not be saved", "File Save Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(Error ,"Please choose a file to analyse", "No File Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	};
@@ -212,9 +225,7 @@ class StudentMarksAnalyserUI extends JFrame{
 		showData.setIcon(new ImageIcon(glass_Icon));
 		showReport.setIcon(new ImageIcon(report_Icon));
 		showData.addActionListener(returnData);
-
-		//select.setLayout(new GridLayout(4,1));
-		//select.add(course);
+		showReport.addActionListener(ModuleAction);
 
 		buttonArea.setLayout(new GridBagLayout());
 		buttonArea.add(chooseFile);
@@ -225,14 +236,6 @@ class StudentMarksAnalyserUI extends JFrame{
 		showData.setBorder(BorderFactory.createLineBorder(Color.BLACK, 30));
 		showReport.setBorder(BorderFactory.createLineBorder(Color.BLACK, 30));
 
-		//user.setLayout(new GridLayout(1,2));
-		//user.add(select);
-		//user.add(output);
-	
-
-		//adding the objects
-		//this.setLayout(new GridLayout(2,2));
-		//this.add(visual);
 		BufferedImage image = (ImageIO.read(getClass().getResource("/SCANALYZER.png")));
 		JLabel picLabel = new JLabel(new ImageIcon(image));
 		header.add(picLabel,BorderLayout.NORTH);
