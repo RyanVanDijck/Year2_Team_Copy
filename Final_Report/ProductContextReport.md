@@ -2,8 +2,6 @@
 
 ## Legal
 
-Consider the legal issues of your product.  For example, which data was used from whom, and under what licence permissions?
-
 Scanalyzer handles CSV files added by the user, although this is sensitive information, we currently do not store any data from the user. Nonetheless, future development of our
 product would some kind of data collection at some point, therefore we would need to follow the data protection act 1998 & 1993, to make sure customer data is kept safe and secure.
 
