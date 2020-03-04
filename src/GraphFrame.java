@@ -80,6 +80,7 @@ public class GraphFrame extends JFrame {
         this.add(graph);
         this.pack();
         //this.setLocationRelativeTo(null);
+        setSize(1200,800);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //displaying frame
         if (showFrame) {
