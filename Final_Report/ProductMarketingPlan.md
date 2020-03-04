@@ -32,7 +32,9 @@ developing was fairly niche, hence if we were able to deliver, we could secure a
 ## Competition
 
 There a very few tools for sale on the market currently that are classed as 'Student marks analyzer' and, most of these are from free online sources such as git hub,
-however there are a larger amount of competitors in the 'Gradebook Software' category.
+however there are a larger amount of competitors in the 'Gradebook Software' category. We feel that although software such as excel can perform a similar function,
+our software is much more appropirate for the specific purpose of measuring attainment in schools and university. 
+
 
 ### Competitors
 
