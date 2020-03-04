@@ -60,7 +60,7 @@ specifically for the general lecturer/teacher at mind, and focuses on simplicity
 
 Distribution of our product, will be through a few online vendors such as Amazon and Capterra, additionally, we will have a website availble where customers can buy from us directly
 
-Our team would also plan to attend trade fairs such as IT Showcase london, and CLOUD & DEVOPS WORLD 2020, whereby we can furthur promote our product, network with customers and
+Our team would also plan to attend trade fairs such as IT Showcase london, and CLOUD & DEVOPS WORLD 2020, whereby we can further promote our product, network with customers and
 offer exclusive package deals.
 
 
@@ -76,7 +76,9 @@ per click on the search network.
 
 ### Price
 
-The cost of Scanalyzer, will be £45 for a single download key.
+New customers will be able to have a free trial of the software for 7 days.
+
+The cost of Scanalyzer, will be £45 for a single permanent download key and  one month subcription will cost £13.
 
 We chose to set a fairly low price, in order to enter the easily market and build up a good rapport.
 
@@ -85,9 +87,9 @@ In comparison with one of our main competitors, this sale price outcompetes Genu
 
 ## Sales Forecast
 
-Our sales forcasts, sits around a minimum 200 downloads for the year. This is a pure estimation, due to the lack of statitcal data in our selling market.
+Our sales forcasts, sits around a minimum 200 downloads for the year. This is a pure estimation, due to the lack of statistical data in our selling market.
 
-If the forcast is met this means that 1% of our target market has been sold to, would mean that 43 school/universites in the UK would have at least 6 copies scanalizer availble to use.
+If the forcast is met this means that 1% of our target market has been sold to, this would mean that 43 school/universites in the UK would have at least 6 copies scanalizer availble to use.
 
 The amount of cash acumillated in one year, selling 200 units will be £9000.
 
