@@ -10,4 +10,4 @@
 * *Indicate clearly which parts of the functionality shown in the screenshots are currently incomplete, and what is likely to change in the final version.  For example if a graph displayed is currently based on static hard-coded data for the MVP, but in the future version the graph will dynamically change depending on fresh data, then point this out explicitly.*
 * 
 
-![FirstScreen](FirstScreen.PNG)
+![FirstScreen](demonstration_images/FirstScreen.PNG)
