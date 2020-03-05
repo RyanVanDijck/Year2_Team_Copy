@@ -26,4 +26,5 @@ sub arrays being equal to the number of values to sort, the space complexity is 
 
 ## Imported Libraries 
 *List any 3rd party libraries that were used and describe what functionality they provided.*
-
+The third party library that was used in our product is called JPDF. This library was used to export statistical data to a pdf. The processing of our statistics is outputted using
+graphics objects where each graphics object drawn is one page of the pdf. This includes the "drawing" of text and graphs.
