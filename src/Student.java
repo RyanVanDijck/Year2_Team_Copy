@@ -2,6 +2,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.awt.*;
 
 //The class for all students
 public class Student {

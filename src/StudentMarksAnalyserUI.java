@@ -212,6 +212,11 @@ class StudentMarksAnalyserUI extends JFrame{
 		}
 	}
 
+	public Graphics drawStudentData(){
+
+		return null;
+	}
+
 	private ActionListener Drawg = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
