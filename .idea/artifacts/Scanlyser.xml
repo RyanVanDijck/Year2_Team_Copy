@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Scanlyser">
+    <output-path>$PROJECT_DIR$/out/artifacts/Scanlyser</output-path>
+    <root id="archive" name="Scanalyser.jar">
+      <element id="module-output" name="ce291_team21" />
+    </root>
+  </artifact>
+</component>
