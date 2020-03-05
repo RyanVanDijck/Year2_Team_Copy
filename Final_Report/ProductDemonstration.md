@@ -32,12 +32,33 @@ Toolbar report button pressed after show data
 ![FirstScreen](demonstration_images/ModuleReport.PNG)
 
 Here is the report generated after the file is saved for both the main button and toolbar
-*front page*
+
+FRONT PAGE
 ![FirstScreen](demonstration_images/ReportFrontPage.PNG)
-*multiple pages*
+MULTIPLE PAGES
 ![FirstScreen](demonstration_images/ReportPages.PNG)
 
+## Remaining Toolbar Buttons
+These screenshots show the 3 different themes that can be selected when view is pressed. They alter the look of the file chooser.
+
+SYSTEM
+![FirstScreen](demonstration_images/System.PNG)
+METAL
+![FirstScreen](demonstration_images/Metal.PNG)
+NIMBUS
+![FirstScreen](demonstration_images/Nimbus.PNG)
 
 
+Here is when graph, then module is clicked on the toolbar
+![FirstScreen](demonstration_images/GraphModule.PNG)
+And here is when a module is selected
+![FirstScreen](demonstration_images/GraphofModule.PNG)
+Here is when you click to export the graph, you can name and save the file
+![FirstScreen](demonstration_images/ExportPDF.PNG)
+And here is the outputted PDF
+![FirstScreen](demonstration_images/GraphPDF.PNG)
 
-These screenshots show
+Here is when graph, then student is clicked on the toolbar
+![FirstScreen](demonstration_images/GraphStudent.PNG)
+And here is the output after typing in a student's registration number
+![FirstScreen](demonstration_images/StudentData.PNG)
