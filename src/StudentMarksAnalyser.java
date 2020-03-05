@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.HashMap;
 //main method to run program
 public class StudentMarksAnalyser {
-	StudentMarksAnalyserUI UI;
+	private StudentMarksAnalyserUI UI;
 	private Read read;
 
 	public StudentMarksAnalyser() throws IOException {
