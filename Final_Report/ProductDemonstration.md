@@ -42,10 +42,11 @@ MULTIPLE PAGES
 These screenshots show the 3 different themes that can be selected when view is pressed. They alter the look of the file chooser.
 
 SYSTEM
-
 ![FirstScreen](demonstration_images/System.PNG)
+
 METAL
 ![FirstScreen](demonstration_images/Metal.PNG)
+
 NIMBUS
 ![FirstScreen](demonstration_images/Nimbus.PNG)
 
@@ -55,7 +56,7 @@ Here is when graph, then module is clicked on the toolbar
 And here is when a module is selected
 ![FirstScreen](demonstration_images/GraphofModule.PNG)
 Here is when you click to export the graph, you can name and save the file
-![FirstScreen](demonstration_images/ExportPDF.PNG)
+![FirstScreen](demonstration_images/ExportGraph.PNG)
 And here is the outputted PDF
 ![FirstScreen](demonstration_images/GraphPDF.PNG)
 
