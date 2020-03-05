@@ -7,12 +7,12 @@ import java.util.stream.Collectors;
 
 public class Statistics {
 
-    Read read;
+    private Read read;
 
     private ArrayList<Student> students;
     private String[][] array;
     private String[] headings;
-    Map<String, Integer> module = new HashMap<>();
+    private Map<String, Integer> module = new HashMap<>();
 
     public Statistics(Read read) throws IOException {
         this.read = read;
@@ -126,9 +126,22 @@ public class Statistics {
         return ranked;
     }
 
+    public ArrayList<Student> rankStudents() {
+        ArrayList<Student> ranked = new ArrayList<>(students);
+        ranked.sort(Comparator.comparing(Student::getAvgMark));
+        Collections.reverse(ranked);
+        return ranked;
+    }
+
     //Method to get the best student for the module
     public Student getBestStudent(String module) {
         ArrayList<Student> ranked = rankStudents(module);
+        return ranked.get(0);
+    }
+
+    //Method to get the best student by average mark
+    public Student getBestStudent() {
+        ArrayList<Student> ranked = rankStudents();
         return ranked.get(0);
     }
 
@@ -138,9 +151,23 @@ public class Statistics {
         return ranked.get(ranked.size() - 1);
     }
 
+    //Method to get the worst student by average mark
+    public Student getWorstStudent() {
+        ArrayList<Student> ranked = rankStudents();
+        return ranked.get(ranked.size() - 1);
+    }
+
     //Method to get n best students for the module
     public Student[] getBestStudents(String module, int n) {
         ArrayList<Student> ranked = rankStudents(module);
+        Student[] best = new Student[n];
+        for (int i = 0; i < n; i++) best[i] = ranked.get(i);
+        return best;
+    }
+
+    //Method to get n best students by average mark
+    public Student[] getBestStudents(int n) {
+        ArrayList<Student> ranked = rankStudents();
         Student[] best = new Student[n];
         for (int i = 0; i < n; i++) best[i] = ranked.get(i);
         return best;
@@ -154,12 +181,20 @@ public class Statistics {
         return worst;
     }
 
+    //Method to get n worst students by average mark
+    public Student[] getWorstStudents(int n) {
+        ArrayList<Student> ranked = rankStudents();
+        Student[] worst = new Student[n];
+        for (int i = 0; i < n; i++) worst[i] = ranked.get(i + (ranked.size() - n));
+        return worst;
+    }
+
     public Map<String, Integer> getMarksByRegNo(String regNo) {
         Map<String, Integer> StudentModules = new HashMap<>();
         for (Student i : students) {
             if (i.getRegNo().equals(regNo)) {
                 for (int z = 3; z < 18; z++) {
-                    StudentModules.put(headings[z], i.getMark(headings[z]));
+                    if(i.getMark(headings[z])!=null)StudentModules.put(headings[z], i.getMark(headings[z]));
                 }
             }
         }
@@ -168,21 +203,49 @@ public class Statistics {
 
     public String getBestModuleByRegNo(String regNo) {
         Map<String, Integer> modules = getMarksByRegNo(regNo);
-        String bestmodule = Collections.max(modules.keySet());
-        return bestmodule;
+        int max=Integer.MIN_VALUE;
+        String module=null;
+        for (Map.Entry<String, Integer> stringIntegerEntry : modules.entrySet()) {
+            if ((int) ((Map.Entry) stringIntegerEntry).getValue() > max) {
+                max = (int) ((Map.Entry) stringIntegerEntry).getValue();
+                module=stringIntegerEntry.getKey();
+            }
+        }
+        return module;
     }
 
     public String getWorstModuleByRegNo(String regNo) {
         Map<String, Integer> modules = getMarksByRegNo(regNo);
-        String worstmodule = Collections.min(modules.keySet());
-        return worstmodule;
+        int min=Integer.MAX_VALUE;
+        String module=null;
+        for (Map.Entry<String, Integer> stringIntegerEntry : modules.entrySet()) {
+            if ((int) ((Map.Entry) stringIntegerEntry).getValue() < min) {
+                min = (int) ((Map.Entry) stringIntegerEntry).getValue();
+                module=stringIntegerEntry.getKey();
+            }
+        }
+        return module;
     }
 
-//    public Map<String,Integer> sortByValue(Map<String,Integer> modules){
-//        return modules.entrySet().stream()
-//                .sorted((Map.Entry.<String,Integer>comparingByValue().reversed()))
-//                .collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,(e1,e2)->e1,LinkedHashMap::new));
-//    }
+    public ArrayList<String> getEasyModules() {
+        ArrayList<String> easyModules = new ArrayList<>();
+        for (int i = 3; i < 18; i++) {
+            double sd = getSD(headings[i]);
+            double mean = getMean(headings[i]);
+            if(mean>70&&sd/mean<1)easyModules.add(headings[i]);
+        }
+        return easyModules;
+    }
+
+    public ArrayList<String> getHardModules() {
+        ArrayList<String> hardModules = new ArrayList<>();
+        for (int i = 3; i < 18; i++) {
+            double sd = getSD(headings[i]);
+            double mean = getMean(headings[i]);
+            if(mean<50&&sd/mean<1)hardModules.add(headings[i]);
+        }
+        return hardModules;
+    }
 
 }
 
