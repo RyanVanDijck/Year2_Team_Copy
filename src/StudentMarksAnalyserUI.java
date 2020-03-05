@@ -16,202 +16,42 @@ import java.util.Arrays;
 
 /*class to create a frame to display data */
 class StudentMarksAnalyserUI extends JFrame{
-	StudentMarksAnalyser main;
-	TextArea output = new TextArea(); //A text area to display program output
-	JPanel data = new JPanel(new BorderLayout());//A spare panel for now
-	//JPanel user = new JPanel();
-	JPanel header = new JPanel(new BorderLayout());
-	JPanel buttonArea = new JPanel();
-	JPanel button = new JPanel();
-	JTable table;
+	private StudentMarksAnalyser main;
+	private JPanel data = new JPanel(new BorderLayout());
+	private JPanel buttonArea = new JPanel();
+
 	static boolean fileLoaded = false;
 	static String [][] dataArray;
 	static String [] dataHeadings;
 
     static Statistics statistics;
 
-	BufferedImage logo = (ImageIO.read(getClass().getResource("/SCANALYZERLOGO.png")));
-	BufferedImage folder_Icon = (ImageIO.read(getClass().getResource("/FILE_ICON.png")));
-	BufferedImage glass_Icon = (ImageIO.read(getClass().getResource("/GLASS_ICON.png")));
-	BufferedImage report_Icon = (ImageIO.read(getClass().getResource("/GRAPH_LOGO.png")));
-
-	JComboBox course = new JComboBox();
 	//Handles Reading from the file
-	ChooseHandler chooseHandler;
+	private ChooseHandler chooseHandler;
+	private JDialog Error = new JDialog();
 
-	//A menu bar to display options
-	JMenuBar menuBar = new JMenuBar();
-	JMenu FileMenu = new JMenu("File");
-	//Allowing to open another file
-	JMenuItem Open = new JMenuItem("Open");
-	JMenu View = new JMenu("View");
-	//Changing the theme
-	JMenu Theme = new JMenu("Theme");
-	JDialog Error = new JDialog();
-	JMenu GraphMenu = new JMenu("Graph");
-	//Drawing a graph
-	JMenuItem Draw = new JMenuItem("Module");
-	JMenuItem chooseStudent = new JMenuItem ("Student");
-	//static JButton chooseFile;
-
-
-
-	ActionListener Drawg = new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-
-			try{
-			drawGraph();}
-			catch(Exception e1){
-				JOptionPane.showMessageDialog(Error ,"Please choose a file to analyse ", "No File Error", JOptionPane.ERROR_MESSAGE);
-			}
-
-
-
-
-		}
-	};
-
-	ActionListener openMenu = new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			try {
-				openStudentMenu();
-			} catch (Exception e1) {
-				JOptionPane.showMessageDialog(Error ,"Please choose a file to analyse ", "No File Error", JOptionPane.ERROR_MESSAGE);
-			}
-		}
-	};
-
-	ActionListener returnData = new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			try {
-				if (!fileLoaded){
-					throw new Exception();
-				}
-				addTable(dataArray,dataHeadings);
-			} catch (Exception e1) {
-				JOptionPane.showMessageDialog(Error ,"Please choose a file to analyse", "No File Error", JOptionPane.ERROR_MESSAGE);
-			}
-		}
-	};
-
-
-
-	//The three themes
-	JMenuItem system = new JMenuItem("System");
-	ActionListener systemAction = new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			try {
-				UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-				repaint();
-				revalidate();
-
-
-			} catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException ex) {
-				ex.printStackTrace();
-			}
-		}
-	};
-	JMenuItem Nimbus = new JMenuItem("Nimbus");
-	ActionListener nimbusAction = new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			try {
-				UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-
-				repaint();
-				revalidate();
-
-
-
-			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-				ex.printStackTrace();
-			}
-		}
-	};
-
-	JMenuItem Metal = new JMenuItem("Metal");
-	ActionListener metalAction = new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			try {
-				UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-				repaint();
-				revalidate();
-
-			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-				ex.printStackTrace();
-			}
-		}
-	};
-
-	JMenuItem Module = new JMenuItem("Module Report");
-	ActionListener ModuleAction = new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			try {
-				if (!fileLoaded){
-					throw new Exception();
-				}
-				generateReport();
-			} catch (Exception e1) {
-				JOptionPane.showMessageDialog(Error ,"Please choose a file to analyse", "No File Error", JOptionPane.ERROR_MESSAGE);
-			}
-		}
-	};
-
-	JMenu Report = new JMenu("Report");
-
-
-
-
-
-
-	public StudentMarksAnalyserUI(String name, StudentMarksAnalyser main) throws IOException{
+	StudentMarksAnalyserUI(String name, StudentMarksAnalyser main) throws IOException{
 		//Calling JFrame constructor
 		super(name);
 		//Adding Action Listeners
 		this.main=main;
 		chooseHandler = new ChooseHandler(main);
-		Open.addActionListener(chooseHandler);
-		Draw.addActionListener(Drawg);
-		Nimbus.addActionListener(nimbusAction);
-		system.addActionListener(systemAction);
-		Metal.addActionListener(metalAction);
-		chooseStudent.addActionListener(openMenu);
-		//Adding themes
-		Theme.add(system);
-		Theme.add(Metal);
-		Theme.add(Nimbus);
-		//Adding items to menus
-		View.add(Theme);
-		FileMenu.add(Open);
-		GraphMenu.add(Draw);
-		GraphMenu.add(chooseStudent);
-		//Adding menus to menubar
-		menuBar.add(FileMenu);
-		menuBar.add(View);
-		menuBar.add(GraphMenu);
-
-
-		Module.addActionListener(ModuleAction);
-		Report.add(Module);
-		menuBar.add(Report);
-		this.setJMenuBar(menuBar);
-		//Changing the logo of the program
-		this.setIconImage(this.logo);
+		fillGUI();
 
 		setSize(1620,600);
-		//user.setBackground(Color.decode("#0000"));
 		data.setBackground(Color.decode("#0000"));
+		JPanel header = new JPanel(new BorderLayout());
 		header.setBackground((Color.decode("#0000")));
 		buttonArea.setBackground((Color.decode("#0000")));
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //The program will close when the window closes
 
-		output.setEditable(false);
+		BufferedImage logo = (ImageIO.read(getClass().getResource("/SCANALYZERLOGO.png")));
+		BufferedImage folder_Icon = (ImageIO.read(getClass().getResource("/FILE_ICON.png")));
+		BufferedImage glass_Icon = (ImageIO.read(getClass().getResource("/GLASS_ICON.png")));
+		BufferedImage report_Icon = (ImageIO.read(getClass().getResource("/GRAPH_LOGO.png")));
+
+		//Changing the logo of the program
+		this.setIconImage(logo);
 		JButton chooseFile = new JButton("Choose File");
 		JButton showData = new JButton("Show Data");
 		JButton showReport = new JButton(("Show Report"));
@@ -248,9 +88,55 @@ class StudentMarksAnalyserUI extends JFrame{
 
 		//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		chooseFile.addActionListener(chooseHandler);
-
-
 	}
+
+	private void fillGUI(){
+		//A menu bar to display options
+		JMenuBar menuBar = new JMenuBar();
+		JMenu FileMenu = new JMenu("File");
+		//Allowing to open another file
+		JMenuItem Open = new JMenuItem("Open");
+		JMenu View = new JMenu("View");
+		//Changing the theme
+		JMenu Theme = new JMenu("Theme");
+
+		JMenu GraphMenu = new JMenu("Graph");
+		JMenu Report = new JMenu("Report");
+		//Drawing a graph
+		JMenuItem Draw = new JMenuItem("Module");
+		JMenuItem chooseStudent = new JMenuItem ("Student");
+		JMenuItem system = new JMenuItem("System");
+		JMenuItem Nimbus = new JMenuItem("Nimbus");
+		JMenuItem Metal = new JMenuItem("Metal");
+		JMenuItem Module = new JMenuItem("Module Report");
+
+		Open.addActionListener(chooseHandler);
+		Draw.addActionListener(Drawg);
+		Nimbus.addActionListener(nimbusAction);
+		system.addActionListener(systemAction);
+		Metal.addActionListener(metalAction);
+		chooseStudent.addActionListener(openMenu);
+		//Adding themes
+		Theme.add(system);
+		Theme.add(Metal);
+		Theme.add(Nimbus);
+		//Adding items to menus
+		View.add(Theme);
+		FileMenu.add(Open);
+		GraphMenu.add(Draw);
+		GraphMenu.add(chooseStudent);
+		//Adding menus to menubar
+		menuBar.add(FileMenu);
+		menuBar.add(View);
+		menuBar.add(GraphMenu);
+
+
+		Module.addActionListener(ModuleAction);
+		Report.add(Module);
+		menuBar.add(Report);
+		this.setJMenuBar(menuBar);
+	}
+
 	//Drawing a graph for a chosen Module
 	public void drawGraph() throws IOException{
 		//Retrieving headings from choose handler object
@@ -260,7 +146,7 @@ class StudentMarksAnalyserUI extends JFrame{
 				"Choose Module",JOptionPane.PLAIN_MESSAGE,null,headings,headings[0]);
 		if (input != null && !input.equals("")) {
 			//Creating a frame to display graph
-			GraphFrame graphFrame = new GraphFrame(chooseHandler.read.getData(), input,true);
+			new GraphFrame(chooseHandler.read.getData(), input,true);
 		}
 	}
 	//Menu item for student
@@ -276,21 +162,20 @@ class StudentMarksAnalyserUI extends JFrame{
 				"Choose student",JOptionPane.PLAIN_MESSAGE,null,headings,headings[0]);
 		if (input != null && !input.equals("")) {
 			//Creating a frame to display graph
-			GraphFrame graphFrame = new GraphFrame(chooseHandler.read.getData(), input,true);
+			new GraphFrame(main.getRead().getData(), input,true);
 		}
 	}
 	//Adding a table to the frame
 	public void addTable(String[][] array, String[] headings){
-			//Creating the table
-			table = new JTable(array,headings);
-			//adding table to the frame
+		//Creating the table
+		JTable table = new JTable(array,headings);
+		//adding table to the frame
 
-			this.data.add(new JScrollPane(table), BorderLayout.SOUTH);
-			this.remove(buttonArea);
-			this.repaint();
-			this.pack();
-			setSize(1620,600);
-			//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		this.data.add(new JScrollPane(table), BorderLayout.SOUTH);
+		this.remove(buttonArea);
+		this.repaint();
+		this.pack();
+		setSize(1620,600);
 	}
 
 	public void generateReport() throws IOException {
@@ -310,7 +195,7 @@ class StudentMarksAnalyserUI extends JFrame{
 
 			String[] modules = Arrays.copyOfRange(chooseHandler.headings, 3, chooseHandler.headings.length - 1);
 			for (String module : modules) {
-				temp = new GraphFrame(chooseHandler.read.getData(), module, false);
+				temp = new GraphFrame(main.getRead().getData(), module, false);
 				temp.revalidate();
 				temp.repaint();
 				g = job.getGraphics();
@@ -323,6 +208,105 @@ class StudentMarksAnalyserUI extends JFrame{
 			stream.close();
 		}
 	}
+
+	private ActionListener Drawg = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try{
+				drawGraph();}
+			catch(Exception e1){
+				JOptionPane.showMessageDialog(Error ,"Please choose a file to analyse ", "No File Error", JOptionPane.ERROR_MESSAGE);
+			}
+		}
+	};
+
+	private ActionListener openMenu = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				openStudentMenu();
+			} catch (Exception e1) {
+				JOptionPane.showMessageDialog(Error ,"Please choose a file to analyse ", "No File Error", JOptionPane.ERROR_MESSAGE);
+			}
+		}
+	};
+
+	private ActionListener returnData = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				if (!fileLoaded){
+					throw new Exception();
+				}
+				addTable(dataArray,dataHeadings);
+			} catch (Exception e1) {
+				JOptionPane.showMessageDialog(Error ,"Please choose a file to analyse", "No File Error", JOptionPane.ERROR_MESSAGE);
+			}
+		}
+	};
+
+
+
+	//The three themes
+	private ActionListener systemAction = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+				repaint();
+				revalidate();
+
+
+			} catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException ex) {
+				ex.printStackTrace();
+			}
+		}
+	};
+
+	private ActionListener nimbusAction = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+
+				repaint();
+				revalidate();
+
+
+
+			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+				ex.printStackTrace();
+			}
+		}
+	};
+
+	private ActionListener metalAction = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+				repaint();
+				revalidate();
+
+			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+				ex.printStackTrace();
+			}
+		}
+	};
+
+	private ActionListener ModuleAction = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				if (!fileLoaded){
+					throw new Exception();
+				}
+				generateReport();
+			} catch (Exception e1) {
+				JOptionPane.showMessageDialog(Error ,"Please choose a file to analyse", "No File Error", JOptionPane.ERROR_MESSAGE);
+			}
+		}
+	};
 
 
 }

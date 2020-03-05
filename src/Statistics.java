@@ -7,12 +7,12 @@ import java.util.stream.Collectors;
 
 public class Statistics {
 
-    Read read;
+    private Read read;
 
     private ArrayList<Student> students;
     private String[][] array;
     private String[] headings;
-    Map<String, Integer> module = new HashMap<>();
+    private Map<String, Integer> module = new HashMap<>();
 
     public Statistics(Read read) throws IOException {
         this.read = read;
@@ -168,14 +168,12 @@ public class Statistics {
 
     public String getBestModuleByRegNo(String regNo) {
         Map<String, Integer> modules = getMarksByRegNo(regNo);
-        String bestmodule = Collections.max(modules.keySet());
-        return bestmodule;
+        return Collections.max(modules.keySet());
     }
 
     public String getWorstModuleByRegNo(String regNo) {
         Map<String, Integer> modules = getMarksByRegNo(regNo);
-        String worstmodule = Collections.min(modules.keySet());
-        return worstmodule;
+        return Collections.min(modules.keySet());
     }
 
 //    public Map<String,Integer> sortByValue(Map<String,Integer> modules){
