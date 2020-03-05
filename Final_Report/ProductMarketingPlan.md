@@ -80,7 +80,7 @@ New customers will be able to have a free trial of the software for 7 days.
 
 The cost of Scanalyzer, will be £45 for a single permanent download key and  one month subcription will cost £13.
 
-We chose to set a fairly low price, in order to enter the easily market and build up a good rapport.
+We chose to set a fairly low price, in order to enter the market easily and build up a good rapport.
 
 In comparison with one of our main competitors, this sale price outcompetes Genuine Infotech's product by almost £343.
 
