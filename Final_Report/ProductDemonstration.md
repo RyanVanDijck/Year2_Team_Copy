@@ -10,4 +10,20 @@
 * *Indicate clearly which parts of the functionality shown in the screenshots are currently incomplete, and what is likely to change in the final version.  For example if a graph displayed is currently based on static hard-coded data for the MVP, but in the future version the graph will dynamically change depending on fresh data, then point this out explicitly.*
 * 
 
+#Opening screen
+Here is the screen when the program first loads
+
 ![FirstScreen](demonstration_images/FirstScreen.PNG)
+
+#3 Main Buttons
+Here is the error shown when the show data or show report buttons are pressed without a loaded file
+![FirstScreen](demonstration_images/FileError.PNG)
+
+Here is the choose file button pressed
+![FirstScreen](demonstration_images/ChooseFile.PNG)
+
+Here is the show data button pressed
+![FirstScreen](demonstration_images/StudentData.PNG)
+
+Here is the show report button pressed
+![FirstScreen](demonstration_images/ShowReport.PNG)
