@@ -126,15 +126,34 @@ public class Statistics {
         return ranked;
     }
 
+    public ArrayList<Student> rankStudents() {
+        ArrayList<Student> ranked = new ArrayList<>(students);
+        ranked.sort(Comparator.comparing(Student::getAvgMark));
+        Collections.reverse(ranked);
+        return ranked;
+    }
+
     //Method to get the best student for the module
     public Student getBestStudent(String module) {
         ArrayList<Student> ranked = rankStudents(module);
         return ranked.get(0);
     }
 
+    //Method to get the best student by average mark
+    public Student getBestStudent() {
+        ArrayList<Student> ranked = rankStudents();
+        return ranked.get(0);
+    }
+
     //Method to get the worst student for the module
     public Student getWorstStudent(String module) {
         ArrayList<Student> ranked = rankStudents(module);
+        return ranked.get(ranked.size() - 1);
+    }
+
+    //Method to get the worst student by average mark
+    public Student getWorstStudent() {
+        ArrayList<Student> ranked = rankStudents();
         return ranked.get(ranked.size() - 1);
     }
 
@@ -146,9 +165,25 @@ public class Statistics {
         return best;
     }
 
+    //Method to get n best students by average mark
+    public Student[] getBestStudents(int n) {
+        ArrayList<Student> ranked = rankStudents();
+        Student[] best = new Student[n];
+        for (int i = 0; i < n; i++) best[i] = ranked.get(i);
+        return best;
+    }
+
     //Method to get n worst students for the module
     public Student[] getWorstStudents(String module, int n) {
         ArrayList<Student> ranked = rankStudents(module);
+        Student[] worst = new Student[n];
+        for (int i = 0; i < n; i++) worst[i] = ranked.get(i + (ranked.size() - n));
+        return worst;
+    }
+
+    //Method to get n worst students by average mark
+    public Student[] getWorstStudents(int n) {
+        ArrayList<Student> ranked = rankStudents();
         Student[] worst = new Student[n];
         for (int i = 0; i < n; i++) worst[i] = ranked.get(i + (ranked.size() - n));
         return worst;
@@ -190,6 +225,26 @@ public class Statistics {
             }
         }
         return module;
+    }
+
+    public ArrayList<String> getEasyModules() {
+        ArrayList<String> easyModules = new ArrayList<>();
+        for (int i = 3; i < 18; i++) {
+            double sd = getSD(headings[i]);
+            double mean = getMean(headings[i]);
+            if(mean>70&&sd/mean<1)easyModules.add(headings[i]);
+        }
+        return easyModules;
+    }
+
+    public ArrayList<String> getHardModules() {
+        ArrayList<String> hardModules = new ArrayList<>();
+        for (int i = 3; i < 18; i++) {
+            double sd = getSD(headings[i]);
+            double mean = getMean(headings[i]);
+            if(mean<50&&sd/mean<1)hardModules.add(headings[i]);
+        }
+        return hardModules;
     }
 
 }
