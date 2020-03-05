@@ -212,9 +212,45 @@ class StudentMarksAnalyserUI extends JFrame{
 		}
 	}
 
-	public Graphics drawStudentData(){
+	public void drawStudentData() throws IOException {
+		String regNo = (String) JOptionPane.showInputDialog(this, "Please enter your reg number", "Choose RegNo",
+				JOptionPane.PLAIN_MESSAGE, null, null, "regNo");
+		boolean present = false;
+		Student choice = null;
+		for (Student student: main.getRead().getData()){
+			if (regNo.equals( student.getRegNo())){
+				System.out.println(statistics.getBestModuleByRegNo(regNo));
+				System.out.println(statistics.getWorstModuleByRegNo(regNo));
+				present = true;
+				choice = student;
+			}
+		}
+		if(!present){
+			JOptionPane.showMessageDialog(this,"Reg Number not found", "Error", JOptionPane.ERROR_MESSAGE);
+		}
+		else{
+			BufferedImage logo = (ImageIO.read(getClass().getResource("/SCANALYZERLOGO.png")));
+			JFrame frame = new JFrame();
+			JLabel bestMark = new JLabel("Best Module: " + statistics.getBestModuleByRegNo(regNo));
+			JLabel worstMark = new JLabel("Worst Module: " + statistics.getWorstModuleByRegNo(regNo));
+			JLabel aveMark = new JLabel("Average Mark: " + choice.getAvgMark());
+			JLabel passed = new JLabel("Status: " + (choice.getAvgMark() >= 40 ? "Pass": "Fail"));
 
-		return null;
+			frame.setLayout(new GridLayout(4,1));
+			frame.setTitle(regNo + " Data");
+			frame.add(bestMark);
+			frame.add(worstMark);
+			frame.add(aveMark);
+			frame.add(passed);
+			frame.setIconImage(logo);
+			frame.repaint();
+			frame.pack();
+			frame.setSize(500,500);
+			frame.setResizable(false);
+			frame.setLocationRelativeTo(null);
+			frame.setVisible(true);
+
+		}
 	}
 
 	private ActionListener Drawg = new ActionListener() {
@@ -232,11 +268,15 @@ class StudentMarksAnalyserUI extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			try {
-				openStudentMenu();
+				drawStudentData();
 			} catch (Exception e1) {
 				JOptionPane.showMessageDialog(Error ,"Please choose a file to analyse ", "No File Error", JOptionPane.ERROR_MESSAGE);
 			}
+
+
 		}
+
+
 	};
 
 	private ActionListener returnData = new ActionListener() {
@@ -261,8 +301,6 @@ class StudentMarksAnalyserUI extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			try {
 				UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-				repaint();
-				revalidate();
 
 
 			} catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException ex) {
@@ -277,8 +315,6 @@ class StudentMarksAnalyserUI extends JFrame{
 			try {
 				UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 
-				repaint();
-				revalidate();
 
 
 
@@ -293,8 +329,6 @@ class StudentMarksAnalyserUI extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			try {
 				UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-				repaint();
-				revalidate();
 
 			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
 				ex.printStackTrace();
