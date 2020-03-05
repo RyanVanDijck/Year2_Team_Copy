@@ -42,6 +42,7 @@ MULTIPLE PAGES
 These screenshots show the 3 different themes that can be selected when view is pressed. They alter the look of the file chooser.
 
 SYSTEM
+
 ![FirstScreen](demonstration_images/System.PNG)
 METAL
 ![FirstScreen](demonstration_images/Metal.PNG)
