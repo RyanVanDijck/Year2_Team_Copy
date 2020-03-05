@@ -2,13 +2,14 @@
 
 ## Legal
 
-Scanalyzer handles CSV files added by the user, although this is sensitive information, we currently do not store any data from the user. Nonetheless, future development of our
-product would some kind of data collection at some point, therefore we would need to follow the data protection act 1998 & 1993, to make sure customer data is kept safe and secure.
+Scanalyzer handles CSV files added by the user, although this is sensitive information, we currently do not store any data taken.Nonetheless, future development of our
+product would need some kind of data collection, therefore we would need to follow the data protection act 1998 & 1993, to make sure customer data is kept safe and secure.
 
-The third party librariy that was used in our product is called JPDF. This library has a GNU General Public License, meaning is it a free copy left software available to use.
+The third party library that was used in our product is called JPDF. This library has a GNU General Public License, meaning is it a free copy-left software available for anyone to
+use.
 
-Collectively, our group decided that we would have proprietary license, this is a product that has been made the way we have intended, and we do not wish others to alter or adjust
-our work.
+Collectively, our group decided that we would have proprietary license, this is a product that has been made the way we have intended, and we do not wish others to alter
+our work and redistribute it.
 
 
 ## Ethical Issues
