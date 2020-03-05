@@ -40,7 +40,6 @@ public class Statistics {
 
     //Return the mean mark for the module
     public double getMean(String module) {
-        double mean = 0;
         double total = 0;
         int count = 0;
         for (Student i : students) {
@@ -49,7 +48,23 @@ public class Statistics {
                 count++;
             }
         }
-        mean = total / count;
+        double mean = total / count;
+        if (Double.isInfinite(mean) || Double.isNaN(mean)) {
+            return 0.0;
+        }
+        return mean;
+    }
+
+    public double getMean(Student[] students,String module) {
+        double total = 0;
+        int count = 0;
+        for (Student i : students) {
+            if (i.getMark(module) != null) {
+                total += i.getMark(module);
+                count++;
+            }
+        }
+        double mean = total / count;
         if (Double.isInfinite(mean) || Double.isNaN(mean)) {
             return 0.0;
         }
@@ -247,5 +262,40 @@ public class Statistics {
         return hardModules;
     }
 
+    public ArrayList<String> bestStudentHardModules(int n) {
+        ArrayList<String> hardModules = new ArrayList<>();
+        for (int i = 3; i < 18; i++) {
+            double mean = getMean(getBestStudents(n),headings[i]);
+            if(mean<50)hardModules.add(headings[i]);
+        }
+        return hardModules;
+    }
+
+    public ArrayList<String> bestStudentEasyModules(int n) {
+        ArrayList<String> easyModules = new ArrayList<>();
+        for (int i = 3; i < 18; i++) {
+            double mean = getMean(getBestStudents(n),headings[i]);
+            if(mean>70)easyModules.add(headings[i]);
+        }
+        return easyModules;
+    }
+
+    public ArrayList<String> worstStudentHardModules(int n) {
+        ArrayList<String> hardModules = new ArrayList<>();
+        for (int i = 3; i < 18; i++) {
+            double mean = getMean(getWorstStudents(n),headings[i]);
+            if(mean<50)hardModules.add(headings[i]);
+        }
+        return hardModules;
+    }
+
+    public ArrayList<String> worstStudentEasyModules(int n) {
+        ArrayList<String> easyModules = new ArrayList<>();
+        for (int i = 3; i < 18; i++) {
+            double mean = getMean(getWorstStudents(n),headings[i]);
+            if(mean>70)easyModules.add(headings[i]);
+        }
+        return easyModules;
+    }
 }
 

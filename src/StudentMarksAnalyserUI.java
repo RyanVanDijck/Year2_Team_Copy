@@ -192,11 +192,38 @@ class StudentMarksAnalyserUI extends JFrame{
 			PDFJob job = new PDFJob(stream);
 			Graphics g;
 			GraphFrame temp;
+			int x=10;
+			int y=20;
+			int stepper=30;
 
 			g=job.getGraphics();
-			g.drawString("Hello World!",20,20);
+			g.drawString("Easy Modules:",x,y);
+			y+=20;
+			g.drawString(""+statistics.getEasyModules(),x,y);
+			y+=stepper;
+			g.drawString("Hard Modules:",x,y);
+			y+=20;
+			g.drawString(""+statistics.getHardModules(),x,y);
+			y+=stepper;
+			g.drawString("Top 25% Student Easy Modules: ",x,y);
+			y+=20;
+			g.drawString(""+statistics.bestStudentEasyModules(main.getRead().getData().size()/4),x,y);
+			y+=stepper;
+			g.drawString("Top 25% Student Hard Modules: ",x,y);
+			y+=20;
+			g.drawString(""+statistics.bestStudentHardModules(main.getRead().getData().size()/4),x,y);
+			y+=stepper;
+			g.drawString("Bottom 25% Student Easy Modules: ",x,y);
+			y+=20;
+			g.drawString(""+statistics.worstStudentEasyModules(main.getRead().getData().size()/4),x,y);
+			y+=stepper;
+			g.drawString("Bottom 25% Student Hard Modules: ",x,y);
+			y+=20;
+			Font currentFont = g.getFont();
+			Font newFont = currentFont.deriveFont(currentFont.getSize() * 0.5F);
+			g.setFont(newFont);
+			g.drawString(""+statistics.worstStudentHardModules(main.getRead().getData().size()/4),x,y);
 			g.dispose();
-
 			String[] modules = Arrays.copyOfRange(chooseHandler.headings, 3, chooseHandler.headings.length - 1);
 			for (String module : modules) {
 				temp = new GraphFrame(main.getRead().getData(), module, false);
