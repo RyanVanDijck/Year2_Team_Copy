@@ -193,6 +193,10 @@ class StudentMarksAnalyserUI extends JFrame{
 			Graphics g;
 			GraphFrame temp;
 
+			g=job.getGraphics();
+			g.drawString("Hello World!",20,20);
+			g.dispose();
+
 			String[] modules = Arrays.copyOfRange(chooseHandler.headings, 3, chooseHandler.headings.length - 1);
 			for (String module : modules) {
 				temp = new GraphFrame(main.getRead().getData(), module, false);
@@ -202,7 +206,6 @@ class StudentMarksAnalyserUI extends JFrame{
 				temp.getBar(g, 0.34);
 				g.dispose();
 				temp.dispose();
-
 			}
 			job.end();
 			stream.close();

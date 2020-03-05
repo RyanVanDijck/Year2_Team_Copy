@@ -25,7 +25,7 @@ to GVR, this can be deduced that demand is ever increasing for these type produc
 
 GVR Maket Report - https://www.grandviewresearch.com/industry-analysis/business-software-services-market
 
-Being fairly ambitious, our company would like to attain a 0.002% market share over a 10 year period, this is because from our market reasearch we felt that the product we were
+Being fairly ambitious, our company would like to attain a 0.0002% market share over a 10 year period, this is because from our market reasearch we felt that the product we were
 developing was fairly niche, hence if we were able to deliver, we could secure a larger portion, than other starting companies.
 
 
@@ -87,10 +87,11 @@ In comparison with one of our main competitors, this sale price outcompetes Genu
 
 ## Sales Forecast
 
-Our sales forcasts, sits around a minimum 200 downloads for the year. This is a pure estimation, due to the lack of statistical data in our selling market.
+Our sales forecasts, sits around a minimum 217 unique organisation downloads for the year. This is a pure estimation, due to the lack of statistical data in our selling market.
 
-If the forcast is met this means that 1% of our target market has been sold to, this would mean that 43 school/universites in the UK would have at least 6 copies scanalizer availble to use.
+If the forecast is met this means that 5% of our target market has been sold to, and 217 universities/schools in the UK will have at least one copy of scanalyzer. 
 
-The amount of cash acumillated in one year, selling 200 units will be £9000.
+The minimum amount of cash acumillated in one year, selling 217 full copy units, to unique  will be £9765, though this is not taking into account bulk purchases that may be made, 
+since most customers may need download keys for multiple computers in a department.
 
 

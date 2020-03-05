@@ -159,7 +159,7 @@ public class Statistics {
         for (Student i : students) {
             if (i.getRegNo().equals(regNo)) {
                 for (int z = 3; z < 18; z++) {
-                    StudentModules.put(headings[z], i.getMark(headings[z]));
+                    if(i.getMark(headings[z])!=null)StudentModules.put(headings[z], i.getMark(headings[z]));
                 }
             }
         }
@@ -168,19 +168,29 @@ public class Statistics {
 
     public String getBestModuleByRegNo(String regNo) {
         Map<String, Integer> modules = getMarksByRegNo(regNo);
-        return Collections.max(modules.keySet());
+        int max=Integer.MIN_VALUE;
+        String module=null;
+        for (Map.Entry<String, Integer> stringIntegerEntry : modules.entrySet()) {
+            if ((int) ((Map.Entry) stringIntegerEntry).getValue() > max) {
+                max = (int) ((Map.Entry) stringIntegerEntry).getValue();
+                module=stringIntegerEntry.getKey();
+            }
+        }
+        return module;
     }
 
     public String getWorstModuleByRegNo(String regNo) {
         Map<String, Integer> modules = getMarksByRegNo(regNo);
-        return Collections.min(modules.keySet());
+        int min=Integer.MAX_VALUE;
+        String module=null;
+        for (Map.Entry<String, Integer> stringIntegerEntry : modules.entrySet()) {
+            if ((int) ((Map.Entry) stringIntegerEntry).getValue() < min) {
+                min = (int) ((Map.Entry) stringIntegerEntry).getValue();
+                module=stringIntegerEntry.getKey();
+            }
+        }
+        return module;
     }
-
-//    public Map<String,Integer> sortByValue(Map<String,Integer> modules){
-//        return modules.entrySet().stream()
-//                .sorted((Map.Entry.<String,Integer>comparingByValue().reversed()))
-//                .collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,(e1,e2)->e1,LinkedHashMap::new));
-//    }
 
 }
 
