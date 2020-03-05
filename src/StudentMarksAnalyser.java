@@ -1,10 +1,5 @@
 import java.io.IOException;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+
 //main method to run program
 public class StudentMarksAnalyser {
 	private StudentMarksAnalyserUI UI;
