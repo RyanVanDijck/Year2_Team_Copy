@@ -73,10 +73,25 @@
 
 ### Sprint 5(University Week 23):
 
+***Task:* Restructure Code (especially GUI)**
+* *URL:* https://cseejira.essex.ac.uk/browse/CE291T1921-84
+* *Description:*　Restructure the code so it is more efficient and easier to read
+* *Time:* 4 hours
+
 ***Task:* Complete final demonstration Log**
-* *URL:*
+* *URL:* https://cseejira.essex.ac.uk/browse/CE291T1921-76
 * *Description:*　Finish the final demonstration log
 * *Time:* 2 hours
+
+***Task:* Complete Product Implementation Log**
+* *URL:* https://cseejira.essex.ac.uk/browse/CE291T1921-85
+* *Description:*　Finish the log
+* *Time:* 2 hours
+ 
+***Task:* Add extra statistics and add to report**
+* *URL:* https://cseejira.essex.ac.uk/browse/CE291T1921-86
+* *Description:*　Add more statistics so the output of the report can meet more requirements
+* *Time:* 4 hours
 
 ## Team member: Luke Saund
 
