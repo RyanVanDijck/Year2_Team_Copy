@@ -3,7 +3,7 @@
 
 ## Technical Diagrams
 *Include a class diagram / circuit diagram, and/or any other relevant technical diagrams.*
-![Class Diagram](demonstration_images/diagram.png)
+![Class Diagram](diagram.png)
 
 ## Technical Description
 *This section should describe the software implementation in prose form.  Focus on how the code was designed and built.* 
