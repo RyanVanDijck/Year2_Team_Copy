@@ -1,5 +1,4 @@
 # Team Implementation Report
-*This section should describe the technical details of your implementation.  The subheadings and italicised text below may be used to guide you.*
 
 ## Technical Diagrams
 Class Diagram
