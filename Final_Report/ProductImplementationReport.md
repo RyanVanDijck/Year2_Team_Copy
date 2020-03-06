@@ -25,6 +25,7 @@ graph to be created when selected by the user and output on the UI. This also wo
 the useful statistical data.
 
 ![Best/Worst students and modules](snippet.PNG)
+
 This code uses the mean of the modules including the standard deviation to calculate a coefficent of variation (standard deviation over the mean) and compare this to a mark to 
 decide whether a module is too easy or too hard. Essentially, if the mark is large and the coefficient of variation is less than 1 then the module is easy. If the mark is small
 small and the coefficient of variation is less than 1 then the module is hard. The coefficient of variation is very important as it basically states whether most students are
