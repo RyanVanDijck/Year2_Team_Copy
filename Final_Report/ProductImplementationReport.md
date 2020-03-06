@@ -2,7 +2,8 @@
 *This section should describe the technical details of your implementation.  The subheadings and italicised text below may be used to guide you.*
 
 ## Technical Diagrams
-*Include a class diagram / circuit diagram, and/or any other relevant technical diagrams.*
+Class Diagram
+
 ![Class Diagram](diagram.png)
 
 ## Technical Description
