@@ -10,6 +10,26 @@ Class Diagram
 *It should make a clear description that could be used by any future developers to maintain and extend your code, if necessary.*
 *Describe important functions / classes / class hierarchies.*
 *In this section, you should also wish to highlight any technical achievements your team is particularly proud of, including relevant code snippets.*
+A main class named StudentMarksAnalyser is used to store key components of the program including the UI(StudentMarksAnalyserUI) and the Read class and allow these to be used all
+throughout the program. The Read class handles the reading and storing of the data from the excel file including using a handler class (choose handler) to handle the selecting of
+the file. The read object instantiated on file choosing stores the data and headings of the file for use throughout the program. The data stored within the read object is a list
+of student objects which are created within this class. The student class is one to store information about a particular student and through accessing the array, along with the
+methods of the student class, data can be manipulated to achieve the desired results (e.g. outputting to the report). This data manipulation is achieved through a very important
+class named statistics which has many methods for processing the data, including finding the mean, standard deviation, best students, worst students, hard modules, easy modules
+and a lot more useful statistical analysis. A particularly good technical achievement is the code for finding the hard/easy modules (screenshot below with description). 
+
+All of the described above is crucial processing of the program; however, a very important class is the UI. The UI handles the input from the user using event driven programming
+with action listeners for many buttons and is also vital in outputting the relevant information to the user. This allows all of the processing above to come together though input 
+of processes to follow from buttons and output of the very importantstatistical data. The UI works together with a graph and graph frame class that handle the formatting of the 
+graph to be created when selected by the user and output on the UI. This also works with generation of a PDF upon user request which can contain these graphs including text of 
+the useful statistical data.
+
+![Best/Worst students and modules](snippet.PNG)
+This code uses the mean of the modules including the standard deviation to calculate a coefficent of variation (standard deviation over the mean) and compare this to a mark to 
+decide whether a module is too easy or too hard. Essentially, if the mark is large and the coefficient of variation is less than 1 then the module is easy. If the mark is small
+small and the coefficient of variation is less than 1 then the module is hard. The coefficient of variation is very important as it basically states whether most students are
+achieving around the same mark meaning that if everyone is achieving very high or very low then the module is easy/hard. If the coefficient of variation is greater than 1 then
+the marks are so spread out meaning that the module is easy for some students and hard for others rather than leaning to one side.
 
 ## Algorithms and Data Structures
 A class *student* exists to store all the information about each student read from the file. Various attributes of varying types are used to store the data such as a string for the registration number.
